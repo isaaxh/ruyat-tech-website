@@ -1,0 +1,35 @@
+/* Testimonials: stacked glass-card carousel */
+.tq-head{text-align:center;margin-bottom:48px}
+.tq{position:relative;display:grid;grid-template-columns:56px minmax(0,760px) 56px;justify-content:center;align-items:center;gap:clamp(24px,5vw,72px);outline:none}
+.tq:focus-visible .tq-card.is-front{box-shadow:0 0 0 2px var(--rt-accent),0 30px 80px rgba(3,10,31,.6)}
+.tq::before{content:"";position:absolute;left:50%;top:50%;width:min(900px,90%);height:420px;transform:translate(-50%,-50%);background:radial-gradient(ellipse at center,rgba(240,179,94,.16),rgba(240,179,94,0) 65%);pointer-events:none;z-index:0}
+.tq-stage{position:relative;display:grid;z-index:1;padding:28px 0}
+.tq-card{position:relative;isolation:isolate;overflow:hidden;grid-area:1 / 1;display:flex;flex-direction:column;justify-content:space-between;gap:36px;padding:clamp(28px,4vw,48px) clamp(24px,4.4vw,56px);border-radius:20px;border:1px solid rgba(255,217,160,.22);background:linear-gradient(135deg,rgba(26,44,96,.92),rgba(8,22,58,.92) 55%,rgba(20,32,70,.92));box-shadow:inset 0 1px 0 rgba(255,236,205,.14),0 30px 80px rgba(3,10,31,.55);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);transform-origin:50% 50%;transition:transform 700ms var(--rt-ease-out),opacity 500ms var(--rt-ease-out),filter 500ms var(--rt-ease-out)}
+.tq-card > *{transition:opacity 350ms var(--rt-ease-out)}
+.tq-card.is-front{z-index:3;transform:none;opacity:1}
+.tq-card.is-next{z-index:2;transform:translate(14px,-10px) rotate(3.4deg) scale(.985);opacity:.75;border-color:rgba(255,217,160,.3)}
+.tq-card.is-prev{z-index:1;transform:translate(-14px,10px) rotate(-3deg) scale(.97);opacity:.55;border-color:rgba(255,217,160,.26)}
+.tq-card:not(.is-front) > *{opacity:0}
+.tq-card blockquote{font-family:var(--font-display);font-weight:500;font-size:clamp(19px,1.7vw,24px);line-height:1.45;letter-spacing:-.01em;color:var(--rt-text)}
+.tq-soft{color:var(--rt-text-muted)}
+.tq-card figcaption{display:flex;align-items:center;gap:14px;font-size:14px;line-height:1.45;color:var(--rt-text-muted)}
+.tq-card strong{display:block;color:var(--rt-text);font-weight:600;font-size:15px}
+.tq-avatar{width:44px;height:44px;flex:none;border-radius:999px;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;color:var(--rt-on-accent);background:linear-gradient(135deg,#FFD9A0,#F0B35E)}
+.tq-arrow{position:relative;z-index:2;width:56px;height:56px;border-radius:999px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--rt-accent);background:rgba(238,241,248,.06);border:1px solid rgba(255,217,160,.28);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);transition:background 300ms var(--rt-ease-out),color 300ms var(--rt-ease-out),transform 300ms var(--rt-ease-out),border-color 300ms var(--rt-ease-out)}
+.tq-arrow svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tq-arrow:hover{background:var(--rt-accent);border-color:var(--rt-accent);color:#041238;transform:translateY(-1px)}
+.tq-arrow:focus-visible{outline:2px solid var(--rt-accent);outline-offset:3px}
+.tq-nav{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:40px}
+.tq-dot{width:8px;height:8px;padding:0;border:0;border-radius:999px;background:rgba(238,241,248,.22);cursor:pointer;transition:width 400ms var(--rt-ease-out),background 400ms var(--rt-ease-out)}
+.tq-dot.is-on{width:28px;background:var(--rt-accent)}
+.tq-dot:focus-visible{outline:2px solid var(--rt-accent);outline-offset:3px}
+@media (max-width:760px){
+.tq{grid-template-columns:auto auto;gap:16px}
+.tq-stage{grid-column:1 / -1;grid-row:1}
+.tq-prev{grid-row:2;justify-self:end}
+.tq-next{grid-row:2;justify-self:start}
+.tq-arrow{width:48px;height:48px}
+.tq-card.is-next{transform:translate(6px,-6px) rotate(2.2deg) scale(.985)}
+.tq-card.is-prev{transform:translate(-6px,6px) rotate(-2deg) scale(.97)}
+}
+@media (prefers-reduced-motion:reduce){.tq-card,.tq-card > *,.tq-dot,.tq-arrow{transition:none}}

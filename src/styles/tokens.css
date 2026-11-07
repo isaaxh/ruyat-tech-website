@@ -1,0 +1,17 @@
+/* Design tokens (names kept from the design: --rt-*) and self-hosted Satoshi. */
+@font-face{font-family:'Satoshi';src:url(/fonts/Satoshi-Regular.woff2) format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Satoshi';src:url(/fonts/Satoshi-Medium.woff2) format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'Satoshi';src:url(/fonts/Satoshi-Bold.woff2) format('woff2');font-weight:700;font-display:swap}
+@font-face{font-family:'Satoshi';src:url(/fonts/Satoshi-Black.woff2) format('woff2');font-weight:900;font-display:swap}
+:root{
+--rt-void:#030A1F;--rt-midnight-navy:#041238;--rt-frost:#EEF1F8;--rt-vision-gold:#F0B35E;--rt-deep-gold:#8A5A12;--rt-lumen:#FFD9A0;
+--rt-ink-200:#D3D8E5;--rt-ink-300:#A7B0C8;--rt-ink-400:#7A86A6;--rt-ink-500:#4F5F8C;--rt-ink-600:#2A3D74;--rt-ink-700:#142A63;--rt-ink-800:#0A1C4A;--rt-ink-900:#041238;
+--rt-bg:#030A1F;--rt-surface:#041238;--rt-surface-2:#0A1C4A;--rt-text:#EEF1F8;--rt-text-muted:#A7B0C8;--rt-accent:#F0B35E;--rt-on-accent:#041238;
+--rt-border:#EEF1F81A;--rt-border-control:#7A86A6;--rt-signal-error:#FF5C6C;--rt-signal-success:#3DD68C;
+--rt-radius-sm:8px;--rt-radius-md:12px;--rt-radius-lg:20px;--rt-radius-xl:28px;--rt-radius-pill:999px;
+--rt-shadow-glow-gold:0 0 0 1px rgba(240,179,94,.35),0 8px 32px -8px rgba(240,179,94,.45);
+--rt-shadow-elev-1:0 1px 0 0 rgba(255,255,255,.06) inset,0 8px 24px -12px rgba(0,0,0,.6);
+--rt-instant:100ms;--rt-fast:160ms;--rt-base:280ms;--rt-slow:600ms;
+--rt-ease-out:cubic-bezier(.22,1,.36,1);--rt-ease-in-out:cubic-bezier(.65,0,.35,1);
+--font-display:'Satoshi','Inter',system-ui,sans-serif;--font-body:'Inter',system-ui,sans-serif;--font-mono:'JetBrains Mono',ui-monospace,monospace;
+}

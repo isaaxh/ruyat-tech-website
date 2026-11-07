@@ -1,0 +1,9 @@
+/* Shared section layout: padding, two-column head, H2 and lede */
+.section{padding:120px 0}
+.sec-head{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;align-items:end;margin-bottom:64px}
+.sec-head h2{grid-column:1 / span 7}
+.sec-head p{grid-column:8 / span 5}
+.h2{font-family:var(--font-display);font-weight:700;font-size:clamp(38px,4.6vw,64px);line-height:1.04;letter-spacing:-.035em;color:var(--rt-text)}
+.lede{font-size:18px;line-height:1.6;color:var(--rt-text-muted);max-width:44ch}
+@media (max-width:860px){.sec-head h2,.sec-head p{grid-column:1 / span 12}}
+@media (max-width:640px){.section{padding:72px 0}}

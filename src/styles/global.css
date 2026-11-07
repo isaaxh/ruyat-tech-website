@@ -1,0 +1,20 @@
+/* Order matters: it mirrors the cascade of the design's single stylesheet
+   (design system first, then page styles section by section, then the RTL block). */
+@import './tokens.css';
+@import './ds.css';
+@import './base.css';
+@import './controls.css';
+@import './sections/nav.css';
+@import './sections/hero.css';
+@import './effects.css';
+@import './sections/partners.css';
+@import './sections/section.css';
+@import './sections/services.css';
+@import './sections/process.css';
+@import './sections/work.css';
+@import './sections/why.css';
+@import './sections/testimonials.css';
+@import './sections/contact.css';
+@import './sections/footer.css';
+@import './sections/cookie.css';
+@import './rtl.css';

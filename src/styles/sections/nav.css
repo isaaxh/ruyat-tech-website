@@ -1,0 +1,60 @@
+/* Nav */
+.nav{position:sticky;top:0;z-index:40;isolation:isolate}
+/* The bar itself is drawn on ::before so it can shrink into a gold dot at the centre and unpack again */
+.nav::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(3,10,31,.72);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--rt-border);clip-path:inset(0 0 0 0 round 0px)}
+.nav > .wrap{transition:opacity 420ms var(--rt-ease-out),transform 560ms cubic-bezier(.22,1,.36,1)}
+.nav.is-compact{pointer-events:none}
+.nav.is-compact::before{animation:rt-nav-pack 560ms linear both}
+.nav.is-unpacked::before{animation:rt-nav-unpack 680ms linear both}
+.nav.is-unpacked > .wrap{transition-delay:510ms,460ms}
+.nav.is-compact > .wrap{opacity:0;visibility:hidden;transform:scaleX(.96);transition:opacity 180ms var(--rt-ease-out),transform 300ms var(--rt-ease-out),visibility 0s linear 300ms}
+/* Pack: corners round first, the bar narrows, then shrinks to the centre, where the gold dot appears.
+   Keyframes are spaced by hand (linear timing) so the motion eases in and out without stopping at each step. */
+@keyframes rt-nav-pack{
+0%{clip-path:inset(0px 0% 0px 0% round 0px);background-color:rgba(3,10,31,.72);border-bottom-color:var(--rt-border)}
+12%{clip-path:inset(0px 0% 0px 0% round 40px);background-color:rgba(3,10,31,.72);border-bottom-color:var(--rt-border)}
+26%{clip-path:inset(0px 5% 0px 5% round 40px);background-color:rgba(3,10,31,.72);border-bottom-color:var(--rt-border)}
+30%{clip-path:inset(0px 7% 0px 7% round 40px);background-color:rgba(3,10,31,.72);border-bottom-color:var(--rt-border)}
+50%{clip-path:inset(0px 25% 0px 25% round 40px);background-color:rgba(3,10,31,.72);border-bottom-color:var(--rt-border)}
+70%{clip-path:inset(20px 42% calc(100% - 60px) 42% round 40px);background-color:rgba(3,10,31,.72);border-bottom-color:var(--rt-border)}
+85%{clip-path:inset(30px calc(50% - 30px) calc(100% - 50px) calc(50% - 30px) round 20px);background-color:rgba(3,10,31,.72);border-bottom-color:var(--rt-border)}
+100%{clip-path:inset(34px calc(50% - 6px) calc(100% - 46px) calc(50% - 6px) round 6px);background-color:rgba(3,10,31,.72);border-bottom-color:var(--rt-border)}}
+/* Unpack: the mirror image, slightly slower */
+@keyframes rt-nav-unpack{
+0%{clip-path:inset(34px calc(50% - 6px) calc(100% - 46px) calc(50% - 6px) round 6px);background-color:rgba(3,10,31,.72);border-bottom-color:var(--rt-border)}
+15%{clip-path:inset(30px calc(50% - 30px) calc(100% - 50px) calc(50% - 30px) round 20px);background-color:rgba(3,10,31,.72);border-bottom-color:var(--rt-border)}
+30%{clip-path:inset(20px 42% calc(100% - 60px) 42% round 40px);background-color:rgba(3,10,31,.72);border-bottom-color:var(--rt-border)}
+50%{clip-path:inset(0px 25% 0px 25% round 40px);background-color:rgba(3,10,31,.72);border-bottom-color:var(--rt-border)}
+70%{clip-path:inset(0px 7% 0px 7% round 40px);background-color:rgba(3,10,31,.72);border-bottom-color:var(--rt-border)}
+74%{clip-path:inset(0px 5% 0px 5% round 40px);background-color:rgba(3,10,31,.72);border-bottom-color:var(--rt-border)}
+88%{clip-path:inset(0px 0% 0px 0% round 40px);background-color:rgba(3,10,31,.72);border-bottom-color:var(--rt-border)}
+100%{clip-path:inset(0px 0% 0px 0% round 0px);background-color:rgba(3,10,31,.72);border-bottom-color:var(--rt-border)}}
+.nav-dot{position:absolute;left:50%;top:40px;width:12px;height:12px;margin:-6px 0 0 -6px;padding:0;border:0;border-radius:50%;background:var(--rt-accent);cursor:pointer;opacity:0;transform:scale(.3);pointer-events:none;transition:opacity 120ms var(--rt-ease-out),transform 160ms var(--rt-ease-out)}
+.nav-dot::after{content:"";position:absolute;inset:-14px;border-radius:50%}
+.nav.is-compact .nav-dot{opacity:1;transform:scale(1);pointer-events:auto;animation:rt-dot-pulse 2.6s ease-in-out 1200ms infinite;transition:opacity 160ms var(--rt-ease-out) 540ms,transform 360ms cubic-bezier(.34,1.56,.64,1) 540ms}
+.nav.is-compact .nav-dot:hover{transform:scale(1.25)}
+@keyframes rt-dot-pulse{0%,100%{box-shadow:0 0 0 0 rgba(240,179,94,.45),0 0 14px rgba(240,179,94,.55)}50%{box-shadow:0 0 0 7px rgba(240,179,94,0),0 0 22px rgba(240,179,94,.8)}}
+@media (prefers-reduced-motion:reduce){.nav::before,.nav.is-compact::before,.nav.is-unpacked::before{animation-duration:1ms!important}.nav > .wrap,.nav-dot{transition:none!important}.nav.is-compact .nav-dot{animation:none;box-shadow:0 0 14px rgba(240,179,94,.6)}}
+.nav-row{display:flex;align-items:center;justify-content:space-between;gap:24px;height:80px}
+.nav-logo{display:block;width:150px;line-height:0}
+.nav-logo svg{display:block;width:100%;height:auto}
+.nav-links{display:flex;gap:4px;padding:0}
+.nav-links a{padding:9px 18px;border-radius:999px;color:var(--rt-text-muted);font-size:15px;font-weight:500;text-decoration:none;transition:color var(--rt-fast) var(--rt-ease-out),background-color var(--rt-fast) var(--rt-ease-out)}
+.nav-links a:hover,.nav-links a:focus-visible{color:var(--rt-accent)}
+.nav-end{display:flex;align-items:center;gap:20px}
+.lang{color:var(--rt-text);font-family:'IBM Plex Sans Arabic',var(--font-body);font-weight:500;font-size:16px;text-decoration:none;padding:8px 4px}
+.lang:hover{color:var(--rt-accent)}
+.menu-btn{display:none;width:44px;height:44px;margin-right:-10px;padding:0;border-radius:999px;border:0;background:transparent;color:var(--rt-text);align-items:center;justify-content:center;cursor:pointer}
+.menu-btn path{transform-box:fill-box;transform-origin:center;transition:transform 420ms cubic-bezier(.65,0,.35,1)}
+.menu-btn[aria-expanded="true"] .bl1{transform:translateY(4px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] .bl2{transform:translateY(-4px) rotate(-45deg)}
+@media (prefers-reduced-motion:reduce){.menu-btn path{transition:none}}
+.menu-panel{display:none}
+@media (max-width:980px){
+.nav-links,.nav-end .lang{display:none}
+.menu-btn{display:inline-flex}
+.menu-panel.is-open{display:flex;flex-direction:column;gap:4px;padding:8px 0 24px}
+.menu-panel a{padding:14px 0;color:var(--rt-text);font-family:var(--font-display);font-weight:700;font-size:24px;letter-spacing:-.02em;text-decoration:none;border-bottom:1px solid var(--rt-border)}
+.menu-panel a.lang{font-family:'IBM Plex Sans Arabic',var(--font-body);font-size:18px;border:0}
+}
+@media (max-width:520px){.nav-cta{display:none}}

@@ -1,0 +1,37 @@
+/* Ruyat Tech design system components (from design/ds/ruyattech/components/bundle.css).
+   Only the components the site uses are kept. Loaded before the page styles, as in the design. */
+:root {
+  --rt-glow: var(--rt-shadow-glow-gold);
+  --rt-btn-hover-bg: var(--rt-surface-2);
+}
+
+/* Diamond: the pupil. Always accent, always 45 degrees. */
+.rt-diamond { display: inline-block; flex: none; background: var(--rt-accent); transform: rotate(45deg) scale(.72); }
+.rt-diamond--error { background: var(--rt-signal-error); }
+
+/* HUD label */
+.rt-hud { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 12px; line-height: 1.4; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--rt-text-muted); }
+.rt-hud--accent { color: var(--rt-accent); }
+
+/* Button */
+.rt-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; height: 48px; padding: 0 24px; border-radius: var(--rt-radius-pill); border: 1px solid transparent; font-family: var(--font-body); font-weight: 600; font-size: 16px; line-height: 1; white-space: nowrap; text-decoration: none; cursor: pointer; background: none; color: var(--rt-text);
+  transition: transform var(--rt-fast) var(--rt-ease-out), box-shadow var(--rt-base) var(--rt-ease-out), background-color var(--rt-fast) var(--rt-ease-out), border-color var(--rt-fast) var(--rt-ease-out); }
+.rt-btn--lg { height: 56px; padding: 0 26px; font-size: 17px; }
+.rt-btn--sm { height: 40px; padding: 0 20px; font-size: 14px; gap: 8px; }
+.rt-btn:hover { transform: translateY(-2px); }
+.rt-btn:active { transform: scale(.98); transition-duration: var(--rt-instant); }
+.rt-btn--primary { background: var(--rt-accent); color: var(--rt-on-accent); box-shadow: var(--rt-glow); }
+.rt-btn--secondary { border-color: var(--rt-border-control); background: transparent; color: var(--rt-text); }
+.rt-btn--secondary:hover { background: var(--rt-btn-hover-bg); border-color: var(--rt-accent); }
+.rt-btn--ghost { color: var(--rt-accent); padding: 0 6px; height: auto; min-height: 40px; background: linear-gradient(currentColor, currentColor) 6px calc(50% + 12px) / 0 1px no-repeat; transition: background-size var(--rt-base) var(--rt-ease-out); }
+.rt-btn--ghost:hover { transform: none; background-size: calc(100% - 12px) 1px; }
+.rt-btn:focus-visible { outline: 2px solid var(--rt-accent); outline-offset: 3px; }
+.rt-btn:disabled { opacity: .45; cursor: not-allowed; transform: none; box-shadow: none; }
+
+/* Tag */
+.rt-tag { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border: 1px solid var(--rt-border-control); border-radius: var(--rt-radius-pill); font-family: var(--font-mono); font-size: 13px; line-height: 1.2; letter-spacing: .1em; text-transform: uppercase; color: var(--rt-text-muted); background: transparent; }
+
+@media (prefers-reduced-motion: reduce) {
+  .rt-btn { transition: none; }
+  .rt-btn:hover, .rt-btn:active { transform: none; }
+}

@@ -1,0 +1,16 @@
+/* Why us: reasons grid and the "backed by" panel */
+.reasons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:56px 40px}
+.reason{display:flex;flex-direction:column;gap:14px;padding-top:28px;border-top:1px solid var(--rt-border)}
+.reason-icon{color:var(--rt-accent);line-height:0}
+.reason h3{font-family:var(--font-display);font-weight:700;font-size:22px;line-height:1.25;letter-spacing:-.01em}
+.reason p{font-size:16px;line-height:1.6;color:var(--rt-text-muted);max-width:40ch}
+.backed{position:relative;overflow:hidden;isolation:isolate;margin-top:112px;padding:64px;border:1px solid var(--rt-border);border-radius:var(--rt-radius-xl);background:linear-gradient(135deg,#0A1C4A,#041238 55%,#030A1F);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;align-items:center}
+.backed::before{content:"";position:absolute;inset:0;z-index:-1;background-image:url(/assets/facet-tile.svg);background-size:48.497px 84px;-webkit-mask-image:radial-gradient(ellipse 55% 90% at 100% 0%,#000 10%,transparent 75%);mask-image:radial-gradient(ellipse 55% 90% at 100% 0%,#000 10%,transparent 75%)}
+.backed-copy{grid-column:1 / span 7;display:flex;flex-direction:column;gap:20px;align-items:flex-start}
+.backed-copy h3{font-family:var(--font-display);font-weight:700;font-size:clamp(30px,3.2vw,44px);line-height:1.1;letter-spacing:-.03em}
+.backed-copy p{font-size:18px;line-height:1.6;color:var(--rt-text-muted);max-width:52ch}
+.backed-mark{grid-column:9 / span 4;display:flex;justify-content:center}
+.backed-mark svg{width:min(200px,100%);height:auto;display:block}
+@media (max-width:1100px){.backed-copy{grid-column:1 / span 12}.backed-mark{grid-column:1 / span 12;justify-content:flex-start}.backed-mark svg{width:120px}}
+@media (max-width:860px){.reasons{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.reasons{grid-template-columns:minmax(0,1fr)}.backed{padding:32px 24px}}

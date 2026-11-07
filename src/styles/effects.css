@@ -1,0 +1,32 @@
+/* Hexagon lattice backgrounds: one faded patch per section, always behind content */
+.hexbg{position:relative;isolation:isolate}
+.hexbg{--edge-fade:linear-gradient(180deg,transparent 0,#000 200px,#000 calc(100% - 200px),transparent 100%)}
+.hexbg::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:url(/assets/facet-tile.svg);background-size:48.497px 84px;-webkit-mask-image:var(--edge-fade),var(--hex-mask),var(--hex-mask2,linear-gradient(transparent,transparent));-webkit-mask-composite:source-in,source-over;mask-image:var(--edge-fade),var(--hex-mask),var(--hex-mask2,linear-gradient(transparent,transparent));mask-composite:intersect,add}
+.hexbg.lit::before{background-image:url(/assets/facet-lit.svg),url(/assets/facet-tile.svg);background-size:387.976px 336px,48.497px 84px}
+/* Animated lattice layer: a beam travelling along the edges, or tiles flashing; sections alternate */
+.hexfx{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;-webkit-mask-image:var(--hex-mask),var(--edge-fade,linear-gradient(#000,#000));-webkit-mask-composite:source-in;mask-image:var(--hex-mask),var(--edge-fade,linear-gradient(#000,#000));mask-composite:intersect}
+.hexfx.fx2{--hex-mask:var(--hex-mask2,linear-gradient(transparent,transparent))}
+.backed .hexfx{--hex-mask:radial-gradient(ellipse 55% 90% at 100% 0%,#000 10%,transparent 75%);--edge-fade:linear-gradient(#000,#000)}
+@media (prefers-reduced-motion:reduce){.hexfx{display:none}}
+.hex-tr{--hex-mask:radial-gradient(ellipse 48% 60% at 100% 0%,#000 0%,transparent 78%)}
+.hex-tl{--hex-mask:radial-gradient(ellipse 46% 55% at 0% 0%,#000 0%,transparent 78%)}
+.hex-bl{--hex-mask:radial-gradient(ellipse 50% 55% at 0% 100%,#000 0%,transparent 78%)}
+.hex-br{--hex-mask:radial-gradient(ellipse 55% 70% at 100% 100%,#000 0%,transparent 78%)}
+.hex-r{--hex-mask:radial-gradient(ellipse 40% 45% at 100% 55%,#000 0%,transparent 80%)}
+.hex-b{--hex-mask:radial-gradient(ellipse 60% 70% at 50% 110%,#000 0%,transparent 75%)}
+.hex2-tr{--hex-mask2:radial-gradient(ellipse 34% 42% at 100% 0%,#000 0%,transparent 78%)}
+.hex2-tl{--hex-mask2:radial-gradient(ellipse 30% 48% at 0% 30%,#000 0%,transparent 78%)}
+.hex2-bl{--hex-mask2:radial-gradient(ellipse 34% 42% at 0% 100%,#000 0%,transparent 78%)}
+.hex2-r{--hex-mask2:radial-gradient(ellipse 30% 36% at 100% 35%,#000 0%,transparent 80%)}
+
+/* Cursor light along card edges and divider lines (positions set by the edge-glow script) */
+.edge{position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;z-index:3;background:radial-gradient(var(--glow,280px) circle at var(--mx,-9999px) var(--my,-9999px),#FFD9A0,rgba(240,179,94,.45) 40%,transparent 72%);-webkit-mask-image:linear-gradient(#000 0 0),linear-gradient(#000 0 0);-webkit-mask-clip:content-box,border-box;-webkit-mask-composite:xor;mask-image:linear-gradient(#000 0 0),linear-gradient(#000 0 0);mask-clip:content-box,border-box;mask-composite:exclude}
+.edge-line{--glow:240px;position:absolute;left:0;right:0;top:-1px;height:1px;pointer-events:none;z-index:1;background:radial-gradient(var(--glow,280px) circle at var(--mx,-9999px) var(--my,-9999px),#FFD9A0,rgba(240,179,94,.45) 40%,transparent 72%)}
+.edge-line.v{left:50%;right:auto;width:1px;height:auto;top:30px;bottom:-6px;margin-left:-.5px}
+.step:last-child .edge-line.v{display:none}
+.reason,.proc-close,.foot-bottom,.reach > div{position:relative}
+.reach > div::before{content:"";position:absolute;left:0;right:0;top:-1px;height:1px;pointer-events:none;background:radial-gradient(var(--glow,240px) circle at var(--mx,-9999px) var(--my,-9999px),#FFD9A0,rgba(240,179,94,.45) 40%,transparent 72%)}
+.reach > div:last-child::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;pointer-events:none;background:radial-gradient(var(--glow,240px) circle at var(--mx,-9999px) var(--myb,-9999px),#FFD9A0,rgba(240,179,94,.45) 40%,transparent 72%)}
+/* Hexagon texture inside cards and panels */
+.card-hex{position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:inherit;background-image:url(/assets/facet-tile.svg);background-size:48.497px 84px;-webkit-mask-image:radial-gradient(ellipse 60% 70% at 100% 0%,#000 0%,transparent 75%);mask-image:radial-gradient(ellipse 60% 70% at 100% 0%,#000 0%,transparent 75%);opacity:.9}
+.card-hex.bl{-webkit-mask-image:radial-gradient(ellipse 55% 65% at 0% 100%,#000 0%,transparent 75%);mask-image:radial-gradient(ellipse 55% 65% at 0% 100%,#000 0%,transparent 75%)}

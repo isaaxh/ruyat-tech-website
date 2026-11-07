@@ -1,0 +1,29 @@
+/* Work: case studies with CSS device frames */
+.case-feature{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;align-items:center;margin-bottom:72px}
+.case-feature .ph-img{grid-column:1 / span 7;aspect-ratio:16 / 11}
+.case-feature .case-info{grid-column:9 / span 4}
+.case-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 48px}
+.case-pair .ph-img{aspect-ratio:4 / 3;margin-bottom:32px}
+.ph-img{position:relative;display:flex;align-items:center;justify-content:center;border:1px solid var(--rt-border);border-radius:var(--rt-radius-lg);background-color:#071640;background-image:url(/assets/facet-tile.svg),radial-gradient(70% 60% at 70% 20%,rgba(240,179,94,.10),rgba(240,179,94,0) 70%),linear-gradient(160deg,#0A1C4A,#030A1F);background-size:48.497px 84px,auto,auto;overflow:hidden;font-family:var(--font-mono);font-size:12px;color:var(--rt-text-muted);text-align:center;padding:24px}
+.case-shot{text-decoration:none;cursor:pointer}
+/* MacBook frame */
+.mbp{position:relative;z-index:1;display:block;width:min(88%,480px);filter:drop-shadow(0 26px 40px rgba(0,0,0,.55))}
+.mbp-lid{position:relative;display:block;padding:3% 3% 2.4%;background:#07080B;border-radius:16px 16px 3px 3px;box-shadow:inset 0 0 0 1px #2C3039,inset 0 0 0 3px #0E1015}
+.mbp-cam{position:absolute;top:1.1%;left:50%;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:#1E222B;box-shadow:inset 0 0 0 1px #2B303B}
+.mbp-screen{display:block;aspect-ratio:1200 / 652;overflow:hidden;border-radius:3px;background:#000}
+.mbp-screen img{display:block;width:100%;height:100%;object-fit:cover;object-position:top center}
+.mbp-base{position:relative;display:block;width:116%;height:clamp(9px,1.25vw,15px);margin-left:-8%;background:linear-gradient(180deg,#E3E5EA 0%,#B9BDC5 45%,#7D818B 100%);border-radius:2px 2px 14px 14px / 2px 2px 100% 100%;box-shadow:inset 0 1px 0 rgba(255,255,255,.7)}
+.mbp-notch{position:absolute;top:0;left:50%;width:15%;height:45%;transform:translateX(-50%);background:linear-gradient(180deg,#8F939C,#B6BAC2);border-radius:0 0 7px 7px}
+.case-desc{font-size:17px;line-height:1.6;color:var(--rt-text-muted);max-width:44ch}
+.case-info{display:flex;flex-direction:column;gap:20px;align-items:flex-start}
+.case-client{font-family:var(--font-display);font-weight:700;font-size:32px;line-height:1.15;letter-spacing:-.02em}
+.case-info .rt-btn--ghost{margin-left:-6px;font-size:15px}
+.work-cta{margin-top:72px;display:flex;justify-content:flex-start}
+@media (max-width:1100px){.case-feature .ph-img,.case-feature .case-info{grid-column:1 / span 12}}
+@media (max-width:640px){.case-pair{grid-template-columns:minmax(0,1fr)}}
+/* Phone frames */
+.ph-phones{gap:3.2%;align-items:center;padding:24px 12px}
+.phone{position:relative;z-index:1;display:block;width:24%;padding:1.6%;background:#07080B;border-radius:22px;box-shadow:inset 0 0 0 1px #2C3039,inset 0 0 0 3px #0E1015;filter:drop-shadow(0 22px 32px rgba(0,0,0,.55))}
+.phone img{display:block;width:100%;height:auto;aspect-ratio:462 / 1000;object-fit:cover;object-position:top;border-radius:16px}
+.phone:nth-child(3){transform:translateY(-6%)}
+.phone:nth-child(2),.phone:nth-child(4){transform:translateY(5%)}

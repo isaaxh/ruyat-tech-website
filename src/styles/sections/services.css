@@ -1,0 +1,24 @@
+/* Services: what we build */
+.svc-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px}
+.svc-card{position:relative;isolation:isolate;grid-column:span 5;display:flex;flex-direction:column;align-items:flex-start;gap:14px;padding:28px 32px 32px;border-radius:24px;border:1px solid var(--rt-border);background:linear-gradient(180deg,rgba(16,32,78,.55),rgba(5,16,44,.55));-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);overflow:hidden;transition:border-color 400ms var(--rt-ease-out)}
+.svc-card.svc-wide{grid-column:span 7}
+.svc-art{align-self:stretch;height:200px;margin:-4px -8px 10px;-webkit-mask-image:linear-gradient(180deg,#000 55%,transparent);mask-image:linear-gradient(180deg,#000 55%,transparent)}
+.svc-art svg{display:block;width:100%;height:100%;overflow:visible}
+.svc-art g{fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;transition:stroke 500ms var(--rt-ease-out)}
+.svc-art .a-lit{stroke:rgba(240,179,94,.55)}
+.svc-art .a-dim{stroke:rgba(238,241,248,.18)}
+.svc-art .a-dot,.svc-art .a-flow{fill:var(--rt-accent);stroke:none}
+.svc-card:hover .a-lit{stroke:rgba(255,217,160,.9)}
+.svc-card:hover .a-dim{stroke:rgba(238,241,248,.3)}
+.svc-meta{display:flex;align-items:center;gap:14px;align-self:stretch}
+.svc-meta h3{font-family:var(--font-display);font-weight:700;font-size:20px;letter-spacing:-.01em}
+.svc-meta .rt-hud{margin-left:auto}
+.svc-hex{display:inline-flex;align-items:center;justify-content:center;width:44px;height:48px;flex:none;color:var(--rt-accent);background:rgba(240,179,94,.1);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+.svc-hex svg{width:22px;height:22px}
+.svc-card .svc-promise{font-family:var(--font-display);font-weight:500;font-size:clamp(24px,2.1vw,30px);line-height:1.18;letter-spacing:-.022em;color:var(--rt-text);max-width:22ch;margin-top:6px}
+.svc-card .svc-desc{font-size:16px;line-height:1.6;color:var(--rt-text-muted);max-width:52ch}
+.svc-link{margin-top:auto;padding-top:14px;display:inline-flex;align-items:center;gap:10px;font-size:15px;font-weight:600;color:var(--rt-accent);text-decoration:none}
+.svc-link:focus-visible{outline:2px solid var(--rt-accent);outline-offset:4px;border-radius:4px}
+@media (prefers-reduced-motion:reduce){.svc-card,.svc-art g,.svc-link svg{transition:none}.svc-art .a-flow{display:none}}
+@media (max-width:1100px){.svc-card,.svc-card.svc-wide{grid-column:span 6}}
+@media (max-width:640px){.svc-card,.svc-card.svc-wide{grid-column:1 / -1}.svc-card{padding:24px 22px 26px}.svc-art{height:160px}}

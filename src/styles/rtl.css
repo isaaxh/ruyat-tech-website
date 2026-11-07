@@ -1,0 +1,35 @@
+/* ================= Arabic (RTL) =================
+   Scoped to .page[dir="rtl"], so it has no effect on the English page. */
+.page[dir="rtl"]{--font-display:'Readex Pro','Satoshi',system-ui,sans-serif;--font-body:'IBM Plex Sans Arabic','Inter',system-ui,sans-serif;--font-display-ar:'Readex Pro',system-ui,sans-serif;--font-body-ar:'IBM Plex Sans Arabic',system-ui,sans-serif;line-height:1.75}
+/* Arabic joins break with tracking: no letter-spacing anywhere except the Latin HUD labels */
+.page[dir="rtl"] *:not(.rt-hud){letter-spacing:0!important}
+.page[dir="rtl"] .rt-hud{font-family:var(--font-mono)}
+.page[dir="rtl"] .rt-hud--accent{font-family:var(--font-body);letter-spacing:0;text-transform:none;font-size:14px}
+.page[dir="rtl"] .rt-tag{font-family:var(--font-body);text-transform:none;font-size:14px}
+.page[dir="rtl"] .hero-title{font-weight:700;line-height:1.22;font-size:clamp(40px,5.2vw,74px)}
+.page[dir="rtl"] .h2{font-weight:700;line-height:1.25}
+.page[dir="rtl"] .svc-card .svc-promise,.page[dir="rtl"] .tq-card blockquote{line-height:1.5}
+.page[dir="rtl"] .step-title,.page[dir="rtl"] .case-client,.page[dir="rtl"] .backed-copy h3,.page[dir="rtl"] .reason h3,.page[dir="rtl"] .svc-meta h3{line-height:1.35}
+.page[dir="rtl"] .lede,.page[dir="rtl"] .svc-desc,.page[dir="rtl"] .step-desc,.page[dir="rtl"] .reason p,.page[dir="rtl"] .case-desc,.page[dir="rtl"] .hero-sub{line-height:1.8}
+.page[dir="rtl"] .lang{font-family:'Inter',system-ui,sans-serif;font-size:15px}
+.page[dir="rtl"] .rt-btn{font-family:var(--font-body)}
+/* Mirror direction-dependent details */
+.page[dir="rtl"] .arw{transform:scaleX(-1)}
+.page[dir="rtl"] a:hover > .arw,.page[dir="rtl"] button:hover > .arw,.page[dir="rtl"] a:focus-visible > .arw,.page[dir="rtl"] button:focus-visible > .arw{transform:scaleX(-1) translateX(4px)}
+.page[dir="rtl"] a:hover > .arw-ne,.page[dir="rtl"] a:focus-visible > .arw-ne{transform:scaleX(-1) translate(3px,-3px)}
+.page[dir="rtl"] .tq-arrow svg{transform:scaleX(-1)}
+.page[dir="rtl"] .menu-btn{margin-right:0;margin-left:-10px}
+.page[dir="rtl"] .svc-meta .rt-hud{margin-left:0;margin-right:auto}
+.page[dir="rtl"] .case-info .rt-btn--ghost{margin-left:0;margin-right:-6px}
+.page[dir="rtl"] .rt-btn--ghost{background-position:calc(100% - 6px) calc(50% + 12px)}
+.page[dir="rtl"] .badge{padding:8px 10px 8px 16px}
+.page[dir="rtl"] .badge--dot{padding-right:14px}
+.page[dir="rtl"] .mbp-base{width:auto;margin:0 -8%}
+.page[dir="rtl"] select.ctl{padding-right:20px;padding-left:48px;background-position:20px 23px,26px 23px}
+.page[dir="rtl"] .ctl[dir="ltr"]{text-align:right}
+.page[dir="rtl"] .ctl[dir="ltr"]::placeholder{text-align:right}
+.page[dir="rtl"] .cookie{left:auto;right:24px}
+.page[dir="rtl"] .marquee{direction:ltr}
+.page[dir="rtl"] .tq-card.is-next{transform:translate(-14px,-10px) rotate(-3.4deg) scale(.985)}
+.page[dir="rtl"] .tq-card.is-prev{transform:translate(14px,10px) rotate(3deg) scale(.97)}
+@media (max-width:640px){.page[dir="rtl"] .cookie{left:16px;right:16px}}

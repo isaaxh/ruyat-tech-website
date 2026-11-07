@@ -1,0 +1,26 @@
+/* Buttons, arrows and badges as used on the page (overrides on top of the design system). */
+.rt-btn{text-decoration:none}
+.rt-btn--primary:hover{color:var(--rt-on-accent)}
+.rt-btn--secondary:hover{color:var(--rt-text)}
+/* Button hover: primary lifts 1px with a soft ease; secondary fills with Frost from the cursor */
+.page .rt-btn{transition:transform 450ms var(--rt-ease-out),box-shadow 450ms var(--rt-ease-out),color 350ms var(--rt-ease-out),border-color 350ms var(--rt-ease-out),background-color 350ms var(--rt-ease-out)}
+.page .rt-btn--primary:hover{transform:translateY(-1px)}
+.page .rt-btn:active{transform:scale(.98)}
+.page .rt-btn--secondary{position:relative;overflow:hidden;isolation:isolate}
+.page .rt-btn--secondary::before{content:"";position:absolute;left:var(--fx,50%);top:var(--fy,50%);width:var(--fd,420px);height:var(--fd,420px);margin:calc(var(--fd,420px) / -2) 0 0 calc(var(--fd,420px) / -2);border-radius:50%;background:var(--rt-frost);transform:scale(0);transition:transform 600ms var(--rt-ease-out);z-index:-1;pointer-events:none}
+.page .rt-btn--secondary:hover,.page .rt-btn--secondary:focus-visible{transform:none;background:transparent;border-color:var(--rt-frost);color:var(--rt-midnight-navy)}
+.page .rt-btn--secondary:hover::before,.page .rt-btn--secondary:focus-visible::before{transform:scale(1)}
+@media (prefers-reduced-motion:reduce){.page .rt-btn--secondary::before{transition:none}.page .rt-btn--primary:hover{transform:none}}
+
+/* Arrow nudge on every button and link with an arrow */
+.arw{flex:none;transition:transform 450ms cubic-bezier(.22,1,.36,1)}
+a:hover > .arw,button:hover > .arw,a:focus-visible > .arw,button:focus-visible > .arw{transform:translateX(4px)}
+a:hover > .arw-ne,a:focus-visible > .arw-ne{transform:translate(3px,-3px)}
+@media (prefers-reduced-motion:reduce){.arw{transition:none}}
+
+/* Badges */
+.badge-diamond{width:7px;height:7px;margin:0 2px 0 4px;background:var(--rt-accent);transform:rotate(45deg);flex:none}
+.badge{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 10px;border:1px solid var(--rt-border);border-radius:999px;background:rgba(4,18,56,.6);font-size:13px;font-weight:500;color:var(--rt-text);white-space:nowrap}
+.badge svg{width:20px;height:20px;display:block}
+.badge--dot{padding-left:14px}
+.badge-dot{width:7px;height:7px;flex:none;border-radius:50%;background:var(--rt-accent);box-shadow:0 0 10px rgba(240,179,94,.6)}
