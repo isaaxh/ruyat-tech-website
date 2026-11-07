@@ -11,4 +11,8 @@ export default defineConfig({
     locales: ['en', 'ar'],
     routing: { prefixDefaultLocale: false },
   },
+  build: {
+    // One small page per language: inlining the CSS saves a render-blocking request on mobile.
+    inlineStylesheets: 'always',
+  },
 });
