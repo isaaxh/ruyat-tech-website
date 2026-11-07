@@ -1,18 +1,24 @@
 ---
+// Document shell: <html lang dir>, meta (canonical, hreflang, Open Graph, Twitter), fonts and global CSS.
+import '../styles/global.css';
 import { getDictionary, locales, localePath, type Locale } from '../i18n';
 
 interface Props {
   locale: Locale;
-  title?: string;
-  description?: string;
 }
 
 const { locale } = Astro.props;
 const t = getDictionary(locale);
-const title = Astro.props.title ?? t.meta.title;
-const description = Astro.props.description ?? t.meta.description;
+const { title, description, ogLocale } = t.meta;
 const site = Astro.site!;
 const canonical = new URL(localePath(locale), site).href;
+const altLocale = locale === 'ar' ? 'en_US' : 'ar_SA';
+
+// Google Fonts (Satoshi is self-hosted). Arabic adds Readex Pro (headings) and IBM Plex Sans Arabic (body).
+const fonts =
+  locale === 'ar'
+    ? 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Readex+Pro:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap'
+    : 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap';
 ---
 
 <!doctype html>
@@ -20,23 +26,35 @@ const canonical = new URL(localePath(locale), site).href;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    {description && <meta name="description" content={description} />}
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#030A1F" />
     <link rel="canonical" href={canonical} />
     {locales.map((l) => <link rel="alternate" hreflang={l} href={new URL(localePath(l), site).href} />)}
     <link rel="alternate" hreflang="x-default" href={new URL(localePath('en'), site).href} />
+
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Ruyat Tech" />
     <meta property="og:title" content={title} />
-    {description && <meta property="og:description" content={description} />}
+    <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:locale" content={locale === 'ar' ? 'ar_SA' : 'en_US'} />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:locale:alternate" content={altLocale} />
+    <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={title} />
-    {description && <meta name="twitter:description" content={description} />}
-    <slot name="head" />
+    <meta name="twitter:description" content={description} />
+
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    {locale === 'en' && <link rel="preload" href="/fonts/Satoshi-Black.woff2" as="font" type="font/woff2" crossorigin />}
+    <link rel="preload" href="/fonts/Satoshi-Bold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href={fonts} media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href={fonts} /></noscript>
   </head>
   <body>
     <slot />

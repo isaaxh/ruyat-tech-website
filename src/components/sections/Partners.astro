@@ -1,0 +1,49 @@
+---
+// Partner logo marquee. The list is repeated so the track can loop seamlessly (-50% translate);
+// copies are aria-hidden. Under reduced motion only the first set shows, wrapped and static.
+import type { Dictionary } from '../../i18n';
+
+interface Props {
+  t: Dictionary;
+}
+const { partners } = Astro.props.t;
+
+// width/height are each file's own intrinsic size, so the browser reserves the right space.
+const logos = [
+  { src: '/assets/partners/ruyat-al-enjaz.svg', alt: partners.logos.ruyatAlEnjaz, w: 5271, h: 4511 },
+  { src: '/assets/partners/maher-simple.svg', alt: partners.logos.maher, w: 338, h: 210 },
+  { src: '/assets/partners/homeline-simple.svg', alt: partners.logos.homeline, w: 312, h: 284 },
+  { src: '/assets/partners/alfaisal-simple.svg', alt: partners.logos.alfaisal, w: 713, h: 509 },
+  { src: '/assets/partners/ruyat-shams-simple.svg', alt: partners.logos.ruyatShams, w: 626, h: 642 },
+  { src: '/assets/partners/safeen.png', alt: partners.logos.safeen, w: 636, h: 260, wide: true },
+];
+const COPIES = 4;
+---
+
+<section class="trusted" aria-labelledby="trusted-label">
+  <div class="wrap">
+    <div class="partners-head">
+      <h2 id="trusted-label" class="partners-title">{partners.title}</h2>
+      <p class="partners-sub">{partners.sub}</p>
+    </div>
+  </div>
+  <div class="marquee">
+    <ul class="marquee-track">
+      {
+        Array.from({ length: COPIES }, (_, copy) =>
+          logos.map((l) =>
+            copy === 0 ? (
+              <li>
+                <img class:list={{ wide: l.wide }} src={l.src} alt={l.alt} width={l.w} height={l.h} loading="lazy" decoding="async" />
+              </li>
+            ) : (
+              <li aria-hidden="true">
+                <img class:list={{ wide: l.wide }} src={l.src} alt="" width={l.w} height={l.h} loading="lazy" decoding="async" />
+              </li>
+            ),
+          ),
+        )
+      }
+    </ul>
+  </div>
+</section>

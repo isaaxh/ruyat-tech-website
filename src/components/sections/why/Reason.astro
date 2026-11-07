@@ -1,0 +1,19 @@
+---
+import EdgeLine from '../../ui/EdgeLine.astro';
+import Icon from '../../icons/Icon.astro';
+import type { IconName } from '../../icons/paths';
+
+interface Props {
+  icon: IconName;
+  title: string;
+  desc: string;
+}
+const { icon, title, desc } = Astro.props;
+---
+
+<div class="reason">
+  <EdgeLine />
+  <span class="reason-icon"><Icon name={icon} /></span>
+  <h3>{title}</h3>
+  <p>{desc}</p>
+</div>

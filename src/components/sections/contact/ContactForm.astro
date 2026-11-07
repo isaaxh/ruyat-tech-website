@@ -1,0 +1,57 @@
+---
+// Enquiry form. Nothing is sent to a server: on a valid submit the enquiry opens in WhatsApp
+// (scripts/contact-form.ts), then the success panel replaces the form.
+import FormField from './FormField.astro';
+import Button from '../../ui/Button.astro';
+import { WHATSAPP_NUMBER } from '../../../config';
+import type { ContactFormCopy } from '../../../scripts/contact-form';
+import type { Dictionary } from '../../../i18n';
+
+interface Props {
+  t: Dictionary;
+}
+const c = Astro.props.t.contact;
+const f = c.form;
+const copy: ContactFormCopy = {
+  number: WHATSAPP_NUMBER,
+  successTitle: c.success.title('{name}'),
+  labels: c.whatsapp,
+};
+const req = { 'aria-required': 'true', 'aria-invalid': 'false' } as const;
+---
+
+<form class="form" aria-label={f.label} novalidate data-copy={JSON.stringify(copy)}>
+  <FormField id="f-name" label={f.name.label} error={f.name.error}>
+    <input id="f-name" name="name" class="ctl" type="text" autocomplete="name" placeholder={f.name.placeholder} aria-describedby="f-name-err" {...req} />
+  </FormField>
+  <FormField id="f-email" label={f.email.label} error={f.email.error}>
+    <input id="f-email" name="email" class="ctl" type="text" inputmode="email" autocomplete="email" placeholder={f.email.placeholder} dir="ltr" aria-describedby="f-email-err" {...req} />
+  </FormField>
+  <FormField id="f-phone" label={f.phone.label} optional={f.optional}>
+    <input id="f-phone" name="phone" class="ctl" type="tel" autocomplete="tel" placeholder={f.phone.placeholder} dir="ltr" />
+  </FormField>
+  <FormField id="f-business" label={f.business.label} optional={f.optional}>
+    <input id="f-business" name="business" class="ctl" type="text" autocomplete="organization" placeholder={f.business.placeholder} />
+  </FormField>
+  <FormField id="f-service" label={f.service.label} error={f.service.error} full>
+    <select id="f-service" name="service" class="ctl" aria-describedby="f-service-err" {...req}>
+      <option value="">{f.service.placeholder}</option>
+      {f.service.options.map((o) => <option value={o}>{o}</option>)}
+    </select>
+  </FormField>
+  <FormField id="f-details" label={f.details.label} error={f.details.error} full>
+    <textarea id="f-details" name="details" class="ctl" placeholder={f.details.placeholder} aria-describedby="f-details-err" {...req}></textarea>
+  </FormField>
+  <div class="hp" aria-hidden="true">
+    <label for="f-website">Website</label>
+    <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+  </div>
+  <div class="form-foot">
+    <Button type="submit" size="lg" arrow="right" arrowSize={20}>{f.submit}</Button>
+  </div>
+</form>
+
+<script>
+  import { initContactForm } from '../../../scripts/contact-form';
+  initContactForm();
+</script>

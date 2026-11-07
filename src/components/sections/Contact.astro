@@ -1,0 +1,39 @@
+---
+// Contact. Below 1100px the intro stays on top, then the form, then the details list (CSS order).
+import HexFx from '../ui/HexFx.astro';
+import EdgeLine from '../ui/EdgeLine.astro';
+import Edge from '../ui/Edge.astro';
+import CardHex from '../ui/CardHex.astro';
+import Diamond from '../ui/Diamond.astro';
+import ContactDetails from './contact/ContactDetails.astro';
+import ContactForm from './contact/ContactForm.astro';
+import SuccessPanel from './contact/SuccessPanel.astro';
+import type { Dictionary } from '../../i18n';
+
+interface Props {
+  t: Dictionary;
+}
+const { t } = Astro.props;
+const c = t.contact;
+---
+
+<section id="contact" class="section hexbg hex-br hex2-tl" aria-labelledby="contact-title" style="border-top: 1px solid var(--rt-border)">
+  <EdgeLine />
+  <HexFx mode="beam" focus="1,1,0.55,0.7" />
+  <HexFx mode="flash" focus="0,0.3,0.3,0.48" second />
+  <div class="wrap contact-grid">
+    <div class="contact-intro">
+      <span class="rt-hud rt-hud--accent"><Diamond size={7} />{c.hud}</span>
+      <h2 id="contact-title" class="h2">{c.title}</h2>
+      <p class="lede">{c.lede}</p>
+      <ContactDetails t={t} />
+    </div>
+
+    <div class="form-panel">
+      <Edge />
+      <CardHex />
+      <SuccessPanel t={t} />
+      <ContactForm t={t} />
+    </div>
+  </div>
+</section>

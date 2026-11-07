@@ -1,0 +1,18 @@
+---
+// Shown after a valid submit. The heading gets the visitor's first name, and "Open WhatsApp again"
+// gets the same wa.me link, in case the app did not open.
+import Mark from '../../brand/Mark.astro';
+import type { Dictionary } from '../../../i18n';
+
+interface Props {
+  t: Dictionary;
+}
+const s = Astro.props.t.contact.success;
+---
+
+<div class="success" role="status" hidden>
+  <span class="success-mark"><Mark size={56} /></span>
+  <h3></h3>
+  <p>{s.body}</p>
+  <a class="success-again" href="#" target="_blank" rel="noopener">{s.again}</a>
+</div>

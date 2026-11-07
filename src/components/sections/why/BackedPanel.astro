@@ -1,0 +1,28 @@
+---
+// "Backed by Ruyat Al Enjaz" panel with its own beam animation in the top-right corner.
+import Edge from '../../ui/Edge.astro';
+import HexFx from '../../ui/HexFx.astro';
+import Badge from '../../ui/Badge.astro';
+import Mark from '../../brand/Mark.astro';
+
+interface Props {
+  title: string;
+  desc: string;
+  badge: string;
+  markLabel: string;
+}
+const { title, desc, badge, markLabel } = Astro.props;
+---
+
+<div class="backed">
+  <Edge />
+  <HexFx mode="beam" focus="1,0,0.55,0.9" fade="none" />
+  <div class="backed-copy">
+    <h3>{title}</h3>
+    <p>{desc}</p>
+    <Badge>{badge}</Badge>
+  </div>
+  <div class="backed-mark">
+    <Mark label={markLabel} />
+  </div>
+</div>

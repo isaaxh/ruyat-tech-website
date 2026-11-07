@@ -1,0 +1,22 @@
+---
+// Three pure-CSS phone frames showing app screenshots. The middle phone sits higher.
+import { Image } from 'astro:assets';
+import Edge from '../../ui/Edge.astro';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  shots: { src: ImageMetadata; alt: string }[];
+}
+const { shots } = Astro.props;
+---
+
+<div class="ph-img ph-phones">
+  <Edge />
+  {
+    shots.map((s) => (
+      <span class="phone">
+        <Image src={s.src} alt={s.alt} width={462} height={1000} widths={[231, 462]} sizes="(max-width: 640px) 22vw, 180px" loading="lazy" decoding="async" />
+      </span>
+    ))
+  }
+</div>

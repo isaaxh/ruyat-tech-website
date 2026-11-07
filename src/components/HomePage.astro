@@ -1,0 +1,51 @@
+---
+// The homepage, shared by both languages. Copy comes from the locale's dictionary.
+import Base from '../layouts/Base.astro';
+import Nav from './layout/Nav.astro';
+import Footer from './layout/Footer.astro';
+import CookieBanner from './layout/CookieBanner.astro';
+import Hero from './sections/Hero.astro';
+import Partners from './sections/Partners.astro';
+import Services from './sections/Services.astro';
+import Process from './sections/Process.astro';
+import Work from './sections/Work.astro';
+import WhyUs from './sections/WhyUs.astro';
+import Testimonials from './sections/Testimonials.astro';
+import Contact from './sections/Contact.astro';
+import { getDictionary, type Locale } from '../i18n';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = getDictionary(locale);
+---
+
+<Base locale={locale}>
+  <div class="page" dir={t.dir} lang={t.lang}>
+    <a class="sr" href="#main">{t.skipLink}</a>
+    <Nav t={t} />
+    <main id="main">
+      <Hero t={t} />
+      <Partners t={t} />
+      <Services t={t} />
+      <Process t={t} />
+      <Work t={t} />
+      <WhyUs t={t} />
+      <Testimonials t={t} />
+      <Contact t={t} />
+    </main>
+    <Footer t={t} />
+    <CookieBanner t={t} />
+  </div>
+</Base>
+
+<script>
+  // Page-wide effects: cursor light on edges, hexagon background motion, secondary-button fill.
+  import { initEdgeGlow } from '../scripts/edge-glow';
+  import { initHexFx } from '../scripts/hex-fx';
+  import { initFillFrom } from '../scripts/fill-from';
+  initEdgeGlow();
+  initHexFx();
+  initFillFrom();
+</script>

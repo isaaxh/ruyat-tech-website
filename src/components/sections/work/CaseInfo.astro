@@ -1,0 +1,20 @@
+---
+// Tag, client name, one-line description and (optionally) an outbound link.
+import Button from '../../ui/Button.astro';
+
+interface Props {
+  tag: string;
+  client: string;
+  desc: string;
+  href?: string;
+  visitLabel?: string;
+}
+const { tag, client, desc, href, visitLabel } = Astro.props;
+---
+
+<div class="case-info">
+  <span class="rt-tag">{tag}</span>
+  <h3 class="case-client">{client}</h3>
+  <p class="case-desc">{desc}</p>
+  {href && <Button href={href} variant="ghost" arrow="ne" external>{visitLabel}</Button>}
+</div>

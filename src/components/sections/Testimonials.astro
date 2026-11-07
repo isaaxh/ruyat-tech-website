@@ -1,0 +1,37 @@
+---
+import HexFx from '../ui/HexFx.astro';
+import TestimonialCard from './testimonials/TestimonialCard.astro';
+import type { Dictionary } from '../../i18n';
+
+interface Props {
+  t: Dictionary;
+}
+const q = Astro.props.t.testimonials;
+const total = q.items.length;
+const position = (i: number) => (i === 0 ? 'front' : i === 1 ? 'next' : 'prev');
+---
+
+<section id="testimonials" class="section hexbg hex-b hex2-tl" aria-labelledby="quotes-title" style="padding-top: 24px">
+  <HexFx mode="flash" focus="0.5,1.1,0.6,0.7" />
+  <HexFx mode="beam" focus="0,0.3,0.3,0.48" second />
+  <div class="wrap">
+    <div class="tq-head">
+      <h2 id="quotes-title" class="h2">{q.title}</h2>
+    </div>
+    <div class="tq" role="region" aria-roledescription="carousel" aria-label={q.regionLabel} tabindex="0">
+      <button class="tq-arrow tq-prev" type="button" aria-label={q.prev}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></button>
+      <div class="tq-stage" aria-live="polite">
+        {q.items.map((item, i) => <TestimonialCard position={position(i)} slideLabel={q.slideLabel(i + 1, total)} {...item} />)}
+      </div>
+      <button class="tq-arrow tq-next" type="button" aria-label={q.next}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></button>
+    </div>
+    <div class="tq-nav">
+      {q.items.map((_, i) => <button type="button" class:list={['tq-dot', { 'is-on': i === 0 }]} aria-label={q.dotLabel(i + 1)}></button>)}
+    </div>
+  </div>
+</section>
+
+<script>
+  import { initTestimonials } from '../../scripts/testimonials';
+  initTestimonials();
+</script>

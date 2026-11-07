@@ -1,0 +1,47 @@
+---
+// Sticky nav. Scrolling down packs it into a gold dot; scrolling up unpacks it (scripts/nav.ts).
+// At 980px and below the links move into a burger menu.
+import Logo from '../brand/Logo.astro';
+import Button from '../ui/Button.astro';
+import type { Dictionary } from '../../i18n';
+
+interface Props {
+  t: Dictionary;
+}
+const { t } = Astro.props;
+const { nav } = t;
+---
+
+<header class="nav">
+  <button class="nav-dot" type="button" aria-label={nav.dotLabel} tabindex="-1"></button>
+  <div class="wrap">
+    <div class="nav-row">
+      <Logo label={t.brand.logoLabel} />
+      <nav class="nav-links" aria-label={nav.mainLabel}>
+        {nav.links.map((l) => <a href={l.href}>{l.label}</a>)}
+      </nav>
+      <div class="nav-end">
+        <a class="lang" href={nav.lang.href} lang={nav.lang.lang} hreflang={nav.lang.lang}>{nav.lang.label}</a>
+        <Button href="#contact" size="sm" class="nav-cta">{nav.cta}</Button>
+        <button
+          class="menu-btn"
+          type="button"
+          aria-label={nav.openMenu}
+          aria-expanded="false"
+          data-open-label={nav.openMenu}
+          data-close-label={nav.closeMenu}
+          ><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path class="bl1" d="M4 8h16"></path><path class="bl2" d="M4 16h16"></path></svg></button
+        >
+      </div>
+    </div>
+    <nav class="menu-panel" aria-label={nav.mobileLabel}>
+      {nav.links.map((l) => <a href={l.href}>{l.label}</a>)}
+      <a class="lang" href={nav.lang.href} lang={nav.lang.lang} hreflang={nav.lang.lang}>{nav.lang.label}</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  import { initNav } from '../../scripts/nav';
+  initNav();
+</script>

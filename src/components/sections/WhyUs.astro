@@ -1,0 +1,26 @@
+---
+import HexFx from '../ui/HexFx.astro';
+import SectionHead from '../ui/SectionHead.astro';
+import Reason from './why/Reason.astro';
+import BackedPanel from './why/BackedPanel.astro';
+import type { IconName } from '../icons/paths';
+import type { Dictionary } from '../../i18n';
+
+interface Props {
+  t: Dictionary;
+}
+const { t } = Astro.props;
+const w = t.why;
+---
+
+<section id="why-us" class="section hexbg hex-tl hex2-r" aria-labelledby="why-title">
+  <HexFx mode="flash" focus="0,0,0.46,0.55" />
+  <HexFx mode="beam" focus="1,0.35,0.3,0.36" second />
+  <div class="wrap">
+    <SectionHead id="why-title" title={w.title} lede={w.lede} />
+    <div class="reasons">
+      {w.reasons.map((r) => <Reason icon={r.icon as IconName} title={r.title} desc={r.desc} />)}
+    </div>
+    <BackedPanel {...w.backed} markLabel={t.brand.markLabel} />
+  </div>
+</section>

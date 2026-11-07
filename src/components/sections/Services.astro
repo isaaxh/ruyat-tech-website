@@ -1,0 +1,27 @@
+---
+import SectionHead from '../ui/SectionHead.astro';
+import HexFx from '../ui/HexFx.astro';
+import ServiceCard from './services/ServiceCard.astro';
+import type { Dictionary } from '../../i18n';
+
+interface Props {
+  t: Dictionary;
+}
+const { t } = Astro.props;
+const s = t.services;
+const opts = t.contact.form.service.options; // [Mobile app, Web app, Website, Automation, Not sure yet]
+---
+
+<section id="services" class="section hexbg hex-tr hex2-bl" aria-labelledby="services-title">
+  <HexFx mode="beam" focus="1,0,0.48,0.6" />
+  <HexFx mode="flash" focus="0,1,0.34,0.42" second />
+  <div class="wrap">
+    <SectionHead id="services-title" title={s.title} lede={s.lede} />
+    <div class="svc-grid">
+      <ServiceCard kind="mobile" hud="S/01" wide service={opts[0]} {...s.items.mobile} />
+      <ServiceCard kind="webapp" hud="S/02" service={opts[1]} {...s.items.webapp} />
+      <ServiceCard kind="website" hud="S/03" service={opts[2]} {...s.items.website} />
+      <ServiceCard kind="automation" hud="S/04" wide service={opts[3]} {...s.items.automation} />
+    </div>
+  </div>
+</section>

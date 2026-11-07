@@ -1,0 +1,32 @@
+---
+// Hero: hexagon lattice canvas, horizon arc rising from the bottom, the planet surface under it.
+import Button from '../ui/Button.astro';
+import type { Dictionary } from '../../i18n';
+
+interface Props {
+  t: Dictionary;
+}
+const { hero } = Astro.props.t;
+---
+
+<section id="top" class="hero" aria-labelledby="hero-title">
+  <canvas class="hero-lattice" aria-hidden="true"></canvas>
+  <div class="horizon-glow" aria-hidden="true"></div>
+  <div class="planet" aria-hidden="true"></div>
+  <div class="horizon" aria-hidden="true"></div>
+  <div class="wrap hero-inner">
+    <h1 id="hero-title" class="hero-title in d1"><span class="l1">{hero.titleLine1}</span> <span class="l2">{hero.titleLine2}</span></h1>
+    <p class="hero-sub in d2">{hero.sub}</p>
+    <div class="hero-actions in d3">
+      <div class="hero-ctas">
+        <Button href="#contact" size="sm" arrow="right" arrowSize={16}>{hero.primary}</Button>
+        <Button href="#work" variant="secondary" size="sm">{hero.secondary}</Button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { initHeroLattice } from '../../scripts/hero-lattice';
+  initHeroLattice();
+</script>

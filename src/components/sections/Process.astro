@@ -1,0 +1,28 @@
+---
+import HexFx from '../ui/HexFx.astro';
+import EdgeLine from '../ui/EdgeLine.astro';
+import ProcessStep from './process/ProcessStep.astro';
+import type { Dictionary } from '../../i18n';
+
+interface Props {
+  t: Dictionary;
+}
+const p = Astro.props.t.process;
+---
+
+<section id="process" class="section process hexbg hex-bl hex2-tr" aria-labelledby="process-title">
+  <HexFx mode="flash" focus="0,1,0.5,0.55" />
+  <HexFx mode="beam" focus="1,0,0.34,0.42" second />
+  <div class="wrap proc-grid">
+    <div class="proc-aside">
+      <div class="proc-sticky">
+        <h2 id="process-title" class="h2">{p.title}</h2>
+        <p class="lede">{p.lede}</p>
+        <p class="proc-close"><EdgeLine />{p.close.before}<a href="#contact">{p.close.link}</a>{p.close.after}</p>
+      </div>
+    </div>
+    <ol class="steps">
+      {p.steps.map((step, i) => <ProcessStep hud={`R/0${i + 1}`} title={step.title} desc={step.desc} />)}
+    </ol>
+  </div>
+</section>

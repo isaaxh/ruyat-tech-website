@@ -1,0 +1,31 @@
+---
+// Line illustrations for the service cards. In the automation art, two dots travel along the flow
+// (SVG animateMotion); a mask cut to the centre hexagon hides them while they pass through it.
+interface Props {
+  kind: 'mobile' | 'webapp' | 'website' | 'automation';
+}
+const { kind } = Astro.props;
+---
+
+<div class="svc-art">
+  {
+    kind === 'mobile' && (
+      <svg viewBox="0 0 420 200" aria-hidden="true"><g class="a-dim"><rect x="250" y="34" width="96" height="190" rx="18" /><rect x="264" y="62" width="68" height="40" rx="6" /><path d="M264 116h52M264 130h36" /></g><g class="a-lit"><rect x="148" y="14" width="108" height="210" rx="20" /><path d="M188 28h28" /><rect x="162" y="46" width="80" height="54" rx="8" /><path d="M162 116h60M162 130h44" /><rect x="162" y="148" width="36" height="36" rx="8" /><rect x="206" y="148" width="36" height="36" rx="8" /></g><g class="a-dot"><circle cx="180" cy="166" r="3" /></g></svg>
+    )
+  }
+  {
+    kind === 'webapp' && (
+      <svg viewBox="0 0 420 200" aria-hidden="true"><g class="a-lit"><rect x="60" y="18" width="300" height="200" rx="12" /><path d="M60 44h300" /><path d="M76 31h.01M88 31h.01M100 31h.01" /><path d="M128 44v174" /></g><g class="a-dim"><path d="M74 62h40M74 78h32M74 94h36M74 110h28" /><rect x="146" y="60" width="96" height="40" rx="6" /><rect x="252" y="60" width="92" height="40" rx="6" /></g><g class="a-lit"><path d="M150 196v-30M176 196v-50M202 196v-22M228 196v-62M254 196v-40M280 196v-70M306 196v-48M332 196v-58" /></g></svg>
+    )
+  }
+  {
+    kind === 'website' && (
+      <svg viewBox="0 0 420 200" aria-hidden="true"><g class="a-lit"><rect x="70" y="18" width="280" height="200" rx="12" /><path d="M70 50h280" /></g><g class="a-dim"><path d="M88 34h28M250 34h16M276 34h16M302 34h30" /></g><g class="a-lit"><path d="M150 82h120M170 100h80" /></g><g class="a-dim"><path d="M160 120h100" /><rect x="186" y="134" width="48" height="16" rx="8" /><rect x="88" y="166" width="72" height="52" rx="6" /><rect x="174" y="166" width="72" height="52" rx="6" /><rect x="260" y="166" width="72" height="52" rx="6" /></g></svg>
+    )
+  }
+  {
+    kind === 'automation' && (
+      <svg viewBox="0 0 420 200" aria-hidden="true"><g class="a-dim"><path d="M108 70 C160 70 160 116 210 116 M108 162 C160 162 160 116 210 116 M258 116 C300 116 300 70 340 70 M258 116 C300 116 300 162 340 162" /></g><g class="a-lit"><rect x="54" y="50" width="54" height="40" rx="10" /><rect x="54" y="142" width="54" height="40" rx="10" /><path d="M234 88 L258 102 L258 130 L234 144 L210 130 L210 102 Z" /><rect x="340" y="50" width="40" height="40" rx="20" /><rect x="340" y="142" width="40" height="40" rx="20" /><path d="M226 116l6 6 10-12" /></g><defs><mask id="svc-hexcut" maskUnits="userSpaceOnUse" x="0" y="0" width="420" height="200"><rect width="420" height="200" fill="#fff" /><path d="M234 88 L258 102 L258 130 L234 144 L210 130 L210 102 Z" fill="#000" /></mask></defs><g class="a-flow" mask="url(#svc-hexcut)"><circle r="3.5" opacity="0"><animateMotion dur="4.6s" begin="0s" repeatCount="indefinite" path="M108 70 C160 70 160 116 210 116 L258 116 C300 116 300 162 340 162" /><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.9;1" dur="4.6s" begin="0s" repeatCount="indefinite" /></circle><circle r="3.5" opacity="0"><animateMotion dur="4.6s" begin="2.3s" repeatCount="indefinite" path="M108 162 C160 162 160 116 210 116 L258 116 C300 116 300 70 340 70" /><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.9;1" dur="4.6s" begin="2.3s" repeatCount="indefinite" /></circle></g></svg>
+    )
+  }
+</div>

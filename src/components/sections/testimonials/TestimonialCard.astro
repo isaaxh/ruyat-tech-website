@@ -1,0 +1,24 @@
+---
+// One glass card in the stack. Position classes (is-front / is-next / is-prev) are set here for the
+// first render and then by scripts/testimonials.ts.
+import Edge from '../../ui/Edge.astro';
+import CardHex from '../../ui/CardHex.astro';
+
+interface Props {
+  position: 'front' | 'next' | 'prev';
+  slideLabel: string;
+  lead: string;
+  soft: string;
+  initials: string;
+  name: string;
+  role: string;
+}
+const { position, slideLabel, lead, soft, initials, name, role } = Astro.props;
+---
+
+<figure class={`tq-card is-${position}`} aria-hidden={position === 'front' ? 'false' : 'true'} aria-roledescription="slide" aria-label={slideLabel}>
+  <Edge />
+  <CardHex corner="bl" />
+  <blockquote>{lead}<span class="tq-soft">{soft}</span></blockquote>
+  <figcaption><span class="tq-avatar" aria-hidden="true">{initials}</span><span><strong>{name}</strong>{role}</span></figcaption>
+</figure>

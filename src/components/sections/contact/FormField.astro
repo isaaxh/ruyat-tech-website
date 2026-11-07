@@ -1,0 +1,28 @@
+---
+// Label + control (slot) + error message. Errors are toggled by scripts/contact-form.ts.
+import Diamond from '../../ui/Diamond.astro';
+
+interface Props {
+  id: string;
+  label: string;
+  /** Text of the "Optional" hint; omit for required fields. */
+  optional?: string;
+  /** Error message for required fields. */
+  error?: string;
+  full?: boolean;
+}
+const { id, label, optional, error, full = false } = Astro.props;
+---
+
+<div class:list={['field', { full }]}>
+  <label for={id}>{label}{optional && <> <span class="opt">{optional}</span></>}</label>
+  <slot />
+  {
+    error && (
+      <p id={`${id}-err`} class="ferr" hidden>
+        <Diamond size={8} error />
+        {error}
+      </p>
+    )
+  }
+</div>

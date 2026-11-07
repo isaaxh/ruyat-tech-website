@@ -1,0 +1,52 @@
+---
+import Logo from '../brand/Logo.astro';
+import Badge from '../ui/Badge.astro';
+import EdgeLine from '../ui/EdgeLine.astro';
+import HexFx from '../ui/HexFx.astro';
+import Icon from '../icons/Icon.astro';
+import { CONTACT } from '../../config';
+import type { Dictionary } from '../../i18n';
+
+interface Props {
+  t: Dictionary;
+}
+const { t } = Astro.props;
+const f = t.footer;
+---
+
+<footer class="footer hexbg hex-bl hex2-tr" style="--edge-fade: linear-gradient(180deg, transparent 0, #000 160px)">
+  <EdgeLine />
+  <HexFx mode="flash" focus="0,1,0.5,0.7" fade="top" />
+  <HexFx mode="beam" focus="1,0,0.34,0.42" fade="top" second />
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <Logo label={t.brand.logoLabel} />
+        <p class="foot-tag">{f.tagline}</p>
+        <p>{f.blurb}</p>
+        <Badge variant="dot">{f.badge}</Badge>
+      </div>
+      <nav class="foot-col" aria-label={f.navLabel}>
+        {t.nav.links.map((l) => <a href={l.href}>{l.label}</a>)}
+      </nav>
+      <div class="foot-col wide">
+        <a href={`mailto:${CONTACT.email}`} aria-label={f.emailLabel}><Icon name="mail" size={20} />{CONTACT.email}</a>
+        <a href={CONTACT.phoneHref} dir="ltr" aria-label={f.phoneLabel}><Icon name="phone" size={20} />{CONTACT.phoneDisplay}</a>
+        <span><Icon name="pin" size={20} label={f.locationLabel} />{t.contact.details.address}</span>
+      </div>
+      <div class="foot-col">
+        {/* Social profile URLs not provided yet */}
+        {f.social.map((s) => <a href="#">{s}</a>)}
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <EdgeLine />
+      <div class="foot-legal">
+        <span>{f.copyright}</span>
+        <a href="#">{f.privacy}</a>
+        <a href="#">{f.terms}</a>
+      </div>
+      <a class="to-top" href="#top"><span>{f.toTop}</span><Icon name="arrow-up" size={16} /></a>
+    </div>
+  </div>
+</footer>

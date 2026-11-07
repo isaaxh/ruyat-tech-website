@@ -1,0 +1,55 @@
+---
+import HexFx from '../ui/HexFx.astro';
+import SectionHead from '../ui/SectionHead.astro';
+import Button from '../ui/Button.astro';
+import PhoneFrames from './work/PhoneFrames.astro';
+import MacbookFrame from './work/MacbookFrame.astro';
+import CaseInfo from './work/CaseInfo.astro';
+import { LINKS } from '../../config';
+import type { Dictionary } from '../../i18n';
+import quickbite1 from '../../assets/work/quickbite-1.jpg';
+import quickbite2 from '../../assets/work/quickbite-2.jpg';
+import quickbite3 from '../../assets/work/quickbite-3.jpg';
+import moneylion from '../../assets/work/moneylion.jpg';
+import perdana from '../../assets/work/perdana.jpg';
+
+interface Props {
+  t: Dictionary;
+}
+const w = Astro.props.t.work;
+const qb = w.quickbite;
+---
+
+<section id="work" class="section hexbg hex-r hex2-bl" aria-labelledby="work-title">
+  <HexFx mode="beam" focus="1,0.55,0.4,0.45" />
+  <HexFx mode="flash" focus="0,1,0.34,0.42" second />
+  <div class="wrap">
+    <SectionHead id="work-title" title={w.title} lede={w.lede} />
+
+    <article class="case-feature">
+      <PhoneFrames
+        shots={[
+          { src: quickbite1, alt: qb.shots[0] },
+          { src: quickbite2, alt: qb.shots[1] },
+          { src: quickbite3, alt: qb.shots[2] },
+        ]}
+      />
+      <CaseInfo tag={qb.tag} client={qb.client} desc={qb.desc} />
+    </article>
+
+    <div class="case-pair">
+      <article>
+        <MacbookFrame href={LINKS.moneylion} label={w.moneylion.shotLabel} src={moneylion} alt={w.moneylion.shotAlt} />
+        <CaseInfo tag={w.moneylion.tag} client={w.moneylion.client} desc={w.moneylion.desc} href={LINKS.moneylion} visitLabel={w.visit} />
+      </article>
+      <article>
+        <MacbookFrame href={LINKS.perdana} label={w.perdana.shotLabel} src={perdana} alt={w.perdana.shotAlt} />
+        <CaseInfo tag={w.perdana.tag} client={w.perdana.client} desc={w.perdana.desc} href={LINKS.perdana} visitLabel={w.visit} />
+      </article>
+    </div>
+
+    <div class="work-cta">
+      <Button href="#contact" variant="secondary" size="lg">{w.cta}</Button>
+    </div>
+  </div>
+</section>

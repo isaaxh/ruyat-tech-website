@@ -1,0 +1,21 @@
+---
+// One stage: diamond on a vertical rail (the rail lights up under the cursor), number, title and sentence.
+import Diamond from '../../ui/Diamond.astro';
+import EdgeLine from '../../ui/EdgeLine.astro';
+
+interface Props {
+  hud: string;
+  title: string;
+  desc: string;
+}
+const { hud, title, desc } = Astro.props;
+---
+
+<li class="step">
+  <div class="step-rail"><EdgeLine vertical /><Diamond size={12} /></div>
+  <div class="step-body">
+    <span class="rt-hud">{hud}</span>
+    <h3 class="step-title">{title}</h3>
+    <p class="step-desc">{desc}</p>
+  </div>
+</li>
