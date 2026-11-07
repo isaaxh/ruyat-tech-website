@@ -16,6 +16,8 @@
 .opt{font-weight:400;color:var(--rt-text-muted)}
 .ctl{width:100%;height:52px;padding:0 20px;border:1px solid var(--rt-border-control);border-radius:999px;background:var(--rt-void);color:var(--rt-text);font-family:var(--font-body);font-size:16px;outline:none;transition:border-color 300ms var(--rt-ease-out),box-shadow 400ms var(--rt-ease-out),background-color 300ms var(--rt-ease-out);-webkit-appearance:none;appearance:none}
 .ctl::placeholder{color:var(--rt-ink-400);opacity:1}
+/* Not in the design: keeps a field focused by validation clear of the sticky nav */
+.ctl{scroll-margin-top:112px}
 .ctl:hover{border-color:rgba(238,241,248,.28)}
 .page .ctl:focus-visible{outline:none}
 .ctl:focus{border-color:rgba(240,179,94,.45);box-shadow:0 8px 28px -10px rgba(240,179,94,.35),0 0 16px -4px rgba(240,179,94,.18)}
