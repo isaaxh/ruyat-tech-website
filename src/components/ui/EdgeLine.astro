@@ -1,0 +1,9 @@
+---
+// Cursor light on a divider line. "vertical" is the rail between process steps.
+interface Props {
+  vertical?: boolean;
+}
+const { vertical = false } = Astro.props;
+---
+
+<span class:list={['edge-line', { v: vertical }]} aria-hidden="true"></span>

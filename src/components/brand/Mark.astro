@@ -1,0 +1,17 @@
+---
+// The Ruyat Tech hexagon mark. "full" is the standard mark; "badge" is the wider-eye variant used inside badges.
+interface Props {
+  variant?: 'full' | 'badge';
+  size?: number;
+  /** Accessible name; when omitted the mark is decorative. */
+  label?: string;
+}
+
+const { variant = 'full', size, label } = Astro.props;
+const d =
+  variant === 'badge'
+    ? 'M50 5 L89 27.5 V72.5 L50 95 L11 72.5 V27.5 Z M17 50 Q50 18 83 50 Q50 82 17 50 Z M50 41.5 L58.5 50 L50 58.5 L41.5 50 Z'
+    : 'M50 5 L89 27.5 V72.5 L50 95 L11 72.5 V27.5 Z M22 50 Q50 24 78 50 Q50 76 22 50 Z M50 37.27 L62.73 50 L50 62.73 L37.27 50 Z';
+---
+
+<svg viewBox="0 0 100 100" width={size} height={size} role={label ? 'img' : undefined} aria-label={label} aria-hidden={label ? undefined : 'true'}><path fill="#F0B35E" fill-rule="evenodd" d={d}></path></svg>

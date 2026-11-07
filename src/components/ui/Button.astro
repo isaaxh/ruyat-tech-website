@@ -1,0 +1,49 @@
+---
+// Design-system button (.rt-btn). Renders <a> when href is set, otherwise <button>.
+// Secondary buttons get the "fill from cursor" hover via scripts/fill-from.ts.
+import Arrow from '../icons/Arrow.astro';
+
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'ghost';
+  size?: 'sm' | 'md' | 'lg';
+  /** Show a trailing arrow ("ne" for external links). */
+  arrow?: 'right' | 'ne';
+  arrowSize?: number;
+  external?: boolean;
+  type?: 'button' | 'submit';
+  class?: string;
+  [attr: string]: unknown;
+}
+
+const {
+  href,
+  variant = 'primary',
+  size = 'md',
+  arrow,
+  arrowSize = 18,
+  external = false,
+  type = 'button',
+  class: extra,
+  ...rest
+} = Astro.props;
+
+const cls = ['rt-btn', `rt-btn--${variant}`, size !== 'md' && `rt-btn--${size}`, extra].filter(Boolean).join(' ');
+const ext = external ? { target: '_blank', rel: 'noopener' } : {};
+// Buttons with an arrow wrap their label in a <span>, as in the design.
+const wrapLabel = Boolean(arrow);
+---
+
+{
+  href ? (
+    <a class={cls} href={href} {...ext} {...rest}>
+      {wrapLabel ? <span><slot /></span> : <slot />}
+      {arrow && <Arrow size={arrowSize} direction={arrow} />}
+    </a>
+  ) : (
+    <button class={cls} type={type} {...rest}>
+      {wrapLabel ? <span><slot /></span> : <slot />}
+      {arrow && <Arrow size={arrowSize} direction={arrow} />}
+    </button>
+  )
+}

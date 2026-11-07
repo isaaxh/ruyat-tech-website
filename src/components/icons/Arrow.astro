@@ -1,0 +1,14 @@
+---
+// Arrow used inside buttons and links. Carries the .arw class so it nudges on hover (and mirrors in RTL).
+import Icon from './Icon.astro';
+
+interface Props {
+  size?: number;
+  /** "ne" is the outbound (north-east) arrow used on external links. */
+  direction?: 'right' | 'ne';
+}
+
+const { size = 18, direction = 'right' } = Astro.props;
+---
+
+<Icon name={direction === 'ne' ? 'arrow-ne' : 'arrow'} size={size} class={direction === 'ne' ? 'arw arw-ne' : 'arw'} />

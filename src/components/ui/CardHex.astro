@@ -1,0 +1,9 @@
+---
+// Faded hexagon texture inside a card: top-right by default, bottom-left with corner="bl".
+interface Props {
+  corner?: 'tr' | 'bl';
+}
+const { corner = 'tr' } = Astro.props;
+---
+
+<span class:list={['card-hex', { bl: corner === 'bl' }]} aria-hidden="true"></span>

@@ -1,0 +1,10 @@
+---
+// The gold "pupil" diamond from the design system.
+interface Props {
+  size: number;
+  error?: boolean;
+}
+const { size, error = false } = Astro.props;
+---
+
+<span class:list={['rt-diamond', { 'rt-diamond--error': error }]} style={`width: ${size}px; height: ${size}px`}></span>

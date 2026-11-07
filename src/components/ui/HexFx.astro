@@ -1,0 +1,14 @@
+---
+// Animated hexagon lattice layer for a section background (driven by scripts/hex-fx.ts).
+// focus = "fx,fy,rx,ry": centre and radii of the patch, as fractions of the canvas.
+interface Props {
+  mode: 'beam' | 'flash';
+  focus: string;
+  fade?: 'both' | 'top' | 'none';
+  /** Second layer: uses the section's --hex-mask2 patch. */
+  second?: boolean;
+}
+const { mode, focus, fade, second = false } = Astro.props;
+---
+
+<canvas class:list={['hexfx', { fx2: second }]} data-mode={mode} data-focus={focus} data-fade={fade} aria-hidden="true"></canvas>
