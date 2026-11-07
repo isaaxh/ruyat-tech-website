@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ruyat-tech-website",
+  "compatibility_date": "2026-11-04",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  }
+  // Uncomment to attach tech.ruyat.sa as a Workers Custom Domain on deploy.
+  // Wrangler then creates the DNS record for `tech` only; nothing else on ruyat.sa changes.
+  // "routes": [{ "pattern": "tech.ruyat.sa", "custom_domain": true }]
+}
