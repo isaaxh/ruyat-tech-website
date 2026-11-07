@@ -1,0 +1,47 @@
+{
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-07T11:40:00Z"
+  },
+  "title": "Ruyat Tech website",
+  "launch": {
+    "view": "focused",
+    "file": "Main.dc.html"
+  },
+  "pages": [],
+  "boards": {
+    "Main.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 10900,
+      "title": "Homepage, English",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "Main-ar.dc.html": {
+      "x": 1540,
+      "y": 0,
+      "w": 1440,
+      "h": 10900,
+      "title": "Homepage, Arabic",
+      "expand": "fill",
+      "is_interactive": true
+    }
+  },
+  "order": [
+    "Main.dc.html",
+    "Main-ar.dc.html"
+  ],
+  "notes": {},
+  "designSystems": [
+    {
+      "title": "Ruyat Tech",
+      "namespace": "ruyattech",
+      "artifact": "https://claude.ai/artifact/JXtFQT85kjY8gmNhrmz4yV",
+      "version": "1794048865-c867",
+      "copiedAt": "2026-11-07T11:40:00Z"
+    }
+  ]
+}

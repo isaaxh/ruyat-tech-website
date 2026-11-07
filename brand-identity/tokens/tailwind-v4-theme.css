@@ -1,0 +1,40 @@
+/* Tailwind v4: @import this file after @import "tailwindcss"; */
+@theme {
+  --color-gold-50: #FEF7EC;
+  --color-gold-100: #FCEBD0;
+  --color-gold-200: #F9DAA8;
+  --color-gold-300: #F6C887;
+  --color-gold-400: #F3BD71;
+  --color-gold-500: #F0B35E;
+  --color-gold-600: #D3943D;
+  --color-gold-700: #AE7424;
+  --color-gold-800: #8A5A12;
+  --color-gold-900: #5A3A0B;
+  --color-ink-50: #F7F8FC;
+  --color-ink-100: #EEF1F8;
+  --color-ink-200: #D3D8E5;
+  --color-ink-300: #A7B0C8;
+  --color-ink-400: #7A86A6;
+  --color-ink-500: #4F5F8C;
+  --color-ink-600: #2A3D74;
+  --color-ink-700: #142A63;
+  --color-ink-800: #0A1C4A;
+  --color-ink-900: #041238;
+  --color-ink-950: #030A1F;
+  --color-success: #3DD68C;
+  --color-warning: #FF9F43;
+  --color-error: #FF5C6C;
+  --color-info: #5B8CFF;
+  --color-void: #030A1F;
+  --color-navy: #041238;
+  --color-frost: #EEF1F8;
+  --color-lumen: #FFD9A0;
+  --font-display: 'Satoshi', 'Readex Pro', 'Inter', system-ui, sans-serif;
+  --font-display-ar: 'Readex Pro', 'Satoshi', system-ui, sans-serif;
+  --font-sans-ar: 'IBM Plex Sans Arabic', 'Inter', system-ui, sans-serif;
+  --font-sans: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --ease-rt-out: cubic-bezier(.22,1,.36,1);
+  --ease-rt-in-out: cubic-bezier(.65,0,.35,1);
+  --ease-rt-in: cubic-bezier(.4,0,1,1);
+}

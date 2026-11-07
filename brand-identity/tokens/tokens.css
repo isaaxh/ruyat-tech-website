@@ -1,0 +1,110 @@
+:root {
+  /* Ruyat Tech design tokens — generated from tokens.json */
+  --rt-vision-gold: #F0B35E;
+  --rt-midnight-navy: #041238;
+  --rt-void: #030A1F;
+  --rt-deep-gold: #8A5A12;
+  --rt-frost: #EEF1F8;
+  --rt-lumen: #FFD9A0;
+  --rt-gold-50: #FEF7EC;
+  --rt-gold-100: #FCEBD0;
+  --rt-gold-200: #F9DAA8;
+  --rt-gold-300: #F6C887;
+  --rt-gold-400: #F3BD71;
+  --rt-gold-500: #F0B35E;
+  --rt-gold-600: #D3943D;
+  --rt-gold-700: #AE7424;
+  --rt-gold-800: #8A5A12;
+  --rt-gold-900: #5A3A0B;
+  --rt-ink-50: #F7F8FC;
+  --rt-ink-100: #EEF1F8;
+  --rt-ink-200: #D3D8E5;
+  --rt-ink-300: #A7B0C8;
+  --rt-ink-400: #7A86A6;
+  --rt-ink-500: #4F5F8C;
+  --rt-ink-600: #2A3D74;
+  --rt-ink-700: #142A63;
+  --rt-ink-800: #0A1C4A;
+  --rt-ink-900: #041238;
+  --rt-ink-950: #030A1F;
+  --rt-signal-success: #3DD68C;
+  --rt-signal-warning: #FF9F43;
+  --rt-signal-error: #FF5C6C;
+  --rt-signal-info: #5B8CFF;
+  --rt-gradient-horizon: radial-gradient(60% 60% at 50% 0%, rgba(240,179,94,.35) 0%, rgba(240,179,94,0) 70%);
+  --rt-gradient-deep-space: linear-gradient(180deg, #030A1F 0%, #0A1C4A 100%);
+  --rt-gradient-gold-edge: linear-gradient(135deg, #FFD9A0 0%, #F0B35E 45%, #AE7424 100%);
+  --rt-font-display: 'Satoshi', 'Readex Pro', 'Inter', system-ui, sans-serif;
+  --rt-font-display-ar: 'Readex Pro', 'Satoshi', system-ui, sans-serif;
+  --rt-font-body: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif;
+  --rt-font-body-ar: 'IBM Plex Sans Arabic', 'Inter', system-ui, sans-serif;
+  --rt-font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --rt-radius-xs: 4px;
+  --rt-radius-sm: 8px;
+  --rt-radius-md: 12px;
+  --rt-radius-lg: 20px;
+  --rt-radius-xl: 28px;
+  --rt-radius-pill: 999px;
+  --rt-space-1: 4px;
+  --rt-space-2: 8px;
+  --rt-space-3: 12px;
+  --rt-space-4: 16px;
+  --rt-space-5: 24px;
+  --rt-space-6: 32px;
+  --rt-space-7: 48px;
+  --rt-space-8: 64px;
+  --rt-space-9: 96px;
+  --rt-space-10: 128px;
+  --rt-shadow-glow-gold: 0 0 0 1px rgba(240,179,94,.35), 0 8px 32px -8px rgba(240,179,94,.45);
+  --rt-shadow-elev-1: 0 1px 0 0 rgba(255,255,255,.06) inset, 0 8px 24px -12px rgba(0,0,0,.6);
+  --rt-ease-out: cubic-bezier(.22,1,.36,1);
+  --rt-ease-in-out: cubic-bezier(.65,0,.35,1);
+  --rt-ease-in: cubic-bezier(.4,0,1,1);
+  --rt-instant: 100ms;
+  --rt-fast: 160ms;
+  --rt-base: 280ms;
+  --rt-slow: 600ms;
+  --rt-ambient: 8s;
+  --rt-reveal-distance: 20px;
+  --rt-stagger: 70ms;
+
+  /* Semantic (dark-first) */
+  --rt-bg: var(--rt-void);
+  --rt-surface: var(--rt-midnight-navy);
+  --rt-surface-2: var(--rt-ink-800);
+  --rt-text: var(--rt-frost);
+  --rt-text-muted: var(--rt-ink-300);
+  --rt-accent: var(--rt-vision-gold);
+  --rt-on-accent: var(--rt-midnight-navy);
+  --rt-border: rgba(238,241,248,.10);
+}
+
+[data-theme="light"] {
+  --rt-bg: #FFFFFF;
+  --rt-surface: var(--rt-ink-50);
+  --rt-surface-2: var(--rt-ink-100);
+  --rt-text: var(--rt-midnight-navy);
+  --rt-text-muted: var(--rt-ink-500);
+  --rt-accent: var(--rt-deep-gold);
+  --rt-on-accent: #FFFFFF;
+  --rt-border: rgba(4,18,56,.10);
+}
+
+.rt-display-xl { font-family: var(--rt-font-display); font-size: 96px; line-height: 0.95; font-weight: 900; letter-spacing: -0.045em; }
+.rt-display { font-family: var(--rt-font-display); font-size: 72px; line-height: 1.0; font-weight: 900; letter-spacing: -0.04em; }
+.rt-h1 { font-family: var(--rt-font-display); font-size: 56px; line-height: 1.05; font-weight: 700; letter-spacing: -0.035em; }
+.rt-h2 { font-family: var(--rt-font-display); font-size: 40px; line-height: 1.1; font-weight: 700; letter-spacing: -0.03em; }
+.rt-h3 { font-family: var(--rt-font-display); font-size: 28px; line-height: 1.2; font-weight: 700; letter-spacing: -0.02em; }
+.rt-h4 { font-family: var(--rt-font-display); font-size: 20px; line-height: 1.3; font-weight: 700; letter-spacing: -0.01em; }
+.rt-body-lg { font-family: var(--rt-font-body); font-size: 18px; line-height: 1.6; font-weight: 400; letter-spacing: 0; }
+.rt-body { font-family: var(--rt-font-body); font-size: 16px; line-height: 1.6; font-weight: 400; letter-spacing: 0; }
+.rt-small { font-family: var(--rt-font-body); font-size: 14px; line-height: 1.5; font-weight: 400; letter-spacing: 0; }
+.rt-label { font-family: var(--rt-font-mono); font-size: 12px; line-height: 1.4; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; }
+
+/* Motion: soft, easy, unhurried. Honour reduced-motion everywhere. */
+@media (prefers-reduced-motion: reduce) { :root { --rt-instant: 0ms; --rt-fast: 0ms; --rt-base: 0ms; --rt-slow: 0ms; --rt-stagger: 0ms; --rt-reveal-distance: 0px; } }
+
+/* Arabic / RTL: Readex Pro headings, IBM Plex Sans Arabic body. Never track Arabic letters (it breaks the joins). */
+:lang(ar), [dir="rtl"] { font-family: var(--rt-font-body-ar); line-height: 1.75; }
+:lang(ar) :is(h1,h2,h3,h4,.rt-display-xl,.rt-display,.rt-h1,.rt-h2,.rt-h3,.rt-h4), [dir="rtl"] :is(h1,h2,h3,h4,.rt-display-xl,.rt-display,.rt-h1,.rt-h2,.rt-h3,.rt-h4) { font-family: var(--rt-font-display-ar); line-height: 1.25; font-weight: 700; }
+:lang(ar), :lang(ar) *, [dir="rtl"], [dir="rtl"] * { letter-spacing: 0 !important; text-transform: none; }

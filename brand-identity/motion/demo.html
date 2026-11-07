@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ruyat Tech — motion demo</title>
+<link rel="stylesheet" href="../fonts/fonts.css">
+<link rel="stylesheet" href="../tokens/tokens.css">
+<link rel="stylesheet" href="./motion.css">
+<style>
+  *{box-sizing:border-box;margin:0}
+  body{background:var(--rt-void);color:var(--rt-frost);font-family:var(--rt-font-body);-webkit-font-smoothing:antialiased}
+  .hero{min-height:100vh;display:flex;flex-direction:column;background:radial-gradient(60% 50% at 70% 0%,rgba(240,179,94,.10),transparent 70%),var(--rt-void)}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:28px 48px}
+  nav img{height:34px}
+  .pill{display:inline-flex;align-items:center;height:48px;padding:0 24px;border-radius:999px;font:600 16px var(--rt-font-display);letter-spacing:-.01em;text-decoration:none}
+  .pri{background:var(--rt-vision-gold);color:var(--rt-midnight-navy);box-shadow:var(--rt-shadow-glow-gold)}
+  .sec{border:1px solid rgba(238,241,248,.18);color:var(--rt-frost)}
+  .copy{margin:auto 0;padding:0 48px;max-width:980px}
+  .label{font:500 12px var(--rt-font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--rt-vision-gold)}
+  h1{font:900 clamp(56px,9vw,128px)/.95 var(--rt-font-display);letter-spacing:-.045em;margin:20px 0 24px}
+  p{font-size:20px;line-height:1.6;color:var(--rt-ink-300);max-width:560px}
+  .btns{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+  .ctl{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);display:flex;gap:6px;padding:6px;border:1px solid rgba(238,241,248,.18);border-radius:999px;background:rgba(4,18,56,.8);backdrop-filter:blur(10px);z-index:5}
+  .ctl button{font:500 14px var(--rt-font-body);color:var(--rt-ink-300);background:none;border:0;padding:9px 18px;border-radius:999px;cursor:pointer;transition:background var(--rt-fast) var(--rt-ease-out),color var(--rt-fast) var(--rt-ease-out)}
+  .ctl button[aria-pressed=true]{background:var(--rt-vision-gold);color:var(--rt-midnight-navy)}
+</style>
+</head>
+<body>
+<header class="hero rt-lattice" id="hero">
+  <nav data-reveal><img src="../logo/svg/ruyat-tech-horizontal-dark.svg" alt="Ruyat Tech"><a class="pill sec rt-press" href="#">Start a project</a></nav>
+  <div class="copy" id="copy">
+    <span class="label" data-reveal>Apps · Web · Automation</span>
+    <h1 data-reveal>Vision,<br>engineered.</h1>
+    <p data-reveal>Mobile apps, web apps, websites and automation for new businesses. From the first idea to launch day.</p>
+    <div class="btns" data-reveal><a class="pill pri rt-press rt-lift" href="#">Start a project ↗</a><a class="pill sec rt-press rt-lift" href="#">See our work</a></div>
+  </div>
+</header>
+<div class="ctl" role="group" aria-label="Lattice effect">
+  <button data-m="flash" aria-pressed="true">Tile flash</button>
+  <button data-m="beam" aria-pressed="false">Edge beam</button>
+  <button data-m="pulse" aria-pressed="false">Pulse</button>
+  <button data-m="all" aria-pressed="false">All</button>
+  <button data-m="still" aria-pressed="false">Still</button>
+</div>
+<script src="./ruyat-motion.js"></script>
+<script>
+  const { mountFacetLattice, initReveal } = RuyatMotion;
+  initReveal();
+  const lattice = mountFacetLattice(document.getElementById('hero'), { mode: 'flash', avoid: '#copy > *' });
+  document.querySelectorAll('.ctl button').forEach((b) => b.addEventListener('click', () => {
+    lattice.setMode(b.dataset.m);
+    document.querySelectorAll('.ctl button').forEach((x) => x.setAttribute('aria-pressed', x === b));
+  }));
+</script>
+</body>
+</html>
