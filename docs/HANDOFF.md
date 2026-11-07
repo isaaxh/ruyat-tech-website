@@ -42,6 +42,9 @@ Full brief: `handoff /PROMPT.md`. Reference screenshots: `reference/*.png`.
 - [x] Scaffold, Cloudflare config, README
 - [x] CSS port, i18n, components, scripts, both pages
 - [x] Visual check 1440/390 EN+AR against reference
-- [ ] Playwright e2e tests (behaviour, a11y, no h-scroll at 320, links, RTL keys/swipe, WhatsApp URL)
-- [ ] 768/1100 checks, reduced motion, keyboard pass, Lighthouse
-- [ ] README: differences list, "to finish" list, new copy to approve
+- [x] Playwright e2e tests: 58 passing (`npm test`)
+- [x] 768/1100 checks, reduced motion, keyboard basics, form states (error/success, EN/AR)
+- [x] Lighthouse mobile: perf 98-99, a11y 97 (tq-dot target size, design-bound), BP 100, SEO 100.
+      One early run gave perf 68: noise from other processes; re-runs were stable at 98-99.
+- [x] README: differences list, "to finish" list, new copy to approve
+- [ ] Waiting on the user: approve new copy, provide social/legal URLs and OG image, then deploy + DNS
