@@ -3,13 +3,10 @@ import { ar } from './ar';
 
 export type Locale = 'en' | 'ar';
 
-export interface Dictionary {
-  lang: Locale;
-  dir: 'ltr' | 'rtl';
-  meta: { title: string; description: string };
-}
+/** Shape of a copy dictionary. English is the source of truth; Arabic must match it. */
+export type Dictionary = Omit<typeof en, 'lang' | 'dir'> & { lang: Locale; dir: 'ltr' | 'rtl' };
 
-const dictionaries: Record<Locale, Dictionary> = { en, ar };
+const dictionaries: Record<Locale, Dictionary> = { en: en as Dictionary, ar };
 
 export const locales: Locale[] = ['en', 'ar'];
 
