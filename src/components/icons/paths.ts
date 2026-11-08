@@ -1,5 +1,8 @@
 // 24x24 line icons (stroke 1.5, round caps), copied from the design's inline SVGs.
 export const ICONS = {
+  instagram: '<rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"></circle>',
+  tiktok: '<path d="M14 3.5v10.2a3.7 3.7 0 1 1-3.7-3.7"></path><path d="M14 3.5c.3 2.4 1.9 4 4.6 4.2"></path>',
+  snapchat: '<path d="M12 3.5c-2.7 0-4.5 2-4.5 4.6v2.3c-.9.3-2.2.7-2.2 1.3 0 .6 1.1.8 1.7 1-.4 1.200-1.400 2.200-2.700 2.800.8.5 1.800.6 2.500.7.4.8 1.100 1.100 2.100.9.9-.2 1.500.7 3.100.7s2.200-.9 3.100-.7c1 .2 1.700-.1 2.100-.9.7-.1 1.700-.2 2.500-.7-1.300-.6-2.300-1.600-2.700-2.800.6-.2 1.700-.4 1.700-1 0-.6-1.300-1-2.200-1.300V8.100c0-2.600-1.800-4.600-4.500-4.600z"></path>',
   arrow: '<path d="M4.75 12h14.5M13.5 6.25L19.25 12l-5.75 5.75"></path>',
   'arrow-ne': '<path d="M7 17L17 7M8.5 7H17v8.5"></path>',
   'arrow-up': '<path d="M12 19.25V4.75M6.25 10.5L12 4.75l5.75 5.75"></path>',

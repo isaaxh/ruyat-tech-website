@@ -12,6 +12,8 @@ interface Props {
 }
 const { t } = Astro.props;
 const f = t.footer;
+// Same order as SOCIAL_LINKS and footer.social
+const SOCIAL_ICONS = ['instagram', 'tiktok', 'snapchat'] as const;
 ---
 
 <footer class="footer hexbg hex-bl hex2-tr" style="--edge-fade: linear-gradient(180deg, transparent 0, #000 160px)">
@@ -35,8 +37,8 @@ const f = t.footer;
         <a href={CONTACT.whatsappHref} target="_blank" rel="noopener" aria-label={f.whatsappLabel}><Icon name="chat" size={20} /><bdi dir="ltr">{CONTACT.whatsappDisplay}</bdi></a>
         <a href={CONTACT.mapsHref} target="_blank" rel="noopener"><Icon name="pin" size={20} label={f.locationLabel} />{t.contact.details.address}</a>
       </div>
-      <div class="foot-col">
-        {f.social.map((s, i) => <a href={SOCIAL_LINKS[i]} target="_blank" rel="noopener">{s}</a>)}
+      <div class="foot-col social">
+        {f.social.map((s, i) => <a href={SOCIAL_LINKS[i]} target="_blank" rel="noopener"><Icon name={SOCIAL_ICONS[i]} size={20} />{s}</a>)}
       </div>
     </div>
     <div class="foot-bottom">

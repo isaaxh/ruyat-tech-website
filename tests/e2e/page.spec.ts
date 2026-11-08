@@ -124,6 +124,7 @@ test('footer and details list carry the real social and contact links', async ({
     'https://www.tiktok.com/@ruyat.sa',
     'https://www.snapchat.com/add/ruyat.sa',
   ]);
+  await expect(page.locator('.foot-col.social a svg')).toHaveCount(3);
   for (const scope of ['.foot-col.wide', '.reach']) {
     const links = await hrefs(`${scope} a`);
     expect(links).toContain('mailto:info@ruyat.sa');

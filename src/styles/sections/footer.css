@@ -17,5 +17,5 @@
 .to-top{display:inline-flex;align-items:center;gap:8px}
 @media (max-width:1100px){.foot-brand{grid-column:1 / span 12}.foot-col,.foot-col.wide{grid-column:span 4}}
 @media (max-width:640px){.foot-col,.foot-col.wide{grid-column:span 12}}
-.foot-col.wide>*{display:flex;align-items:center;gap:12px}
-.foot-col.wide>* svg{flex:none;color:var(--rt-accent)}
+.foot-col.wide>*,.foot-col.social>*{display:flex;align-items:center;gap:12px}
+.foot-col.wide>* svg,.foot-col.social>* svg{flex:none;color:var(--rt-accent)}
