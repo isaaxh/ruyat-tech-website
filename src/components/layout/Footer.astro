@@ -31,7 +31,7 @@ const f = t.footer;
       </nav>
       <div class="foot-col wide">
         <a href={`mailto:${CONTACT.email}`} aria-label={f.emailLabel}><Icon name="mail" size={20} />{CONTACT.email}</a>
-        <a href={CONTACT.phoneHref} dir="ltr" aria-label={f.phoneLabel}><Icon name="phone" size={20} />{CONTACT.phoneDisplay}</a>
+        <a href={CONTACT.phoneHref} aria-label={f.phoneLabel}><Icon name="phone" size={20} /><bdi dir="ltr">{CONTACT.phoneDisplay}</bdi></a>
         <span><Icon name="pin" size={20} label={f.locationLabel} />{t.contact.details.address}</span>
       </div>
       <div class="foot-col">
