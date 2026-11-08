@@ -59,4 +59,7 @@ Full brief: `handoff /PROMPT.md` (its "copy exactly from the design" rule is sup
       `sections/worries.css`); nav labels طريقة شغلنا / كلمنا; Arabic voice rules recorded in README.
 - [x] Round 5 (2026-11-08): copy approved; one number (+966 58 357 9979) for phone, WhatsApp and form; cookie banner removed.
 - [x] OG image `public/og-image.png` (1200x630, made from the logo; regenerate via `.scratch/og.html`, not committed).
-- [ ] Left: real Privacy/Terms URLs (placeholders for now), then deploy + DNS
+- [x] Deployed 2026-11-08: Worker `ruyat-tech-website` via Cloudflare Workers Builds from GitHub `main` (auto-redeploy on push).
+      Custom domain `tech.ruyat.sa` added in the dashboard (not in wrangler.jsonc, routes stay commented). Live: `/`, `/en/`,
+      og-image and 404 all checked. workers.dev URL is off.
+- [ ] Left: real Privacy/Terms URLs (placeholders for now); check WhatsApp share preview

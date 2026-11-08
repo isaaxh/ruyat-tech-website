@@ -103,10 +103,12 @@ the section, and don't reorder the imports.
 
 Deploys use Cloudflare Workers with static assets, Cloudflare's recommended path for new Astro projects. A fully static site does not need the `@astrojs/cloudflare` adapter. Config is in `wrangler.jsonc`.
 
+**Live setup (since 2026-11-08):** the Worker `ruyat-tech-website` is connected to this GitHub repo through Cloudflare Workers Builds (build `npm run build`, deploy `npx wrangler deploy`). Every push to `main` redeploys. The workers.dev URL is switched off; the site is served from `https://tech.ruyat.sa`.
+
+Manual deploy (needs a real terminal, not a non-interactive shell):
+
 1. Log in once: `npx wrangler login`
 2. Deploy: `npm run deploy`
-
-The first deploy publishes to `https://ruyat-tech-website.<your-subdomain>.workers.dev`. Check the site there before attaching the domain.
 
 ## DNS: pointing tech.ruyat.sa at the Worker
 
@@ -161,4 +163,3 @@ Once done, the zone's DNS tab shows a `tech` record of type **Worker**. Do not a
 
 - Privacy policy and Terms are `#` placeholders in the footer. Social links (Instagram, TikTok, Snapchat),
   phone and map link come from `website-copy/` and live in `src/config.ts`.
-- Deploy and attach the `tech.ruyat.sa` custom domain (steps above).
