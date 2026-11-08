@@ -141,7 +141,10 @@ Once done, the zone's DNS tab shows a `tech` record of type **Worker**. Do not a
 
 ## To finish
 
-- Social links (LinkedIn, X, Instagram), Privacy policy and Terms are `#` placeholders in the footer.
+- Privacy policy and Terms are `#` placeholders in the footer. Social links (Instagram, TikTok, Snapchat), the WhatsApp
+  contact, phone and map link come from `website-copy/` and live in `src/config.ts`.
+- **Two WhatsApp numbers**: the form sends to `WHATSAPP_NUMBER` (+966 58 357 9979, per the brief) but `website-copy/`
+  lists +966 53 488 0040 as the WhatsApp contact. Confirm which one should receive form messages.
 - No Open Graph image exists yet (`og:image`); add one to `public/` and to `src/layouts/Base.astro`.
 - The cookie banner text says the site uses cookies, but the site sets none (it only stores the banner choice in
   `localStorage`). Confirm the wording or whether the banner is needed.

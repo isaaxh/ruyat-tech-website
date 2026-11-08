@@ -47,4 +47,6 @@ Full brief: `handoff /PROMPT.md`. Reference screenshots: `reference/*.png`.
 - [x] Lighthouse mobile: perf 98-99, a11y 97 (tq-dot target size, design-bound), BP 100, SEO 100.
       One early run gave perf 68: noise from other processes; re-runs were stable at 98-99.
 - [x] README: differences list, "to finish" list, new copy to approve
+- [x] Round 2 (2026-11-08): AR footer phone alignment, social/contact details from website-copy, "Send on WhatsApp" label,
+      gold quote marks on testimonials, AR title "أعمال نفتخر بها", button CTA in How we work. 61 tests passing.
 - [ ] Waiting on the user: approve new copy, provide social/legal URLs and OG image, then deploy + DNS

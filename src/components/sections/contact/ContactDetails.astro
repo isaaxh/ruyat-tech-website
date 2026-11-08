@@ -14,6 +14,7 @@ const d = c.details;
 <dl class="reach" aria-label={c.reachLabel}>
   <div><dt title={d.email}><Icon name="mail" size={20} /><span class="sr">{d.email}</span></dt><dd><a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></dd></div>
   <div><dt title={d.phone}><Icon name="phone" size={20} /><span class="sr">{d.phone}</span></dt><dd><a href={CONTACT.phoneHref} dir="ltr">{CONTACT.phoneDisplay}</a></dd></div>
-  <div><dt title={d.location}><Icon name="pin" size={20} /><span class="sr">{d.location}</span></dt><dd>{d.address}</dd></div>
+  <div><dt title={d.whatsapp}><Icon name="chat" size={20} /><span class="sr">{d.whatsapp}</span></dt><dd><a href={CONTACT.whatsappHref} target="_blank" rel="noopener" dir="ltr">{CONTACT.whatsappDisplay}</a></dd></div>
+  <div><dt title={d.location}><Icon name="pin" size={20} /><span class="sr">{d.location}</span></dt><dd><a href={CONTACT.mapsHref} target="_blank" rel="noopener">{d.address}</a></dd></div>
   <div><dt title={d.hours}><Icon name="clock" size={20} /><span class="sr">{d.hours}</span></dt><dd>{d.hoursValue}</dd></div>
 </dl>

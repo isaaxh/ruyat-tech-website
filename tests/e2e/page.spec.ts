@@ -51,7 +51,7 @@ for (const p of PAGES) {
         if ((await page.locator(h).count()) !== 1) missing.push(h);
       }
       expect(missing).toEqual([]);
-      // Social, privacy and terms are placeholders until the client provides URLs.
+      // Privacy and terms are placeholders until the client provides URLs.
       expect(placeholders).toEqual(['#']);
     });
 
@@ -59,7 +59,8 @@ for (const p of PAGES) {
       await prepare(page);
       await page.goto(p.path);
       const ext = page.locator('a[href^="http"]');
-      expect(await ext.count()).toBe(4);
+      // 2 case studies, 3 social profiles, WhatsApp and map links (details list and footer)
+      expect(await ext.count()).toBe(11);
       for (const a of await ext.all()) {
         await expect(a).toHaveAttribute('target', '_blank');
         await expect(a).toHaveAttribute('rel', /noopener/);
@@ -111,5 +112,23 @@ test('contact: form comes before the details list below 1100px', async ({ page }
       const formLeft = await page.locator('.form-panel').evaluate((e) => e.getBoundingClientRect().left);
       expect(formLeft).toBeGreaterThan(700);
     }
+  }
+});
+
+test('footer and details list carry the real social and contact links', async ({ page }) => {
+  await prepare(page);
+  await page.goto('/');
+  const hrefs = async (sel: string) => page.locator(sel).evaluateAll((a) => a.map((x) => x.getAttribute('href')));
+  expect(await hrefs('.foot-col:last-child a')).toEqual([
+    'https://www.instagram.com/ruyat.sa/',
+    'https://www.tiktok.com/@ruyat.sa',
+    'https://www.snapchat.com/add/ruyat.sa',
+  ]);
+  for (const scope of ['.foot-col.wide', '.reach']) {
+    const links = await hrefs(`${scope} a`);
+    expect(links).toContain('mailto:info@ruyat.sa');
+    expect(links).toContain('tel:+966583579979');
+    expect(links).toContain('https://wa.me/966534880040');
+    expect(links).toContain('https://www.google.com/maps/dir/?api=1&destination=21.383771,39.785028');
   }
 });
