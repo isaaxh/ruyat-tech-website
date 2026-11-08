@@ -198,3 +198,46 @@ for (const path of ['/', '/ar/']) {
     }
   });
 }
+
+test('section hexagon grids light up softly around the pointer and fade after it leaves', async ({ page }) => {
+  await prepare(page);
+  await page.goto('/');
+  const canvas = page.locator('footer canvas.hexfx').first();
+  await canvas.scrollIntoViewIfNeeded();
+  await page.waitForTimeout(500);
+  const box = (await canvas.boundingBox())!;
+  const x = box.x + 90;
+  const y = box.y + box.height - 90;
+  // Count lit pixels in a window around the pointer, then compare with the pointer held there.
+  const lit = () =>
+    canvas.evaluate(
+      (c: HTMLCanvasElement, [px, py]) => {
+        const r = c.getBoundingClientRect();
+        const s = c.width / r.width;
+        const w = 140 * s;
+        const d = c.getContext('2d')!.getImageData(Math.max(0, (px - r.left) * s - w / 2), Math.max(0, (py - r.top) * s - w / 2), w, w).data;
+        let n = 0;
+        for (let i = 3; i < d.length; i += 4) if (d[i] > 20) n++;
+        return n;
+      },
+      [x, y],
+    );
+  // Random tile flashes also draw here, so compare the quietest of several samples.
+  const quietest = async (move: boolean) => {
+    let min = Infinity;
+    for (let i = 0; i < 10; i++) {
+      if (move) await page.mouse.move(x + (i % 3), y + (i % 3));
+      await page.waitForTimeout(120);
+      min = Math.min(min, await lit());
+    }
+    return min;
+  };
+  await page.mouse.move(2, 2);
+  await page.waitForTimeout(2500);
+  const idle = await quietest(false);
+  const hover = await quietest(true);
+  expect(hover).toBeGreaterThan(idle + 100);
+  await page.mouse.move(2, 2);
+  await page.waitForTimeout(2500);
+  expect(await quietest(false)).toBeLessThan(hover - 100);
+});

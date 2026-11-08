@@ -2,6 +2,8 @@
 // Same grid as facet-tile.svg (R 28, pointy-top), drawn on a canvas that shares the section's fade mask.
 // Beam: a soft comet that travels only along connected edges and turns at corners.
 // Flash: a tile lights up gold and fades like a slow heartbeat.
+// Pointer glow: the hexagon edges near the pointer light up softly and fade shortly after it stops (same idea
+// as the hero lattice, kept much subtler).
 // Each canvas only animates while it is on screen; nothing runs under prefers-reduced-motion.
 
 interface Vert {
@@ -44,6 +46,12 @@ interface Item {
   beams: (Beam | null)[];
   flashes: Flash[];
   next: number;
+  edges?: Path2D;
+  px: number;
+  py: number;
+  lx: number;
+  ly: number;
+  ptrT: number;
 }
 
 const R = 28;
@@ -121,6 +129,40 @@ function build(it: Item): void {
   it.beams = [];
   it.flashes = [];
   it.next = 0;
+  it.edges = new Path2D();
+  for (let a = 0; a < verts.length; a++)
+    for (const b of adj[a])
+      if (b > a) {
+        it.edges.moveTo(verts[a].x, verts[a].y);
+        it.edges.lineTo(verts[b].x, verts[b].y);
+      }
+}
+
+const GLOW_R = 72;
+const GLOW_HOLD = 900;
+const GLOW_FADE = 900;
+
+/** Soft light on the hexagon edges around the pointer. Fades out after the pointer stops or leaves. */
+function drawGlow(it: Item, now: number): void {
+  if (!it.edges) return;
+  const k = Math.max(0, Math.min(1, 1 - (now - it.ptrT - GLOW_HOLD) / GLOW_FADE));
+  if (k <= 0) return;
+  it.lx += (it.px - it.lx) * 0.18;
+  it.ly += (it.py - it.ly) * 0.18;
+  const ctx = it.ctx;
+  const g = ctx.createRadialGradient(it.lx, it.ly, 0, it.lx, it.ly, GLOW_R);
+  g.addColorStop(0, `rgba(255,217,160,${(0.5 * k).toFixed(3)})`);
+  g.addColorStop(0.35, `rgba(240,179,94,${(0.3 * k).toFixed(3)})`);
+  g.addColorStop(0.7, `rgba(240,179,94,${(0.08 * k).toFixed(3)})`);
+  g.addColorStop(1, 'rgba(240,179,94,0)');
+  ctx.strokeStyle = g;
+  ctx.lineJoin = 'round';
+  ctx.globalAlpha = 0.35;
+  ctx.lineWidth = 2.4;
+  ctx.stroke(it.edges);
+  ctx.globalAlpha = 1;
+  ctx.lineWidth = 1.2;
+  ctx.stroke(it.edges);
 }
 
 function spawnBeam(it: Item, delay: number): Beam | null {
@@ -260,6 +302,7 @@ export function initHexFx(): void {
           ctx.stroke();
         }
       }
+      drawGlow(it, now);
     }
     if (any) raf = requestAnimationFrame(frame);
     else last = 0;
@@ -271,6 +314,29 @@ export function initHexFx(): void {
     last = 0;
     kick();
   });
+
+  window.addEventListener(
+    'pointermove',
+    (e) => {
+      const now = performance.now();
+      for (const it of items) {
+        if (!it.visible) continue;
+        const r = it.el.getBoundingClientRect();
+        const x = e.clientX - r.left;
+        const y = e.clientY - r.top;
+        if (x < 0 || y < 0 || x > r.width || y > r.height) continue;
+        // Jump straight to the pointer when the glow is not showing, so it does not slide in from far away.
+        if (now - it.ptrT > GLOW_HOLD + GLOW_FADE) {
+          it.lx = x;
+          it.ly = y;
+        }
+        it.px = x;
+        it.py = y;
+        it.ptrT = now;
+      }
+    },
+    { passive: true },
+  );
 
   document.querySelectorAll<HTMLCanvasElement>('canvas.hexfx').forEach((el) => {
     const ctx = el.getContext('2d');
@@ -296,6 +362,11 @@ export function initHexFx(): void {
       beams: [],
       flashes: [],
       next: 0,
+      px: 0,
+      py: 0,
+      lx: 0,
+      ly: 0,
+      ptrT: -1e9,
     };
     items.push(it);
     build(it);

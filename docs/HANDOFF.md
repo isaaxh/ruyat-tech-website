@@ -49,4 +49,6 @@ Full brief: `handoff /PROMPT.md`. Reference screenshots: `reference/*.png`.
 - [x] README: differences list, "to finish" list, new copy to approve
 - [x] Round 2 (2026-11-08): AR footer phone alignment, social/contact details from website-copy, "Send on WhatsApp" label,
       gold quote marks on testimonials, AR title "أعمال نفتخر بها", button CTA in How we work. 61 tests passing.
+- [x] Round 3: floating WhatsApp button (right side, lifts above cookie banner), pulsing gold dot badges, footer social icons,
+      subtle pointer glow on every section hexagon grid (scripts/hex-fx.ts drawGlow).
 - [ ] Waiting on the user: approve new copy, provide social/legal URLs and OG image, then deploy + DNS
