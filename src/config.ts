@@ -8,9 +8,6 @@ export const CONTACT = {
   email: 'info@ruyat.sa',
   phoneDisplay: '+966 58 357 9979',
   phoneHref: 'tel:+966583579979',
-  /** Public WhatsApp contact shown in the details and footer (from website-copy). */
-  whatsappDisplay: '+966 53 488 0040',
-  whatsappHref: 'https://wa.me/966534880040',
   /** Directions to the office in Ash Shawqiyah, Makkah. */
   mapsHref: 'https://www.google.com/maps/dir/?api=1&destination=21.383771,39.785028',
 } as const;

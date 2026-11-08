@@ -34,7 +34,6 @@ const SOCIAL_ICONS = ['instagram', 'tiktok', 'snapchat'] as const;
       <div class="foot-col wide">
         <a href={`mailto:${CONTACT.email}`} aria-label={f.emailLabel}><Icon name="mail" size={20} />{CONTACT.email}</a>
         <a href={CONTACT.phoneHref} aria-label={f.phoneLabel}><Icon name="phone" size={20} /><bdi dir="ltr">{CONTACT.phoneDisplay}</bdi></a>
-        <a href={CONTACT.whatsappHref} target="_blank" rel="noopener" aria-label={f.whatsappLabel}><Icon name="chat" size={20} /><bdi dir="ltr">{CONTACT.whatsappDisplay}</bdi></a>
         <a href={CONTACT.mapsHref} target="_blank" rel="noopener"><Icon name="pin" size={20} label={f.locationLabel} />{t.contact.details.address}</a>
       </div>
       <div class="foot-col social">

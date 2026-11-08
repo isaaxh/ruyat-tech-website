@@ -10,7 +10,9 @@
 .page[dir="rtl"] .h2{font-weight:700;line-height:1.25}
 .page[dir="rtl"] .svc-card .svc-promise,.page[dir="rtl"] .tq-card blockquote{line-height:1.5}
 .page[dir="rtl"] .step-title,.page[dir="rtl"] .case-client,.page[dir="rtl"] .backed-copy h3,.page[dir="rtl"] .reason h3,.page[dir="rtl"] .svc-meta h3{line-height:1.35}
-.page[dir="rtl"] .lede,.page[dir="rtl"] .svc-desc,.page[dir="rtl"] .step-desc,.page[dir="rtl"] .reason p,.page[dir="rtl"] .case-desc,.page[dir="rtl"] .hero-sub{line-height:1.8}
+.page[dir="rtl"] .worry-card h3{line-height:1.5}
+.page[dir="rtl"] .worry-label{text-transform:none;font-size:14px}
+.page[dir="rtl"] .lede,.page[dir="rtl"] .svc-desc,.page[dir="rtl"] .step-desc,.page[dir="rtl"] .reason p,.page[dir="rtl"] .worry-answer,.page[dir="rtl"] .case-desc,.page[dir="rtl"] .hero-sub{line-height:1.8}
 .page[dir="rtl"] .lang{font-family:'Inter',system-ui,sans-serif;font-size:15px}
 .page[dir="rtl"] .rt-btn{font-family:var(--font-body)}
 /* Mirror direction-dependent details */

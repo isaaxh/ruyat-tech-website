@@ -59,8 +59,8 @@ for (const p of PAGES) {
       await prepare(page);
       await page.goto(p.path);
       const ext = page.locator('a[href^="http"]');
-      // 2 case studies, 3 social profiles, WhatsApp and map links (details list and footer), floating WhatsApp button
-      expect(await ext.count()).toBe(12);
+      // 2 case studies, 3 social profiles, map links (details list and footer), floating WhatsApp button
+      expect(await ext.count()).toBe(10);
       for (const a of await ext.all()) {
         await expect(a).toHaveAttribute('target', '_blank');
         await expect(a).toHaveAttribute('rel', /noopener/);
@@ -129,7 +129,6 @@ test('footer and details list carry the real social and contact links', async ({
     const links = await hrefs(`${scope} a`);
     expect(links).toContain('mailto:info@ruyat.sa');
     expect(links).toContain('tel:+966583579979');
-    expect(links).toContain('https://wa.me/966534880040');
     expect(links).toContain('https://www.google.com/maps/dir/?api=1&destination=21.383771,39.785028');
   }
 });

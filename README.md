@@ -38,6 +38,25 @@ A hidden honeypot field blocks the redirect for bots.
 
 The number lives in one place: `WHATSAPP_NUMBER` in `src/config.ts` (digits only, international format).
 
+## Arabic voice
+
+Arabic copy lives in `src/i18n/ar.ts` and follows `website-copy/ruyat-tech-website-copy-ar.md`. Rules:
+
+- **Register:** friendly, conversational Saudi-leaning white dialect (لهجة بيضاء), not formal Modern Standard Arabic.
+  Modelled on the tone of glow.net.sa/ar.
+- **Common words:** وش (what), الحين (now), كلمنا (talk to us), شوف (see), ما أدري / مو (don't know / not), بدري (early),
+  عشان (so that), ليش (why), زين (good), راح (will).
+- **Address:** speak to the reader directly with "أنت" and as "نحن", a partner and not a vendor.
+- **Sentences:** short and practical, stating what the customer gets. Worry cards open with the customer's own words
+  ("أخاف...", "ما أدري...") followed by "حلنا".
+- **Technical terms** stay in English where people use them (App Store, Google Play, iPhone, Android, MacBook, NDA).
+- **No invented promises.** Only claim what the English copy states: 60-day free maintenance, client ownership, data
+  protection, scope and timeline agreed before work starts, published under the client's accounts.
+- **Keep exactly as they are:** brand names, emails, phone numbers and links.
+- **Testimonials** use the same dialect as the rest of the site ("سعدت بالشغل مع...", "دايمًا يسلّمون...").
+- **Legal pages** (privacy policy, terms) stay in standard Arabic.
+- **English copy** stays plain and friendly (`website-copy/ruyat-tech-website-copy-en.md`).
+
 ## Project structure
 
 ```
@@ -48,7 +67,7 @@ src/
     icons/           Icon (+ paths.ts), Arrow
     ui/              Button, Badge, Diamond, SectionHead, HexFx, Edge, EdgeLine, CardHex
     layout/          Nav, Footer, CookieBanner
-    sections/        Hero, Partners, Services, Process, Work, WhyUs, Testimonials, Contact
+    sections/        Hero, Partners, Services, Worries, Process, Work, WhyUs, Testimonials, Contact
                      (+ one folder per section for its smaller parts)
   i18n/              en.ts, ar.ts copy dictionaries + locale helpers
   layouts/           Base.astro (html lang/dir, canonical, hreflang, og/twitter meta, fonts)
@@ -141,10 +160,8 @@ Once done, the zone's DNS tab shows a `tech` record of type **Worker**. Do not a
 
 ## To finish
 
-- Privacy policy and Terms are `#` placeholders in the footer. Social links (Instagram, TikTok, Snapchat), the WhatsApp
-  contact, phone and map link come from `website-copy/` and live in `src/config.ts`.
-- **Two WhatsApp numbers**: the form sends to `WHATSAPP_NUMBER` (+966 58 357 9979, per the brief) but `website-copy/`
-  lists +966 53 488 0040 as the WhatsApp contact. Confirm which one should receive form messages.
+- Privacy policy and Terms are `#` placeholders in the footer. Social links (Instagram, TikTok, Snapchat),
+  phone and map link come from `website-copy/` and live in `src/config.ts`.
 - No Open Graph image exists yet (`og:image`); add one to `public/` and to `src/layouts/Base.astro`.
 - The cookie banner text says the site uses cookies, but the site sets none (it only stores the banner choice in
   `localStorage`). Confirm the wording or whether the banner is needed.

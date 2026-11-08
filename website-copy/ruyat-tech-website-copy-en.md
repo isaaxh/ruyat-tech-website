@@ -10,10 +10,9 @@
 
 - Tagline: Vision, engineered.
 - Endorsement: Powered by Ruyat Al Enjaz
-- Short line: We build mobile apps, web apps, websites and automation for new businesses.
+- Short line: We build mobile apps, web apps, websites and automation for new businesses, so you can focus on your project.
 - Footer links: Services · Process · Work · Testimonials · Contact
 - Email: info@ruyat.sa → mailto:info@ruyat.sa
-- WhatsApp: +966 53 488 0040 → https://wa.me/966534880040
 - Phone: +966 58 357 9979
 - Location: Ash Shawqiyah, Makkah, Saudi Arabia → https://www.google.com/maps/dir/?api=1&destination=21.383771,39.785028
 - Social links: Instagram → https://www.instagram.com/ruyat.sa/ · TikTok → https://www.tiktok.com/@ruyat.sa · Snapchat → https://www.snapchat.com/add/ruyat.sa
@@ -66,10 +65,45 @@
 
 **Link under each service:** Talk to us about [service name]
 
-## 4. Process
+## 4. Common worries
+
+**Headline:** Thinking about a project? This is probably on your mind
+**Intro:** We hear these a lot. Here's how we answer them.
+
+### Card 1
+
+**The worry:** I don't have any technical experience
+**Our answer:** That's fine. We explain everything in simple words: what we're doing, why, and what comes next.
+
+### Card 2
+
+**The worry:** I have an idea, but I don't know where to start
+**Our answer:** Tell us about your idea and we'll help you find the right first step.
+
+### Card 3
+
+**The worry:** I don't know how long a project takes
+**Our answer:** We agree the features, timeline and scope with you before any work begins, so you know what to expect from day one.
+
+### Card 4
+
+**The worry:** I'm afraid the project will stall after launch
+**Our answer:** After launch we fix bugs and keep your product running at no extra cost for 60 days. After that, we stay with you to update and improve it.
+
+### Card 5
+
+**The worry:** I'm afraid it won't really be mine
+**Our answer:** It's yours from day one. The source code, the accounts and the product are all in your name.
+
+### Card 6
+
+**The worry:** I'm worried about my customers' data
+**Our answer:** We build security in from the start and collect only the data your product needs. Your customers' information stays private, and access stays in your hands.
+
+## 5. Process
 
 **Headline:** How we work
-**Intro:** Six stages, no surprises. You know what's happening at every one.
+**Intro:** Six stages, no surprises. You always know where we are.
 
 ### 1. Discovery & planning
 
@@ -91,13 +125,13 @@ We share progress with you regularly, take your feedback and make changes early.
 
 We publish your product under your own accounts and check that everything works live.
 
-### 6. Maintenance & support
+### 6. After launch
 
-After launch, we keep your product secure and up to date, fix issues and add improvements.
+We stay with you: keeping your product secure and up to date, fixing issues and adding improvements.
 
-**Closing line:** Not sure where you are? Start a project and we'll help you find the right first step.
+**Closing line:** Not sure where to start? Start a project and we'll help you find the right first step.
 
-## 5. Work
+## 6. Work
 
 **Headline:** Work we're proud of
 **Intro:** A few projects, and what they did for the people who asked for them.
@@ -124,7 +158,7 @@ After launch, we keep your product secure and up to date, fix issues and add imp
 
 **Section button:** Start a project like these
 
-## 6. Why us
+## 7. Why us
 
 **Headline:** Your technical partner to launch and beyond
 **Intro:** Choosing who builds your product is a big decision. Here is what you can expect from us.
@@ -149,7 +183,7 @@ After launch, we keep your product secure and up to date, fix issues and add imp
 **Text:** Ruyat Tech is the software arm of Ruyat Al Enjaz, an established company with deep roots in Makkah. That means we're stable, local and here for the long run, so your product has a team behind it long after launch.
 **Badge:** Powered by Ruyat Al Enjaz
 
-## 7. Testimonials
+## 8. Testimonials
 
 **Heading:** Don't just take our word for it.
 
@@ -171,7 +205,7 @@ Gabrial Tania, Business Owner · [Photo or logo]
 
 Muhsin Suhor, Entrepreneur · [Photo or logo]
 
-## 8. Contact
+## 9. Contact
 
 **Headline:** Let's talk about your project
 **Subheading:** Tell us what you want to build. We'll read it and reply with a clear next step.
@@ -204,7 +238,6 @@ Muhsin Suhor, Entrepreneur · [Photo or logo]
 ### Other ways to reach us
 
 - Email: info@ruyat.sa → mailto:info@ruyat.sa
-- WhatsApp: +966 53 488 0040 → https://wa.me/966534880040
 - Phone: +966 58 357 9979
 - Location: Ash Shawqiyah, Makkah, Saudi Arabia → https://www.google.com/maps/dir/?api=1&destination=21.383771,39.785028
 - Hours: 8:30 AM to 6:30 PM

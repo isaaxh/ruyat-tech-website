@@ -1,0 +1,22 @@
+---
+// One "common worry" card: the visitor's own words, then our answer.
+import Edge from '../../ui/Edge.astro';
+import CardHex from '../../ui/CardHex.astro';
+
+interface Props {
+  hud: string;
+  worry: string;
+  answerLabel: string;
+  answer: string;
+}
+const { hud, worry, answerLabel, answer } = Astro.props;
+---
+
+<article class="worry-card">
+  <Edge />
+  <CardHex />
+  <span class="rt-hud">{hud}</span>
+  <h3>{worry}</h3>
+  <p class="worry-label">{answerLabel}</p>
+  <p class="worry-answer">{answer}</p>
+</article>

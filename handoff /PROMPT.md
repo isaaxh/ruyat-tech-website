@@ -70,7 +70,7 @@ There is **no email, no backend and no API route** for the form. When a visitor 
 
 ## 6. Hard rules
 
-- 1:1 with the design. Copy text exactly (English and Arabic). Do not rewrite copy, rename sections or change colours.
+- 1:1 with the design. Copy text exactly (English and Arabic). *(Superseded 2026-11-08: copy now follows `website-copy/*.md`; see README "Arabic voice".)* Do not rewrite copy, rename sections or change colours.
 - Do not add libraries for things CSS or small vanilla JS already do (no Tailwind, no animation libraries, no carousel plugins).
 - Do not touch anything outside this project. Do not change DNS, deploy, or push to a remote without asking me first.
 - Placeholders in the design that I have not filled yet (social links `#`, Privacy policy `#`, Terms `#`) stay as `#` and go in your "to finish" list. Do not invent URLs or legal text.

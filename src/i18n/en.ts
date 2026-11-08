@@ -1,4 +1,4 @@
-// English copy. Text is taken verbatim from design/Main.dc.html.
+// English copy. Text follows website-copy/ruyat-tech-website-copy-en.md (plain, friendly).
 // Strings marked NEW are not in the design (WhatsApp flow, meta tags); see README "Differences from the design".
 export const en = {
   lang: 'en',
@@ -78,11 +78,42 @@ export const en = {
       },
     },
   },
+  worries: {
+    title: 'Thinking about a project? This is probably on your mind',
+    lede: "We hear these a lot. Here's how we answer them.",
+    answerLabel: 'Our answer',
+    cards: [
+      {
+        worry: "I don't have any technical experience",
+        answer: "That's fine. We explain everything in simple words: what we're doing, why, and what comes next.",
+      },
+      {
+        worry: "I have an idea, but I don't know where to start",
+        answer: "Tell us about your idea and we'll help you find the right first step.",
+      },
+      {
+        worry: "I don't know how long a project takes",
+        answer: 'We agree the features, timeline and scope with you before any work begins, so you know what to expect from day one.',
+      },
+      {
+        worry: "I'm afraid the project will stall after launch",
+        answer: 'After launch we fix bugs and keep your product running at no extra cost for 60 days. After that, we stay with you to update and improve it.',
+      },
+      {
+        worry: "I'm afraid it won't really be mine",
+        answer: "It's yours from day one. The source code, the accounts and the product are all in your name.",
+      },
+      {
+        worry: "I'm worried about my customers' data",
+        answer: "We build security in from the start and collect only the data your product needs. Your customers' information stays private, and access stays in your hands.",
+      },
+    ],
+  },
   process: {
     title: 'How we work',
-    lede: "Six stages, no surprises. You know what's happening at every one.",
+    lede: "Six stages, no surprises. You always know where we are.",
     close: {
-      text: "Not sure where you are? We'll help you find the right first step.",
+      text: "Not sure where to start? We'll help you find the right first step.",
       cta: 'Start a project',
     },
     steps: [
@@ -107,8 +138,8 @@ export const en = {
         desc: 'We publish your product under your own accounts and check that everything works live.',
       },
       {
-        title: 'Maintenance & support',
-        desc: 'After launch, we keep your product secure and up to date, fix issues and add improvements.',
+        title: 'After launch',
+        desc: 'We stay with you: keeping your product secure and up to date, fixing issues and adding improvements.',
       },
     ],
   },
@@ -274,13 +305,12 @@ export const en = {
   floatingWhatsapp: 'Chat with us on WhatsApp',
   footer: {
     tagline: 'Vision, engineered.',
-    blurb: 'We build mobile apps, web apps, websites and automation for new businesses.',
+    blurb: 'We build mobile apps, web apps, websites and automation for new businesses, so you can focus on your project.',
     badge: 'Powered by Ruyat Al Enjaz',
     navLabel: 'Footer',
     emailLabel: 'Email info@ruyat.sa',
     phoneLabel: 'Phone +966 58 357 9979',
     locationLabel: 'Location',
-    whatsappLabel: 'WhatsApp +966 53 488 0040',
     social: ['Instagram', 'TikTok', 'Snapchat'],
     copyright: '© 2026 Ruyat Tech. All rights reserved.',
     privacy: 'Privacy policy',

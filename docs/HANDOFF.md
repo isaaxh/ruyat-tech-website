@@ -4,11 +4,14 @@ Running notes so work can resume in a fresh session. Keep this updated at every 
 
 ## Task
 Build tech.ruyat.sa as a 1:1 Astro port of `design/Main.dc.html` (EN) and `design/Main-ar.dc.html` (AR).
-Full brief: `handoff /PROMPT.md`. Reference screenshots: `reference/*.png`.
+Full brief: `handoff /PROMPT.md` (its "copy exactly from the design" rule is superseded by `website-copy/`, see below). Reference screenshots: `reference/*.png`.
 
 ## Decisions made with the user
 - Repo: github.com/isaaxh/ruyat-tech-website (public), npm, commit after each step with short messages.
 - Default language: **Arabic** at `/`, English at `/en/` (changed 2026-11-08; x-default hreflang points to `/`).
+- Copy source (2026-11-08): `website-copy/*-ar.md` and `*-en.md` are the source for copy now, replacing the `.dc.html`
+  text. Arabic is a friendly Saudi-leaning white dialect; rules are in README "Arabic voice". The English and Arabic
+  dictionaries gained a "Common worries" section (`worries`, id `#worries`, after Services; not in the nav).
 - Hero clock: **omitted**. The final design markup and screenshots don't have it, although PROMPT.md mentions it.
 - Follow the `.dc.html` source where the reference screenshots show render artifacts (see "Reference artifacts").
 
@@ -52,4 +55,6 @@ Full brief: `handoff /PROMPT.md`. Reference screenshots: `reference/*.png`.
       gold quote marks on testimonials, AR title "أعمال نفتخر بها", button CTA in How we work. 61 tests passing.
 - [x] Round 3: floating WhatsApp button (right side, lifts above cookie banner), pulsing gold dot badges, footer social icons,
       subtle pointer glow on every section hexagon grid (scripts/hex-fx.ts drawGlow).
+- [x] Round 4 (2026-11-08): Arabic copy moved to the dialect tone; "Common worries" section (`sections/Worries.astro`,
+      `sections/worries.css`); nav labels طريقة شغلنا / كلمنا; Arabic voice rules recorded in README.
 - [ ] Waiting on the user: approve new copy, provide social/legal URLs and OG image, then deploy + DNS

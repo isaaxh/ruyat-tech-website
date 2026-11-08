@@ -1,0 +1,22 @@
+---
+import SectionHead from '../ui/SectionHead.astro';
+import HexFx from '../ui/HexFx.astro';
+import WorryCard from './worries/WorryCard.astro';
+import type { Dictionary } from '../../i18n';
+
+interface Props {
+  t: Dictionary;
+}
+const w = Astro.props.t.worries;
+---
+
+<section id="worries" class="section hexbg hex-tl hex2-r" aria-labelledby="worries-title">
+  <HexFx mode="flash" focus="0,0,0.46,0.55" />
+  <HexFx mode="beam" focus="1,0.35,0.3,0.36" second />
+  <div class="wrap">
+    <SectionHead id="worries-title" title={w.title} lede={w.lede} />
+    <div class="worry-grid">
+      {w.cards.map((c, i) => <WorryCard hud={`W/0${i + 1}`} worry={c.worry} answerLabel={w.answerLabel} answer={c.answer} />)}
+    </div>
+  </div>
+</section>
