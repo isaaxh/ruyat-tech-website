@@ -21,7 +21,6 @@
 .page[dir="rtl"] a:hover > .arw-ne,.page[dir="rtl"] a:focus-visible > .arw-ne{transform:scaleX(-1) translate(3px,-3px)}
 .page[dir="rtl"] .tq-arrow svg{transform:scaleX(-1)}
 .page[dir="rtl"] .menu-btn{margin-right:0;margin-left:-10px}
-.page[dir="rtl"] .svc-meta .rt-hud{margin-left:0;margin-right:auto}
 .page[dir="rtl"] .case-info .rt-btn--ghost{margin-left:0;margin-right:-6px}
 .page[dir="rtl"] .rt-btn--ghost{background-position:calc(100% - 6px) calc(50% + 12px)}
 .page[dir="rtl"] .badge{padding:8px 14px 8px 16px}

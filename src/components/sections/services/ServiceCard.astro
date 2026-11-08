@@ -9,7 +9,6 @@ import ServiceArt from './ServiceArt.astro';
 
 interface Props {
   kind: 'mobile' | 'webapp' | 'website' | 'automation';
-  hud: string;
   wide?: boolean;
   title: string;
   promise: string;
@@ -18,14 +17,14 @@ interface Props {
   /** Value of the matching option in the contact form's service select. */
   service: string;
 }
-const { kind, hud, wide = false, title, promise, desc, link, service } = Astro.props;
+const { kind, wide = false, title, promise, desc, link, service } = Astro.props;
 ---
 
 <article class:list={['svc-card', { 'svc-wide': wide }]}>
   <Edge />
   <CardHex />
   <ServiceArt kind={kind} />
-  <div class="svc-meta"><span class="svc-hex"><Icon name={kind} /></span><h3>{title}</h3><span class="rt-hud">{hud}</span></div>
+  <div class="svc-meta"><span class="svc-hex"><Icon name={kind} /></span><h3>{title}</h3></div>
   <p class="svc-promise">{promise}</p>
   <p class="svc-desc">{desc}</p>
   <a class="svc-link" href="#contact" data-service={service}><span>{link}</span><Arrow size={18} /></a>
