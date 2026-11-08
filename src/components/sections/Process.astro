@@ -1,5 +1,6 @@
 ---
 import HexFx from '../ui/HexFx.astro';
+import Button from '../ui/Button.astro';
 import EdgeLine from '../ui/EdgeLine.astro';
 import ProcessStep from './process/ProcessStep.astro';
 import type { Dictionary } from '../../i18n';
@@ -18,7 +19,11 @@ const p = Astro.props.t.process;
       <div class="proc-sticky">
         <h2 id="process-title" class="h2">{p.title}</h2>
         <p class="lede">{p.lede}</p>
-        <p class="proc-close"><EdgeLine />{p.close.before}<a href="#contact">{p.close.link}</a>{p.close.after}</p>
+        <div class="proc-close">
+          <EdgeLine />
+          <p>{p.close.text}</p>
+          <Button href="#contact" size="sm" arrow="right" arrowSize={16}>{p.close.cta}</Button>
+        </div>
       </div>
     </div>
     <ol class="steps">

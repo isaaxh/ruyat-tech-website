@@ -3,8 +3,7 @@
 .proc-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px}
 .proc-aside{grid-column:1 / span 5}
 .proc-sticky{position:sticky;top:128px;display:flex;flex-direction:column;gap:24px;align-items:flex-start}
-.proc-close{font-size:16px;color:var(--rt-text-muted);max-width:38ch;padding-top:24px;border-top:1px solid var(--rt-border)}
-.proc-close a{font-weight:600}
+.proc-close{display:flex;flex-direction:column;align-items:flex-start;gap:20px;font-size:16px;color:var(--rt-text-muted);max-width:38ch;padding-top:24px;border-top:1px solid var(--rt-border)}
 .steps{grid-column:7 / span 6}
 .step{position:relative;display:grid;grid-template-columns:40px minmax(0,1fr);gap:20px;padding-bottom:56px}
 .step:last-child{padding-bottom:0}

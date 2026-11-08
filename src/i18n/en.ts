@@ -82,9 +82,8 @@ export const en = {
     title: 'How we work',
     lede: "Six stages, no surprises. You know what's happening at every one.",
     close: {
-      before: 'Not sure where you are? ',
-      link: 'Start a project',
-      after: " and we'll help you find the right first step.",
+      text: "Not sure where you are? We'll help you find the right first step.",
+      cta: 'Start a project',
     },
     steps: [
       {

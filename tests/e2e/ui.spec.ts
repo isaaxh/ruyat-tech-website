@@ -111,3 +111,20 @@ test('service cards do not lift on hover (edges only)', async ({ page }) => {
   expect(after!.y).toBeCloseTo(before!.y, 0);
   await expect(card).toHaveCSS('transform', 'none');
 });
+
+for (const [path, label] of [
+  ['/', 'Start a project'],
+  ['/ar/', 'ابدأ مشروعك'],
+] as const) {
+  test(`process: closing call to action is a button that goes to the form (${path})`, async ({ page }) => {
+    await prepare(page);
+    await page.goto(path);
+    const cta = page.locator('.proc-close a.rt-btn');
+    await expect(cta).toHaveText(label);
+    await expect(cta).toHaveAttribute('href', '#contact');
+    await cta.scrollIntoViewIfNeeded();
+    await cta.click();
+    await expect(page).toHaveURL(/#contact$/);
+    await expect(page.locator('#contact')).toBeInViewport();
+  });
+}
