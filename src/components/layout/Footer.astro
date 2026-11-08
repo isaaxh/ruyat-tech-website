@@ -24,7 +24,7 @@ const f = t.footer;
         <Logo label={t.brand.logoLabel} />
         <p class="foot-tag">{f.tagline}</p>
         <p>{f.blurb}</p>
-        <Badge variant="dot">{f.badge}</Badge>
+        <Badge>{f.badge}</Badge>
       </div>
       <nav class="foot-col" aria-label={f.navLabel}>
         {t.nav.links.map((l) => <a href={l.href}>{l.label}</a>)}

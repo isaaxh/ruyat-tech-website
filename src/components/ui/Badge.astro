@@ -1,23 +1,8 @@
 ---
-// "Powered by Ruyat Al Enjaz" pill: with the hex mark, or with a glowing dot.
-import Mark from '../brand/Mark.astro';
-
-interface Props {
-  variant?: 'mark' | 'dot';
-}
-const { variant = 'mark' } = Astro.props;
+// "Powered by Ruyat Al Enjaz" pill with a pulsing golden dot (used everywhere the badge appears).
 ---
 
-{
-  variant === 'dot' ? (
-    <span class="badge badge--dot">
-      <span class="badge-dot" aria-hidden="true" />
-      <slot />
-    </span>
-  ) : (
-    <span class="badge">
-      <Mark variant="badge" />
-      <slot />
-    </span>
-  )
-}
+<span class="badge">
+  <span class="badge-dot" aria-hidden="true"></span>
+  <slot />
+</span>

@@ -183,3 +183,18 @@ for (const path of ['/', '/ar/']) {
     });
   }
 }
+
+for (const path of ['/', '/ar/']) {
+  test(`"Powered by" badges use a pulsing gold dot, not the logo (${path})`, async ({ page }) => {
+    await prepare(page);
+    await page.goto(path);
+    const badges = page.locator('.badge');
+    expect(await badges.count()).toBe(2);
+    for (const b of await badges.all()) {
+      await expect(b.locator('svg')).toHaveCount(0);
+      const dot = b.locator('.badge-dot');
+      await expect(dot).toHaveCount(1);
+      expect(await dot.evaluate((e) => getComputedStyle(e).animationName)).toBe('rt-badge-pulse');
+    }
+  });
+}

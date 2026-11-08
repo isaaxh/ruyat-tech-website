@@ -20,7 +20,7 @@ a:hover > .arw-ne,a:focus-visible > .arw-ne{transform:translate(3px,-3px)}
 
 /* Badges */
 .badge-diamond{width:7px;height:7px;margin:0 2px 0 4px;background:var(--rt-accent);transform:rotate(45deg);flex:none}
-.badge{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 10px;border:1px solid var(--rt-border);border-radius:999px;background:rgba(4,18,56,.6);font-size:13px;font-weight:500;color:var(--rt-text);white-space:nowrap}
-.badge svg{width:20px;height:20px;display:block}
-.badge--dot{padding-left:14px}
-.badge-dot{width:7px;height:7px;flex:none;border-radius:50%;background:var(--rt-accent);box-shadow:0 0 10px rgba(240,179,94,.6)}
+.badge{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 14px;border:1px solid var(--rt-border);border-radius:999px;background:rgba(4,18,56,.6);font-size:13px;font-weight:500;color:var(--rt-text);white-space:nowrap}
+.badge-dot{width:7px;height:7px;flex:none;border-radius:50%;background:var(--rt-accent);box-shadow:0 0 10px rgba(240,179,94,.6);animation:rt-badge-pulse 2.2s ease-in-out infinite}
+@keyframes rt-badge-pulse{0%,100%{box-shadow:0 0 0 0 rgba(240,179,94,.5),0 0 8px rgba(240,179,94,.5);transform:scale(1)}50%{box-shadow:0 0 0 7px rgba(240,179,94,0),0 0 14px rgba(240,179,94,.85);transform:scale(1.15)}}
+@media (prefers-reduced-motion:reduce){.badge-dot{animation:none}}
