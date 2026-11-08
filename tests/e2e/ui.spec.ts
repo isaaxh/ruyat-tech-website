@@ -241,3 +241,15 @@ test('section hexagon grids light up softly around the pointer and fade after it
   await page.waitForTimeout(2500);
   expect(await quietest(false)).toBeLessThan(hover - 100);
 });
+
+test('floating WhatsApp icon stays dark and readable on hover', async ({ page }) => {
+  await prepare(page);
+  await page.goto('/');
+  const fab = page.locator('a.wa-fab');
+  const color = () => fab.evaluate((e) => getComputedStyle(e).color);
+  const before = await color();
+  await fab.hover();
+  await page.waitForTimeout(500);
+  expect(await color()).toBe(before);
+  expect(before).toBe('rgb(3, 10, 31)');
+});
