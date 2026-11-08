@@ -141,6 +141,16 @@ for (const [path, number] of [['/', '966583579979'], ['/ar/', '966583579979']] a
     await page.mouse.wheel(0, 2500);
     await page.waitForTimeout(300);
     await expect(fab).toBeInViewport({ ratio: 1 });
+    // Always on the right edge, in both languages, and never covering the cookie banner.
+    const box = (await fab.boundingBox())!;
+    const vw = page.viewportSize()!.width;
+    expect(vw - (box.x + box.width)).toBeLessThanOrEqual(24);
+    expect(box.x).toBeGreaterThan(vw / 2);
+    const cookie = await page.locator('.cookie').boundingBox();
+    if (cookie) {
+      const overlap = box.x < cookie.x + cookie.width && box.x + box.width > cookie.x && box.y < cookie.y + cookie.height && box.y + box.height > cookie.y;
+      expect(overlap).toBe(false);
+    }
   });
 }
 
@@ -155,3 +165,21 @@ test('privacy and terms placeholders are clickable but do nothing', async ({ pag
   expect(await page.evaluate(() => scrollY)).toBe(y);
   await expect(page).toHaveURL(/\/$/);
 });
+
+for (const path of ['/', '/ar/']) {
+  for (const width of [1440, 390, 320]) {
+    test(`floating WhatsApp button stays right and clear of the cookie banner (${path}, ${width}px)`, async ({ page }) => {
+      await prepare(page, { cookieChoice: false });
+      await page.setViewportSize({ width, height: 800 });
+      await page.goto(path);
+      await expect(page.locator('.cookie')).toBeVisible();
+      await page.waitForTimeout(500);
+      const fab = (await page.locator('a.wa-fab').boundingBox())!;
+      const cookie = (await page.locator('.cookie').boundingBox())!;
+      expect(fab.x).toBeGreaterThan(width / 2);
+      expect(width - (fab.x + fab.width)).toBeLessThanOrEqual(24);
+      const overlap = fab.x < cookie.x + cookie.width && fab.x + fab.width > cookie.x && fab.y < cookie.y + cookie.height && fab.y + fab.height > cookie.y;
+      expect(overlap).toBe(false);
+    });
+  }
+}

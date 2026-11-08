@@ -1,6 +1,9 @@
-/* Floating WhatsApp button (not in the design). Sits on the side opposite the cookie banner. */
-.wa-fab{position:fixed;inset-inline-end:24px;bottom:24px;z-index:61;display:grid;place-items:center;width:60px;height:60px;border-radius:50%;background:linear-gradient(180deg,#F6C47B,var(--rt-accent));color:var(--rt-void);box-shadow:0 10px 30px -6px rgba(240,179,94,.55),0 0 0 1px rgba(255,236,205,.35) inset;transition:transform 300ms var(--rt-ease-out),box-shadow 300ms var(--rt-ease-out)}
+/* Floating WhatsApp button (not in the design). Always on the right, in both languages. While the cookie banner is open it moves up above it
+   (the banner is on the right in Arabic and full width on mobile). */
+.wa-fab{position:fixed;right:24px;bottom:24px;z-index:61;display:grid;place-items:center;width:60px;height:60px;border-radius:50%;background:linear-gradient(180deg,#F6C47B,var(--rt-accent));color:var(--rt-void);box-shadow:0 10px 30px -6px rgba(240,179,94,.55),0 0 0 1px rgba(255,236,205,.35) inset;transition:transform 300ms var(--rt-ease-out),box-shadow 300ms var(--rt-ease-out)}
 .wa-fab:hover{transform:translateY(-3px);box-shadow:0 16px 36px -6px rgba(240,179,94,.7),0 0 0 1px rgba(255,236,205,.5) inset}
 .wa-fab:focus-visible{outline:2px solid var(--rt-text);outline-offset:3px}
-@media (max-width:640px){.wa-fab{inset-inline-end:16px;bottom:16px;width:54px;height:54px}}
+@media (max-width:640px){.wa-fab{right:16px;bottom:16px;width:54px;height:54px}}
 @media (prefers-reduced-motion:reduce){.wa-fab{transition:none}.wa-fab:hover{transform:none}}
+@media (min-width:641px){.page[dir=rtl]:has(.cookie:not([hidden])) .wa-fab{bottom:190px}}
+@media (max-width:640px){.page:has(.cookie:not([hidden])) .wa-fab{bottom:196px}}
