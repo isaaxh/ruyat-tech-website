@@ -23,7 +23,7 @@ export const SOCIAL_LINKS = [
 ] as const;
 
 /** Number behind the floating WhatsApp button (digits only, international format, no +). */
-export const FLOATING_WHATSAPP_NUMBER = '966557906658';
+export const FLOATING_WHATSAPP_NUMBER = '966583579979';
 
 /** External links for the work section. */
 export const LINKS = {

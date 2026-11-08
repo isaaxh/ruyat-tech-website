@@ -129,7 +129,7 @@ for (const [path, label] of [
   });
 }
 
-for (const [path, number] of [['/', '966557906658'], ['/ar/', '966557906658']] as const) {
+for (const [path, number] of [['/', '966583579979'], ['/ar/', '966583579979']] as const) {
   test(`floating WhatsApp button links to the chat and stays on screen (${path})`, async ({ page }) => {
     await prepare(page);
     await page.goto(path);
