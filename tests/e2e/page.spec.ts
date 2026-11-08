@@ -132,3 +132,12 @@ test('footer and details list carry the real social and contact links', async ({
     expect(links).toContain('https://www.google.com/maps/dir/?api=1&destination=21.383771,39.785028');
   }
 });
+
+test('share preview image is set for both languages', async ({ page, request }) => {
+  for (const path of ['/', '/en/']) {
+    await page.goto(path);
+    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', 'https://tech.ruyat.sa/og-image.png');
+    await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute('content', 'summary_large_image');
+  }
+  expect((await request.get('/og-image.png')).status()).toBe(200);
+});

@@ -12,6 +12,7 @@ const t = getDictionary(locale);
 const { title, description, ogLocale } = t.meta;
 const site = Astro.site!;
 const canonical = new URL(localePath(locale), site).href;
+const ogImage = new URL('/og-image.png', site).href;
 const altLocale = locale === 'ar' ? 'en_US' : 'ar_SA';
 
 // Google Fonts (Satoshi is self-hosted). Arabic adds Readex Pro (headings) and IBM Plex Sans Arabic (body).
@@ -40,7 +41,13 @@ const fonts =
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content={ogLocale} />
     <meta property="og:locale:alternate" content={altLocale} />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Ruyat Tech: Vision, engineered." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogImage} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
 

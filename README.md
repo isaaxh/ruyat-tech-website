@@ -161,5 +161,4 @@ Once done, the zone's DNS tab shows a `tech` record of type **Worker**. Do not a
 
 - Privacy policy and Terms are `#` placeholders in the footer. Social links (Instagram, TikTok, Snapchat),
   phone and map link come from `website-copy/` and live in `src/config.ts`.
-- No Open Graph image exists yet (`og:image`); add one to `public/` and to `src/layouts/Base.astro`.
 - Deploy and attach the `tech.ruyat.sa` custom domain (steps above).

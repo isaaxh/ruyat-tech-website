@@ -58,4 +58,5 @@ Full brief: `handoff /PROMPT.md` (its "copy exactly from the design" rule is sup
 - [x] Round 4 (2026-11-08): Arabic copy moved to the dialect tone; "Common worries" section (`sections/Worries.astro`,
       `sections/worries.css`); nav labels طريقة شغلنا / كلمنا; Arabic voice rules recorded in README.
 - [x] Round 5 (2026-11-08): copy approved; one number (+966 58 357 9979) for phone, WhatsApp and form; cookie banner removed.
-- [ ] Left: OG image (needs a 1200x630 image), real Privacy/Terms URLs (placeholders for now), then deploy + DNS
+- [x] OG image `public/og-image.png` (1200x630, made from the logo; regenerate via `.scratch/og.html`, not committed).
+- [ ] Left: real Privacy/Terms URLs (placeholders for now), then deploy + DNS
