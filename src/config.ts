@@ -27,6 +27,3 @@ export const LINKS = {
   moneylion: 'https://www.moneylion.com/',
   perdana: 'https://www.perdanafellowsalumni.com/',
 } as const;
-
-/** localStorage key for the cookie banner choice. */
-export const COOKIE_KEY = 'rt-cookie-choice';

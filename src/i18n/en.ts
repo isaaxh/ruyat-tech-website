@@ -317,10 +317,4 @@ export const en = {
     terms: 'Terms',
     toTop: 'Back to top',
   },
-  cookie: {
-    label: 'Cookies',
-    text: "We use a few cookies to make the site work and to understand how it's used.",
-    accept: 'Accept',
-    decline: 'Decline',
-  },
 };

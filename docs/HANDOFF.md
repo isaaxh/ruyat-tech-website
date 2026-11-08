@@ -19,13 +19,13 @@ Full brief: `handoff /PROMPT.md` (its "copy exactly from the design" rule is sup
 - `src/styles/global.css` imports partials in a fixed order that mirrors the design's single stylesheet:
   tokens → ds (design-system subset) → base → controls → sections/* → rtl.css. Don't reorder.
 - `src/i18n/en.ts`, `ar.ts`: all copy. `Dictionary` type = shape of `en`. Strings marked NEW are not in the design.
-- `src/config.ts`: WhatsApp number, contact details, external links, cookie key.
+- `src/config.ts`: WhatsApp number, contact details, external links.
 - `src/components/HomePage.astro` composes everything; `src/pages/index.astro` (ar, default) and `src/pages/en/index.astro` (en).
 - Components: `brand/` (Logo, Mark), `icons/` (Icon + paths.ts, Arrow), `ui/` (Button, Diamond, HexFx, Edge,
-  EdgeLine, CardHex, Badge, SectionHead), `layout/` (Nav, Footer, CookieBanner), `sections/` (one per section,
+  EdgeLine, CardHex, Badge, SectionHead), `layout/` (Nav, Footer), `sections/` (one per section,
   with subfolders for their parts).
 - Scripts (`src/scripts/`), each `initX()` called from the owning component's `<script>`:
-  nav, hero-lattice, hex-fx, edge-glow, fill-from, testimonials, contact-form (WhatsApp), cookie-banner.
+  nav, hero-lattice, hex-fx, edge-glow, fill-from, testimonials, contact-form (WhatsApp).
 - Images: work screenshots in `src/assets/work` (astro:assets → webp + srcset); partner logos and lattice tiles in `public/assets`.
 
 ## Testing tools
@@ -53,7 +53,7 @@ Full brief: `handoff /PROMPT.md` (its "copy exactly from the design" rule is sup
 - [x] README: differences list, "to finish" list, new copy to approve
 - [x] Round 2 (2026-11-08): AR footer phone alignment, social/contact details from website-copy, "Send on WhatsApp" label,
       gold quote marks on testimonials, AR title "أعمال نفتخر بها", button CTA in How we work. 61 tests passing.
-- [x] Round 3: floating WhatsApp button (right side, lifts above cookie banner), pulsing gold dot badges, footer social icons,
+- [x] Round 3: floating WhatsApp button (right side, no cookie banner), pulsing gold dot badges, footer social icons,
       subtle pointer glow on every section hexagon grid (scripts/hex-fx.ts drawGlow).
 - [x] Round 4 (2026-11-08): Arabic copy moved to the dialect tone; "Common worries" section (`sections/Worries.astro`,
       `sections/worries.css`); nav labels طريقة شغلنا / كلمنا; Arabic voice rules recorded in README.

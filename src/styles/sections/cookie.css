@@ -1,7 +1,0 @@
-/* Cookie banner */
-.cookie{position:fixed;left:24px;bottom:24px;z-index:60;max-width:380px;display:flex;flex-direction:column;gap:16px;padding:20px;border:1px solid var(--rt-border);border-radius:var(--rt-radius-lg);background:rgba(4,18,56,.94);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:var(--rt-shadow-elev-1);font-size:14px;line-height:1.5;color:var(--rt-text)}
-.cookie[hidden]{display:none}
-.cookie-actions{display:flex;gap:8px}
-.cookie .plain{height:40px;padding:0 16px;border:0;background:none;color:var(--rt-text-muted);font-family:var(--font-body);font-size:14px;font-weight:600;cursor:pointer;border-radius:999px}
-.cookie .plain:hover{color:var(--rt-text)}
-@media (max-width:640px){.cookie{left:16px;right:16px;bottom:16px;max-width:none}}

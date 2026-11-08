@@ -15,8 +15,6 @@ const browser = await chromium.launch();
 for (const w of widths) {
   for (const p of paths) {
     const ctx = await browser.newContext({ viewport: { width: w, height: w > 600 ? 900 : 844 }, deviceScaleFactor: 1 });
-    // Pretend a cookie choice was made so the banner doesn't cover content, unless asked.
-    if (!flags.includes('--cookie')) await ctx.addInitScript(() => localStorage.setItem('rt-cookie-choice', 'declined'));
     const page = await ctx.newPage();
     if (blockFonts) await page.route(/fonts\.(googleapis|gstatic)\.com/, (r) => r.abort());
     const errors = [];

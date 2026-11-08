@@ -66,7 +66,7 @@ src/
     brand/           Logo, Mark
     icons/           Icon (+ paths.ts), Arrow
     ui/              Button, Badge, Diamond, SectionHead, HexFx, Edge, EdgeLine, CardHex
-    layout/          Nav, Footer, CookieBanner
+    layout/          Nav, Footer
     sections/        Hero, Partners, Services, Worries, Process, Work, WhyUs, Testimonials, Contact
                      (+ one folder per section for its smaller parts)
   i18n/              en.ts, ar.ts copy dictionaries + locale helpers
@@ -94,7 +94,7 @@ the section, and don't reorder the imports.
 - `npm test` runs 58 Playwright checks on both languages: meta and hreflang, console errors, anchors, external
   links, image attributes, no horizontal scroll from 320px to 1440px, nav pack/unpack, burger menu, carousel
   (arrows, dots, mirrored keys and swipe, 6 s autoplay, pause, reduced motion), form validation and focus, the
-  WhatsApp message in both languages, honeypot, cookie banner, focus rings and reduced-motion behaviour.
+  WhatsApp message in both languages, honeypot, focus rings and reduced-motion behaviour.
 - `node tools/shot.mjs http://127.0.0.1:4321 shots` writes full-page screenshots at 1440px and 390px for comparison
   with `reference/`. Google Fonts are blocked by default, as in the reference renders; pass `--fonts` to load them.
 - Lighthouse (mobile): performance 98–99, accessibility 97, best practices 100, SEO 100 on both pages.
@@ -138,8 +138,7 @@ Once done, the zone's DNS tab shows a `tech` record of type **Worker**. Do not a
 - **Unused CSS dropped**: rules for elements that aren't in the markup (hero foot/clock, scroll hint, logo grid,
   case `dl`, the form error alert) and the unused design-system components.
 - **Small invisible additions**: `name`/`autocomplete` on form fields; `scroll-margin-top` on form fields so a field
-  focused by validation isn't hidden under the sticky nav; the success panel receives focus after submit; the
-  cookie banner is rendered hidden and shown by script (no flash for returning visitors); the edge-glow cursor
+  focused by validation isn't hidden under the sticky nav; the success panel receives focus after submit; the edge-glow cursor
   light is off under `prefers-reduced-motion`.
 - **Meta tags**: the design has none. Titles and descriptions reuse existing hero copy
   ("Ruyat Tech | We build software that builds your business").
@@ -163,6 +162,4 @@ Once done, the zone's DNS tab shows a `tech` record of type **Worker**. Do not a
 - Privacy policy and Terms are `#` placeholders in the footer. Social links (Instagram, TikTok, Snapchat),
   phone and map link come from `website-copy/` and live in `src/config.ts`.
 - No Open Graph image exists yet (`og:image`); add one to `public/` and to `src/layouts/Base.astro`.
-- The cookie banner text says the site uses cookies, but the site sets none (it only stores the banner choice in
-  `localStorage`). Confirm the wording or whether the banner is needed.
 - Deploy and attach the `tech.ruyat.sa` custom domain (steps above).
