@@ -43,10 +43,18 @@ const f = t.footer;
       <EdgeLine />
       <div class="foot-legal">
         <span>{f.copyright}</span>
-        <a href="#">{f.privacy}</a>
-        <a href="#">{f.terms}</a>
+        <a href="#" data-placeholder>{f.privacy}</a>
+        <a href="#" data-placeholder>{f.terms}</a>
       </div>
       <a class="to-top" href="#top"><span>{f.toTop}</span><Icon name="arrow-up" size={16} /></a>
     </div>
   </div>
 </footer>
+
+<script>
+  // Privacy and Terms are placeholders until the client provides URLs: clickable, but they do nothing
+  // (no jump to the top of the page).
+  document.querySelectorAll<HTMLAnchorElement>('a[data-placeholder]').forEach((a) => {
+    a.addEventListener('click', (e) => e.preventDefault());
+  });
+</script>
