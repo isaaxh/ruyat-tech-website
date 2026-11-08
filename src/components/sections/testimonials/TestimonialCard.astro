@@ -6,6 +6,7 @@ import CardHex from '../../ui/CardHex.astro';
 
 interface Props {
   position: 'front' | 'next' | 'prev';
+  quotes: { open: string; close: string };
   slideLabel: string;
   lead: string;
   soft: string;
@@ -13,12 +14,12 @@ interface Props {
   name: string;
   role: string;
 }
-const { position, slideLabel, lead, soft, initials, name, role } = Astro.props;
+const { position, quotes, slideLabel, lead, soft, initials, name, role } = Astro.props;
 ---
 
 <figure class={`tq-card is-${position}`} aria-hidden={position === 'front' ? 'false' : 'true'} aria-roledescription="slide" aria-label={slideLabel}>
   <Edge />
   <CardHex corner="bl" />
-  <blockquote>{lead}<span class="tq-soft">{soft}</span></blockquote>
+  <blockquote><span class="tq-mark">{quotes.open}</span>{lead}<span class="tq-soft">{soft}</span><span class="tq-mark">{quotes.close}</span></blockquote>
   <figcaption><span class="tq-avatar" aria-hidden="true">{initials}</span><span><strong>{name}</strong>{role}</span></figcaption>
 </figure>

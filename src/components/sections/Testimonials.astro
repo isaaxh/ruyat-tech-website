@@ -21,7 +21,7 @@ const position = (i: number) => (i === 0 ? 'front' : i === 1 ? 'next' : 'prev');
     <div class="tq" role="region" aria-roledescription="carousel" aria-label={q.regionLabel} tabindex="0">
       <button class="tq-arrow tq-prev" type="button" aria-label={q.prev}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></button>
       <div class="tq-stage" aria-live="polite">
-        {q.items.map((item, i) => <TestimonialCard position={position(i)} slideLabel={q.slideLabel(i + 1, total)} {...item} />)}
+        {q.items.map((item, i) => <TestimonialCard position={position(i)} quotes={q.quotes} slideLabel={q.slideLabel(i + 1, total)} {...item} />)}
       </div>
       <button class="tq-arrow tq-next" type="button" aria-label={q.next}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></button>
     </div>

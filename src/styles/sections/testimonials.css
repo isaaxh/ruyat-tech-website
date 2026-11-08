@@ -12,6 +12,8 @@
 .tq-card:not(.is-front) > *{opacity:0}
 .tq-card blockquote{font-family:var(--font-display);font-weight:500;font-size:clamp(19px,1.7vw,24px);line-height:1.45;letter-spacing:-.01em;color:var(--rt-text)}
 .tq-soft{color:var(--rt-text-muted)}
+/* Not in the design: gold, heavier quotation marks around each client message */
+.tq-mark{color:var(--rt-accent);font-weight:700;font-size:1.25em;line-height:0}
 .tq-card figcaption{display:flex;align-items:center;gap:14px;font-size:14px;line-height:1.45;color:var(--rt-text-muted)}
 .tq-card strong{display:block;color:var(--rt-text);font-weight:600;font-size:15px}
 .tq-avatar{width:44px;height:44px;flex:none;border-radius:999px;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;color:var(--rt-on-accent);background:linear-gradient(135deg,#FFD9A0,#F0B35E)}

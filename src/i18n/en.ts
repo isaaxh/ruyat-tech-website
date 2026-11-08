@@ -186,6 +186,7 @@ export const en = {
   },
   testimonials: {
     title: "Don't just take our word for it.",
+    quotes: { open: '“', close: '”' },
     regionLabel: 'Client testimonials',
     prev: 'Previous testimonial',
     next: 'Next testimonial',
@@ -193,22 +194,22 @@ export const en = {
     dotLabel: (n: number) => `Show testimonial ${n}`,
     items: [
       {
-        lead: '“We used Ruyat Tech services for our complicated animated website. ',
-        soft: 'They were incredibly thorough, organized and patient with us. Their level of service and technical knowledge was incredible. A pleasure to work with!”',
+        lead: 'We used Ruyat Tech services for our complicated animated website. ',
+        soft: 'They were incredibly thorough, organized and patient with us. Their level of service and technical knowledge was incredible. A pleasure to work with!',
         initials: 'GH',
         name: 'Goran Hankic',
         role: 'Founder & CEO',
       },
       {
-        lead: '“I had the pleasure of working with Ruyat Tech on several web development projects and I can confidently say that they are top-notch professionals. ',
-        soft: 'They consistently deliver outstanding results that are 100% accurate and delivered on time.”',
+        lead: 'I had the pleasure of working with Ruyat Tech on several web development projects and I can confidently say that they are top-notch professionals. ',
+        soft: 'They consistently deliver outstanding results that are 100% accurate and delivered on time.',
         initials: 'GT',
         name: 'Gabrial Tania',
         role: 'Business Owner',
       },
       {
-        lead: '“Our team contracted Ruyat Tech for several applications and UI/UX development. ',
-        soft: 'Not only did they deliver on time, they made sure everything was pixel perfect. Their attention to detail and time management is sublime. Highly recommended.”',
+        lead: 'Our team contracted Ruyat Tech for several applications and UI/UX development. ',
+        soft: 'Not only did they deliver on time, they made sure everything was pixel perfect. Their attention to detail and time management is sublime. Highly recommended.',
         initials: 'MS',
         name: 'Muhsin Suhor',
         role: 'Entrepreneur',
