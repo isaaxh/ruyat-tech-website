@@ -115,7 +115,7 @@ export const ar: Dictionary = {
     ],
   },
   work: {
-    title: 'أعمال نفخر بها',
+    title: 'أعمال نفتخر بها',
     lede: 'بعض مشاريعنا، وما حققته لأصحابها.',
     quickbite: {
       tag: 'تطبيق جوال',
