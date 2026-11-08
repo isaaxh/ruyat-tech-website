@@ -250,7 +250,7 @@ export const en = {
         placeholder: 'What do you want to build, and who is it for?',
         error: 'Add a few lines so we know where to start.',
       },
-      submit: 'Send message',
+      submit: 'Send on WhatsApp',
     },
     // NEW: success panel copy changed for the WhatsApp flow (needs client approval).
     success: {

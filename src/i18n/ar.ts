@@ -251,7 +251,7 @@ export const ar: Dictionary = {
         placeholder: 'ماذا تريد أن تبني، ولمن؟',
         error: 'أضف بضعة أسطر لنعرف من أين نبدأ.',
       },
-      submit: 'أرسل الرسالة',
+      submit: 'أرسل عبر واتساب',
     },
     // NEW: success panel copy changed for the WhatsApp flow (needs client approval).
     success: {

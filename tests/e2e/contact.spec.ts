@@ -18,7 +18,7 @@ test('empty submit shows errors and focuses the first invalid field', async ({ p
   await prepare(page);
   await stubOpen(page);
   await page.goto('/');
-  await page.getByRole('button', { name: 'Send message' }).click();
+  await page.getByRole('button', { name: 'Send on WhatsApp' }).click();
   for (const k of ['name', 'email', 'service', 'details']) {
     await expect(page.locator(`#f-${k}-err`)).toBeVisible();
     await expect(page.locator(`#f-${k}`)).toHaveAttribute('aria-invalid', 'true');
@@ -29,7 +29,7 @@ test('empty submit shows errors and focuses the first invalid field', async ({ p
   await page.locator('#f-name').fill('Sara');
   await expect(page.locator('#f-name-err')).toBeHidden();
   await expect(page.locator('#f-email-err')).toBeVisible();
-  await page.getByRole('button', { name: 'Send message' }).click();
+  await page.getByRole('button', { name: 'Send on WhatsApp' }).click();
   await expect(page.locator('#f-email')).toBeFocused();
   expect(await opened(page)).toEqual([]);
 });
@@ -39,7 +39,7 @@ test('invalid email is rejected', async ({ page }) => {
   await page.goto('/');
   await page.locator('#f-name').fill('Sara');
   await page.locator('#f-email').fill('sara@example');
-  await page.getByRole('button', { name: 'Send message' }).click();
+  await page.getByRole('button', { name: 'Send on WhatsApp' }).click();
   await expect(page.locator('#f-email-err')).toHaveText("That email doesn't look right. Check it and try again.");
 });
 
@@ -59,7 +59,7 @@ test('valid submit opens WhatsApp with an English message and shows the success 
   await page.locator('#f-email').fill('sara@example.com');
   await page.locator('#f-service').selectOption('Web app');
   await page.locator('#f-details').fill('A booking system\nfor our clinic & spa');
-  await page.getByRole('button', { name: 'Send message' }).click();
+  await page.getByRole('button', { name: 'Send on WhatsApp' }).click();
 
   const calls = await opened(page);
   expect(calls).toHaveLength(1);
@@ -98,7 +98,7 @@ test('arabic message uses arabic labels and keeps the visitor text', async ({ pa
   await page.locator('#f-business').fill('Clinic Co');
   await page.locator('#f-service').selectOption('موقع إلكتروني');
   await page.locator('#f-details').fill('موقع للعيادة');
-  await page.getByRole('button', { name: 'أرسل الرسالة' }).click();
+  await page.getByRole('button', { name: 'أرسل عبر واتساب' }).click();
   const [[url]] = await opened(page);
   expect(decodeURIComponent(url.split('?text=')[1])).toBe(
     [
@@ -124,7 +124,7 @@ test('filled honeypot skips the WhatsApp redirect', async ({ page }) => {
   await page.locator('#f-service').selectOption('Website');
   await page.locator('#f-details').fill('spam');
   await page.locator('#f-website').evaluate((el: HTMLInputElement) => (el.value = 'http://spam'));
-  await page.getByRole('button', { name: 'Send message' }).click();
+  await page.getByRole('button', { name: 'Send on WhatsApp' }).click();
   expect(await opened(page)).toEqual([]);
 });
 
@@ -145,7 +145,7 @@ test('on mobile the page navigates to WhatsApp', async ({ browser }) => {
   await page.locator('#f-email').fill('sara@example.com');
   await page.locator('#f-service').selectOption('Mobile app');
   await page.locator('#f-details').fill('An app');
-  await page.getByRole('button', { name: 'Send message' }).click();
+  await page.getByRole('button', { name: 'Send on WhatsApp' }).click();
   await expect.poll(() => requested).toContain('https://wa.me/966583579979?text=');
   await ctx.close();
 });
