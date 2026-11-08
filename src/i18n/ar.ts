@@ -271,6 +271,8 @@ export const ar: Dictionary = {
       details: 'تفاصيل المشروع',
     },
   },
+  // NEW: floating WhatsApp button label (needs client approval).
+  floatingWhatsapp: 'تواصل معنا عبر واتساب',
   footer: {
     tagline: 'رؤية، مُهندَسة بإتقان.',
     blurb: 'نبني تطبيقات الجوال وتطبيقات الويب والمواقع الإلكترونية والأتمتة للأعمال الناشئة.',

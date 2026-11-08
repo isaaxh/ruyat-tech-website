@@ -128,3 +128,30 @@ for (const [path, label] of [
     await expect(page.locator('#contact')).toBeInViewport();
   });
 }
+
+for (const [path, number] of [['/', '966557906658'], ['/ar/', '966557906658']] as const) {
+  test(`floating WhatsApp button links to the chat and stays on screen (${path})`, async ({ page }) => {
+    await prepare(page);
+    await page.goto(path);
+    const fab = page.locator('a.wa-fab');
+    await expect(fab).toHaveAttribute('href', `https://wa.me/${number}`);
+    await expect(fab).toHaveAttribute('target', '_blank');
+    await expect(fab).toHaveAttribute('rel', /noopener/);
+    await expect(fab).toHaveAttribute('aria-label', /.+/);
+    await page.mouse.wheel(0, 2500);
+    await page.waitForTimeout(300);
+    await expect(fab).toBeInViewport({ ratio: 1 });
+  });
+}
+
+test('privacy and terms placeholders are clickable but do nothing', async ({ page }) => {
+  await prepare(page);
+  await page.goto('/');
+  const link = page.locator('a[data-placeholder]').first();
+  await link.scrollIntoViewIfNeeded();
+  const y = await page.evaluate(() => scrollY);
+  await link.click();
+  await page.waitForTimeout(300);
+  expect(await page.evaluate(() => scrollY)).toBe(y);
+  await expect(page).toHaveURL(/\/$/);
+});

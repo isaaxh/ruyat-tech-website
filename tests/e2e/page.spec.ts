@@ -59,8 +59,8 @@ for (const p of PAGES) {
       await prepare(page);
       await page.goto(p.path);
       const ext = page.locator('a[href^="http"]');
-      // 2 case studies, 3 social profiles, WhatsApp and map links (details list and footer)
-      expect(await ext.count()).toBe(11);
+      // 2 case studies, 3 social profiles, WhatsApp and map links (details list and footer), floating WhatsApp button
+      expect(await ext.count()).toBe(12);
       for (const a of await ext.all()) {
         await expect(a).toHaveAttribute('target', '_blank');
         await expect(a).toHaveAttribute('rel', /noopener/);

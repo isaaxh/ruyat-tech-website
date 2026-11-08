@@ -22,6 +22,9 @@ export const SOCIAL_LINKS = [
   'https://www.snapchat.com/add/ruyat.sa',
 ] as const;
 
+/** Number behind the floating WhatsApp button (digits only, international format, no +). */
+export const FLOATING_WHATSAPP_NUMBER = '966557906658';
+
 /** External links for the work section. */
 export const LINKS = {
   moneylion: 'https://www.moneylion.com/',

@@ -1,0 +1,7 @@
+/* Floating WhatsApp button (not in the design). Sits on the side opposite the cookie banner. */
+.wa-fab{position:fixed;inset-inline-end:24px;bottom:24px;z-index:61;display:grid;place-items:center;width:60px;height:60px;border-radius:50%;background:linear-gradient(180deg,#F6C47B,var(--rt-accent));color:var(--rt-void);box-shadow:0 10px 30px -6px rgba(240,179,94,.55),0 0 0 1px rgba(255,236,205,.35) inset;transition:transform 300ms var(--rt-ease-out),box-shadow 300ms var(--rt-ease-out)}
+.wa-fab svg{stroke-width:1.8}
+.wa-fab:hover{transform:translateY(-3px);box-shadow:0 16px 36px -6px rgba(240,179,94,.7),0 0 0 1px rgba(255,236,205,.5) inset}
+.wa-fab:focus-visible{outline:2px solid var(--rt-text);outline-offset:3px}
+@media (max-width:640px){.wa-fab{inset-inline-end:16px;bottom:16px;width:54px;height:54px}}
+@media (prefers-reduced-motion:reduce){.wa-fab{transition:none}.wa-fab:hover{transform:none}}

@@ -270,6 +270,8 @@ export const en = {
       details: 'Project details',
     },
   },
+  // NEW: floating WhatsApp button label (needs client approval).
+  floatingWhatsapp: 'Chat with us on WhatsApp',
   footer: {
     tagline: 'Vision, engineered.',
     blurb: 'We build mobile apps, web apps, websites and automation for new businesses.',

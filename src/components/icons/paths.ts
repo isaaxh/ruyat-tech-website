@@ -1,5 +1,6 @@
 // 24x24 line icons (stroke 1.5, round caps), copied from the design's inline SVGs.
 export const ICONS = {
+  whatsapp: '<path d="M3.2 20.8l1.5-4.6A8.7 8.7 0 1 1 8 19.4l-4.8 1.4z"></path><path d="M9 8.6c-.3 2.9 3.2 6.4 6.4 6.4l1.1-1.5-2-1-.8.8a4.2 4.2 0 0 1-1.9-1.9l.8-.8-1-2L9 8.6z"></path>',
   arrow: '<path d="M4.75 12h14.5M13.5 6.25L19.25 12l-5.75 5.75"></path>',
   'arrow-ne': '<path d="M7 17L17 7M8.5 7H17v8.5"></path>',
   'arrow-up': '<path d="M12 19.25V4.75M6.25 10.5L12 4.75l5.75 5.75"></path>',
