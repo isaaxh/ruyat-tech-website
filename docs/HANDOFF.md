@@ -57,4 +57,5 @@ Full brief: `handoff /PROMPT.md` (its "copy exactly from the design" rule is sup
       subtle pointer glow on every section hexagon grid (scripts/hex-fx.ts drawGlow).
 - [x] Round 4 (2026-11-08): Arabic copy moved to the dialect tone; "Common worries" section (`sections/Worries.astro`,
       `sections/worries.css`); nav labels طريقة شغلنا / كلمنا; Arabic voice rules recorded in README.
-- [ ] Waiting on the user: approve new copy, provide social/legal URLs and OG image, then deploy + DNS
+- [x] Round 5 (2026-11-08): copy approved; one number (+966 58 357 9979) for phone, WhatsApp and form; cookie banner removed.
+- [ ] Left: OG image (needs a 1200x630 image), real Privacy/Terms URLs (placeholders for now), then deploy + DNS
