@@ -17,7 +17,7 @@ const opened = (page: Page) => page.evaluate(() => (window as unknown as { __ope
 test('empty submit shows errors and focuses the first invalid field', async ({ page }) => {
   await prepare(page);
   await stubOpen(page);
-  await page.goto('/');
+  await page.goto('/en/');
   await page.getByRole('button', { name: 'Send on WhatsApp' }).click();
   for (const k of ['name', 'email', 'service', 'details']) {
     await expect(page.locator(`#f-${k}-err`)).toBeVisible();
@@ -36,7 +36,7 @@ test('empty submit shows errors and focuses the first invalid field', async ({ p
 
 test('invalid email is rejected', async ({ page }) => {
   await prepare(page);
-  await page.goto('/');
+  await page.goto('/en/');
   await page.locator('#f-name').fill('Sara');
   await page.locator('#f-email').fill('sara@example');
   await page.getByRole('button', { name: 'Send on WhatsApp' }).click();
@@ -45,7 +45,7 @@ test('invalid email is rejected', async ({ page }) => {
 
 test('service card link preselects the service', async ({ page }) => {
   await prepare(page);
-  await page.goto('/');
+  await page.goto('/en/');
   await page.getByRole('link', { name: 'Talk to us about automation' }).click();
   await expect(page.locator('#f-service')).toHaveValue('Automation');
   await expect(page).toHaveURL(/#contact$/);
@@ -54,7 +54,7 @@ test('service card link preselects the service', async ({ page }) => {
 test('valid submit opens WhatsApp with an English message and shows the success panel', async ({ page }) => {
   await prepare(page);
   await stubOpen(page);
-  await page.goto('/');
+  await page.goto('/en/');
   await page.locator('#f-name').fill('Sara Alharbi');
   await page.locator('#f-email').fill('sara@example.com');
   await page.locator('#f-service').selectOption('Web app');
@@ -91,7 +91,7 @@ test('valid submit opens WhatsApp with an English message and shows the success 
 test('arabic message uses arabic labels and keeps the visitor text', async ({ page }) => {
   await prepare(page);
   await stubOpen(page);
-  await page.goto('/ar/');
+  await page.goto('/');
   await page.locator('#f-name').fill('سارة الحربي');
   await page.locator('#f-email').fill('sara@example.com');
   await page.locator('#f-phone').fill('+966 50 000 0000');
@@ -118,7 +118,7 @@ test('arabic message uses arabic labels and keeps the visitor text', async ({ pa
 test('filled honeypot skips the WhatsApp redirect', async ({ page }) => {
   await prepare(page);
   await stubOpen(page);
-  await page.goto('/');
+  await page.goto('/en/');
   await page.locator('#f-name').fill('Bot');
   await page.locator('#f-email').fill('bot@example.com');
   await page.locator('#f-service').selectOption('Website');
@@ -140,7 +140,7 @@ test('on mobile the page navigates to WhatsApp', async ({ browser }) => {
     requested = r.request().url();
     return r.fulfill({ status: 200, body: 'wa' });
   });
-  await page.goto('/');
+  await page.goto('/en/');
   await page.locator('#f-name').fill('Sara');
   await page.locator('#f-email').fill('sara@example.com');
   await page.locator('#f-service').selectOption('Mobile app');

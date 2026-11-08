@@ -27,7 +27,7 @@ export const en = {
       { href: '#contact', label: 'Contact' },
     ],
     // Link to the other language
-    lang: { label: 'العربية', lang: 'ar', href: '/ar/' },
+    lang: { label: 'العربية', lang: 'ar', href: '/' },
   },
   hero: {
     titleLine1: 'We build software',

@@ -12,5 +12,5 @@ export const locales: Locale[] = ['en', 'ar'];
 
 export const getDictionary = (locale: Locale): Dictionary => dictionaries[locale];
 
-/** Path of the homepage for a locale: `/` for English, `/ar/` for Arabic. */
-export const localePath = (locale: Locale): string => (locale === 'en' ? '/' : `/${locale}/`);
+/** Path of the homepage for a locale: `/` for Arabic (the default language), `/en/` for English. */
+export const localePath = (locale: Locale): string => (locale === 'ar' ? '/' : `/${locale}/`);

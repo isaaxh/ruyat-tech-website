@@ -28,7 +28,7 @@ export const ar: Dictionary = {
       { href: '#testimonials', label: 'آراء العملاء' },
       { href: '#contact', label: 'تواصل معنا' },
     ],
-    lang: { label: 'English', lang: 'en', href: '/' },
+    lang: { label: 'English', lang: 'en', href: '/en/' },
   },
   hero: {
     titleLine1: 'نبني البرمجيات',

@@ -1,8 +1,8 @@
 import type { Page } from '@playwright/test';
 
 export const PAGES = [
-  { path: '/', lang: 'en', dir: 'ltr' },
-  { path: '/ar/', lang: 'ar', dir: 'rtl' },
+  { path: '/en/', lang: 'en', dir: 'ltr' },
+  { path: '/', lang: 'ar', dir: 'rtl' },
 ] as const;
 
 /** Block Google Fonts (keeps tests offline-safe) and collect page errors and console errors. */

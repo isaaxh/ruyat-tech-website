@@ -11,7 +11,7 @@ async function scrollBy(page: import('@playwright/test').Page, dy: number, steps
 
 test('compacts on scroll down and unpacks on scroll up', async ({ page }) => {
   await prepare(page);
-  await page.goto('/');
+  await page.goto('/en/');
   await page.mouse.move(700, 400);
   const nav = page.locator('header.nav');
   await scrollBy(page, 900);
@@ -25,7 +25,7 @@ test('compacts on scroll down and unpacks on scroll up', async ({ page }) => {
 
 test('clicking the gold dot expands the nav', async ({ page }) => {
   await prepare(page);
-  await page.goto('/');
+  await page.goto('/en/');
   await page.mouse.move(700, 400);
   await scrollBy(page, 900);
   const nav = page.locator('header.nav');
@@ -37,7 +37,7 @@ test('clicking the gold dot expands the nav', async ({ page }) => {
 
 test('stays expanded near the top of the page', async ({ page }) => {
   await prepare(page);
-  await page.goto('/');
+  await page.goto('/en/');
   await page.mouse.move(700, 400);
   await scrollBy(page, 100);
   await page.waitForTimeout(400);
@@ -47,7 +47,7 @@ test('stays expanded near the top of the page', async ({ page }) => {
 test('burger menu opens, animates to a cross and closes on link click (mobile)', async ({ page }) => {
   await prepare(page);
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto('/');
+  await page.goto('/en/');
   const btn = page.locator('.menu-btn');
   const panel = page.locator('.menu-panel');
   await expect(page.locator('.nav-links')).toBeHidden();
@@ -67,7 +67,7 @@ test('burger menu opens, animates to a cross and closes on link click (mobile)',
 test('arabic menu labels are translated', async ({ page }) => {
   await prepare(page);
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto('/ar/');
+  await page.goto('/');
   const btn = page.locator('.menu-btn');
   await expect(btn).toHaveAttribute('aria-label', 'فتح القائمة');
   await btn.click();
@@ -77,7 +77,7 @@ test('arabic menu labels are translated', async ({ page }) => {
 test('start-a-project button hides at 520px and below', async ({ page }) => {
   await prepare(page);
   await page.setViewportSize({ width: 520, height: 800 });
-  await page.goto('/');
+  await page.goto('/en/');
   await expect(page.locator('.nav-cta')).toBeHidden();
   await page.setViewportSize({ width: 600, height: 800 });
   await expect(page.locator('.nav-cta')).toBeVisible();

@@ -4,7 +4,7 @@ import { prepare } from './helpers';
 
 test('cookie banner shows once and remembers the choice', async ({ page }) => {
   await prepare(page, { cookieChoice: false });
-  await page.goto('/');
+  await page.goto('/en/');
   const banner = page.locator('.cookie');
   await expect(banner).toBeVisible();
   await banner.getByRole('button', { name: 'Accept' }).click();
@@ -19,7 +19,7 @@ test('cookie banner still works when storage throws', async ({ page }) => {
     Object.defineProperty(window, 'localStorage', { get() { throw new Error('blocked'); } });
   });
   const errors = await prepare(page, { cookieChoice: false });
-  await page.goto('/');
+  await page.goto('/en/');
   const banner = page.locator('.cookie');
   await expect(banner).toBeVisible();
   await banner.getByRole('button', { name: 'Decline' }).click();
@@ -29,7 +29,7 @@ test('cookie banner still works when storage throws', async ({ page }) => {
 
 test('arabic cookie banner sits on the right', async ({ page }) => {
   await prepare(page, { cookieChoice: false });
-  await page.goto('/ar/');
+  await page.goto('/');
   const box = await page.locator('.cookie').boundingBox();
   expect(box!.x + box!.width).toBeGreaterThan(1400);
 });
@@ -38,7 +38,7 @@ test('reduced motion: effects off, marquee static and wrapped', async ({ browser
   const ctx = await browser.newContext({ reducedMotion: 'reduce', viewport: { width: 1440, height: 900 } });
   const page = await ctx.newPage();
   await prepare(page);
-  await page.goto('/');
+  await page.goto('/en/');
   expect(await page.$$eval('canvas.hexfx', (c) => c.every((x) => getComputedStyle(x).display === 'none'))).toBe(true);
   await expect(page.locator('.marquee-track')).toHaveCSS('animation-name', 'none');
   await expect(page.locator('.marquee-track')).toHaveCSS('flex-wrap', 'wrap');
@@ -49,14 +49,14 @@ test('reduced motion: effects off, marquee static and wrapped', async ({ browser
 
 test('marquee pauses on hover', async ({ page }) => {
   await prepare(page);
-  await page.goto('/');
+  await page.goto('/en/');
   await page.locator('.marquee').hover();
   await expect(page.locator('.marquee-track')).toHaveCSS('animation-play-state', 'paused');
 });
 
 test('keyboard: skip link first, then nav; focus ring is 2px gold', async ({ page }) => {
   await prepare(page);
-  await page.goto('/');
+  await page.goto('/en/');
   await page.keyboard.press('Tab');
   await expect(page.locator('a.sr')).toBeFocused();
   await page.keyboard.press('Tab');
@@ -69,7 +69,7 @@ test('keyboard: skip link first, then nav; focus ring is 2px gold', async ({ pag
 
 test('form fields get the soft gold focus state', async ({ page }) => {
   await prepare(page);
-  await page.goto('/');
+  await page.goto('/en/');
   const field = page.locator('#f-name');
   const bgBefore = await field.evaluate((e) => getComputedStyle(e).backgroundColor);
   await field.focus();
@@ -81,7 +81,7 @@ test('form fields get the soft gold focus state', async ({ page }) => {
 
 test('hero lattice and section canvases draw something', async ({ page }) => {
   await prepare(page);
-  await page.goto('/');
+  await page.goto('/en/');
   await page.waitForTimeout(600);
   const painted = await page.locator('canvas.hero-lattice').evaluate((c: HTMLCanvasElement) => {
     const d = c.getContext('2d')!.getImageData(0, 0, c.width, c.height).data;
@@ -101,7 +101,7 @@ test('hero lattice and section canvases draw something', async ({ page }) => {
 
 test('service cards do not lift on hover (edges only)', async ({ page }) => {
   await prepare(page);
-  await page.goto('/');
+  await page.goto('/en/');
   const card = page.locator('.svc-card').first();
   await card.scrollIntoViewIfNeeded();
   const before = await card.boundingBox();
@@ -113,8 +113,8 @@ test('service cards do not lift on hover (edges only)', async ({ page }) => {
 });
 
 for (const [path, label] of [
-  ['/', 'Start a project'],
-  ['/ar/', 'ابدأ مشروعك'],
+  ['/en/', 'Start a project'],
+  ['/', 'ابدأ مشروعك'],
 ] as const) {
   test(`process: closing call to action is a button that goes to the form (${path})`, async ({ page }) => {
     await prepare(page);
@@ -129,7 +129,7 @@ for (const [path, label] of [
   });
 }
 
-for (const [path, number] of [['/', '966583579979'], ['/ar/', '966583579979']] as const) {
+for (const [path, number] of [['/en/', '966583579979'], ['/', '966583579979']] as const) {
   test(`floating WhatsApp button links to the chat and stays on screen (${path})`, async ({ page }) => {
     await prepare(page);
     await page.goto(path);
@@ -156,7 +156,7 @@ for (const [path, number] of [['/', '966583579979'], ['/ar/', '966583579979']] a
 
 test('privacy and terms placeholders are clickable but do nothing', async ({ page }) => {
   await prepare(page);
-  await page.goto('/');
+  await page.goto('/en/');
   const link = page.locator('a[data-placeholder]').first();
   await link.scrollIntoViewIfNeeded();
   const y = await page.evaluate(() => scrollY);
@@ -166,7 +166,7 @@ test('privacy and terms placeholders are clickable but do nothing', async ({ pag
   await expect(page).toHaveURL(/\/$/);
 });
 
-for (const path of ['/', '/ar/']) {
+for (const path of ['/en/', '/']) {
   for (const width of [1440, 390, 320]) {
     test(`floating WhatsApp button stays right and clear of the cookie banner (${path}, ${width}px)`, async ({ page }) => {
       await prepare(page, { cookieChoice: false });
@@ -184,7 +184,7 @@ for (const path of ['/', '/ar/']) {
   }
 }
 
-for (const path of ['/', '/ar/']) {
+for (const path of ['/en/', '/']) {
   test(`"Powered by" badges use a pulsing gold dot, not the logo (${path})`, async ({ page }) => {
     await prepare(page);
     await page.goto(path);
@@ -201,7 +201,7 @@ for (const path of ['/', '/ar/']) {
 
 test('section hexagon grids light up softly around the pointer and fade after it leaves', async ({ page }) => {
   await prepare(page);
-  await page.goto('/');
+  await page.goto('/en/');
   const canvas = page.locator('footer canvas.hexfx').first();
   await canvas.scrollIntoViewIfNeeded();
   await page.waitForTimeout(500);

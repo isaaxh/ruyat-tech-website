@@ -10,9 +10,9 @@ for (const p of PAGES) {
       await expect(page.locator('html')).toHaveAttribute('lang', p.lang);
       await expect(page.locator('html')).toHaveAttribute('dir', p.dir);
       await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `https://tech.ruyat.sa${p.path}`);
-      await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute('href', 'https://tech.ruyat.sa/');
-      await expect(page.locator('link[rel="alternate"][hreflang="ar"]')).toHaveAttribute('href', 'https://tech.ruyat.sa/ar/');
-      await expect(page.locator('link[rel="alternate"][hreflang="x-default"]')).toHaveCount(1);
+      await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute('href', 'https://tech.ruyat.sa/en/');
+      await expect(page.locator('link[rel="alternate"][hreflang="ar"]')).toHaveAttribute('href', 'https://tech.ruyat.sa/');
+      await expect(page.locator('link[rel="alternate"][hreflang="x-default"]')).toHaveAttribute('href', 'https://tech.ruyat.sa/');
       await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', /.{40,}/);
       for (const prop of ['og:title', 'og:description', 'og:url', 'og:locale']) {
         await expect(page.locator(`meta[property="${prop}"]`)).toHaveCount(1);
@@ -33,12 +33,12 @@ for (const p of PAGES) {
     test('language link points to the other page', async ({ page }) => {
       await prepare(page);
       await page.goto(p.path);
-      const other = p.lang === 'en' ? '/ar/' : '/';
+      const other = p.lang === 'en' ? '/' : '/en/';
       const links = page.locator('a.lang');
       await expect(links).toHaveCount(2);
       for (const href of await links.evaluateAll((a) => a.map((x) => x.getAttribute('href')))) expect(href).toBe(other);
       await page.locator('.nav-end a.lang').click();
-      await expect(page).toHaveURL(new RegExp(`${other}$`));
+      expect(new URL(page.url()).pathname).toBe(other);
     });
 
     test('every in-page anchor has a target', async ({ page }) => {
@@ -99,7 +99,7 @@ test('contact: form comes before the details list below 1100px', async ({ page }
     [390, true],
   ] as const) {
     await page.setViewportSize({ width, height: 900 });
-    await page.goto('/');
+    await page.goto('/en/');
     const formTop = await page.locator('.form-panel').evaluate((e) => e.getBoundingClientRect().top);
     const reachTop = await page.locator('.reach').evaluate((e) => e.getBoundingClientRect().top);
     const introTop = await page.locator('#contact-title').evaluate((e) => e.getBoundingClientRect().top);
@@ -117,7 +117,7 @@ test('contact: form comes before the details list below 1100px', async ({ page }
 
 test('footer and details list carry the real social and contact links', async ({ page }) => {
   await prepare(page);
-  await page.goto('/');
+  await page.goto('/en/');
   const hrefs = async (sel: string) => page.locator(sel).evaluateAll((a) => a.map((x) => x.getAttribute('href')));
   expect(await hrefs('.foot-col:last-child a')).toEqual([
     'https://www.instagram.com/ruyat.sa/',

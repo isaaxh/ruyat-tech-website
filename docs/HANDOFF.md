@@ -8,6 +8,7 @@ Full brief: `handoff /PROMPT.md`. Reference screenshots: `reference/*.png`.
 
 ## Decisions made with the user
 - Repo: github.com/isaaxh/ruyat-tech-website (public), npm, commit after each step with short messages.
+- Default language: **Arabic** at `/`, English at `/en/` (changed 2026-11-08; x-default hreflang points to `/`).
 - Hero clock: **omitted**. The final design markup and screenshots don't have it, although PROMPT.md mentions it.
 - Follow the `.dc.html` source where the reference screenshots show render artifacts (see "Reference artifacts").
 
@@ -16,7 +17,7 @@ Full brief: `handoff /PROMPT.md`. Reference screenshots: `reference/*.png`.
   tokens → ds (design-system subset) → base → controls → sections/* → rtl.css. Don't reorder.
 - `src/i18n/en.ts`, `ar.ts`: all copy. `Dictionary` type = shape of `en`. Strings marked NEW are not in the design.
 - `src/config.ts`: WhatsApp number, contact details, external links, cookie key.
-- `src/components/HomePage.astro` composes everything; `src/pages/index.astro` (en) and `src/pages/ar/index.astro` (ar).
+- `src/components/HomePage.astro` composes everything; `src/pages/index.astro` (ar, default) and `src/pages/en/index.astro` (en).
 - Components: `brand/` (Logo, Mark), `icons/` (Icon + paths.ts, Arrow), `ui/` (Button, Diamond, HexFx, Edge,
   EdgeLine, CardHex, Badge, SectionHead), `layout/` (Nav, Footer, CookieBanner), `sections/` (one per section,
   with subfolders for their parts).
@@ -25,7 +26,7 @@ Full brief: `handoff /PROMPT.md`. Reference screenshots: `reference/*.png`.
 - Images: work screenshots in `src/assets/work` (astro:assets → webp + srcset); partner logos and lattice tiles in `public/assets`.
 
 ## Testing tools
-- `node tools/shot.mjs <baseUrl> <outDir> [--fonts] [--widths=1440,390] [--paths=/,/ar/]`: full-page screenshots
+- `node tools/shot.mjs <baseUrl> <outDir> [--fonts] [--widths=1440,390] [--paths=/en/,/]`: full-page screenshots
   (Google Fonts blocked by default, as in the reference renders).
 - Debug scripts that need Playwright go in `.scratch/` (gitignored); Node can't resolve packages from the scratchpad.
 - An `astro dev` server on :4321 belongs to the user; don't kill it. `astro preview` daemonises (it picked :4322).

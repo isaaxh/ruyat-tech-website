@@ -3,8 +3,8 @@
 Source for [tech.ruyat.sa](https://tech.ruyat.sa), the software arm of Ruyat Al Enjaz.
 Static [Astro](https://astro.build) site, hosted on Cloudflare Workers (static assets).
 
-- English: `/`
-- Arabic (RTL): `/ar/`
+- Arabic (RTL, the default language): `/`
+- English: `/en/`
 
 ## Requirements
 

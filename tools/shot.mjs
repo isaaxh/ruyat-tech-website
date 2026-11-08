@@ -1,5 +1,5 @@
 // Full-page screenshots for comparing against reference/*.png.
-// Usage: node tools/shot.mjs <baseUrl> <outDir> [--fonts] [--widths=1440,390] [--paths=/,/ar/]
+// Usage: node tools/shot.mjs <baseUrl> <outDir> [--fonts] [--widths=1440,390] [--paths=/en/,/]
 // By default Google Fonts are blocked, matching how the reference screenshots were rendered.
 import { chromium } from '@playwright/test';
 import { mkdirSync } from 'node:fs';
@@ -7,7 +7,7 @@ import { mkdirSync } from 'node:fs';
 const [base = 'http://127.0.0.1:4321', out = 'shots', ...flags] = process.argv.slice(2);
 const opt = (k, d) => (flags.find((f) => f.startsWith(`--${k}=`)) || `=${d}`).split('=')[1];
 const widths = opt('widths', '1440,390').split(',').map(Number);
-const paths = opt('paths', '/,/ar/').split(',');
+const paths = opt('paths', '/en/,/').split(',');
 const blockFonts = !flags.includes('--fonts');
 mkdirSync(out, { recursive: true });
 
@@ -27,7 +27,7 @@ for (const w of widths) {
     await page.evaluate(() => document.querySelectorAll('img[loading="lazy"]').forEach((i) => (i.loading = 'eager')));
     await page.waitForFunction(() => Array.from(document.images).every((i) => i.complete));
     await page.waitForTimeout(1500);
-    const name = `${p === '/' ? 'en' : 'ar'}-${w}`;
+    const name = `${p === '/' ? 'ar' : 'en'}-${w}`;
     const h = await page.evaluate(() => document.documentElement.scrollHeight);
     const sw = await page.evaluate(() => document.documentElement.scrollWidth);
     await page.screenshot({ path: `${out}/${name}.png`, fullPage: true });

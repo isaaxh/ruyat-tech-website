@@ -7,7 +7,7 @@ const frontIndex = (page: Page) => page.$$eval('.tq-card', (c) => c.findIndex((x
 
 test('arrows and dots change the front card', async ({ page }) => {
   await prepare(page);
-  await page.goto('/');
+  await page.goto('/en/');
   await expect(front(page)).toHaveCount(1);
   expect(await frontIndex(page)).toBe(0);
   await page.locator('.tq-next').click();
@@ -26,14 +26,14 @@ test('arrows and dots change the front card', async ({ page }) => {
 
 test('arrow keys: right = next in English, left = next in Arabic', async ({ page }) => {
   await prepare(page);
-  await page.goto('/');
+  await page.goto('/en/');
   await page.locator('.tq').focus();
   await page.keyboard.press('ArrowRight');
   expect(await frontIndex(page)).toBe(1);
   await page.keyboard.press('ArrowLeft');
   expect(await frontIndex(page)).toBe(0);
 
-  await page.goto('/ar/');
+  await page.goto('/');
   await page.locator('.tq').focus();
   await page.keyboard.press('ArrowLeft');
   expect(await frontIndex(page)).toBe(1);
@@ -56,14 +56,14 @@ test('swipe left = next in English, swipe right = next in Arabic', async ({ brow
   const ctx = await browser.newContext({ hasTouch: true, viewport: { width: 390, height: 844 } });
   const page = await ctx.newPage();
   await prepare(page);
-  await page.goto('/');
+  await page.goto('/en/');
   await swipe(page, -80);
   expect(await frontIndex(page)).toBe(1);
   await swipe(page, 80);
   expect(await frontIndex(page)).toBe(0);
   await swipe(page, 20); // too short: ignored
   expect(await frontIndex(page)).toBe(0);
-  await page.goto('/ar/');
+  await page.goto('/');
   await swipe(page, 80);
   expect(await frontIndex(page)).toBe(1);
   await ctx.close();
@@ -72,7 +72,7 @@ test('swipe left = next in English, swipe right = next in Arabic', async ({ brow
 test('autoplays every 6s and pauses on hover', async ({ page }) => {
   await prepare(page);
   await page.clock.install();
-  await page.goto('/');
+  await page.goto('/en/');
   await page.mouse.move(5, 5);
   await page.clock.runFor(6600);
   expect(await frontIndex(page)).toBe(1);
@@ -90,7 +90,7 @@ test('no autoplay under reduced motion', async ({ browser }) => {
   const page = await ctx.newPage();
   await prepare(page);
   await page.clock.install();
-  await page.goto('/');
+  await page.goto('/en/');
   await page.clock.runFor(20000);
   expect(await frontIndex(page)).toBe(0);
   await ctx.close();
